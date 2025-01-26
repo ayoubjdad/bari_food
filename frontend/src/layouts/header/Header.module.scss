@@ -1,0 +1,44 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(234, 234, 234);
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  margin: 20px 0;
+  max-width: 1200px;
+  align-items: center;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.logo {
+  width: 100px;
+}
+
+ul {
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      color: black;
+      i {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
