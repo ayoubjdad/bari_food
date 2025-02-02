@@ -100,9 +100,10 @@ ul {
 
 .product {
   gap: 16px;
-  display: flex;
+  width: 100%;
+  display: grid;
   align-items: center;
-
+  grid-template-columns: 0.3fr 1fr 2fr 0.3fr;
   i {
     color: red;
     padding: 6px;

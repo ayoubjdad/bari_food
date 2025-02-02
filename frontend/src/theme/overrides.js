@@ -47,6 +47,7 @@ export const theme = createTheme({
         root: {
           "& .MuiOutlinedInput-input": {
             padding: "10px 16px",
+            fontFamily: "Poppins",
           },
           "& .MuiOutlinedInput-root": {
             backgroundColor: "white",
@@ -87,6 +88,26 @@ export const theme = createTheme({
           backgroundColor: "#1E1E2F",
           borderRadius: "0px 10px 10px 0px",
           boxShadow: "4px 0px 10px rgba(0, 0, 0, 0.3)",
+        },
+      },
+    },
+
+    MuiRadio: {
+      styleOverrides: {
+        root: {
+          // color: "#1976d2", // Couleur par défaut
+          "&.Mui-checked": {
+            color: "#ffc222", // Couleur quand coché
+          },
+        },
+      },
+    },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        label: {
+          color: "#333",
+          fontSize: "14px",
+          fontFamily: "Poppins",
         },
       },
     },

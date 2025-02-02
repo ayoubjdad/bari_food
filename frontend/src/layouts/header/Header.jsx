@@ -11,12 +11,12 @@ const menu = [
     alias: "Produits",
   },
   {
-    to: "/faq",
+    to: "/qui-sommes-nous",
     alias: "Qui Sommes Nous",
   },
   {
-    to: "/about",
-    alias: "A propos",
+    to: "/faq",
+    alias: "FAQ",
   },
   {
     to: "/contact",
@@ -36,12 +36,17 @@ export default function Header() {
 
   const [open, setOpen] = useState(false);
 
-  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
 
-  const handleDrawerClose = () => setOpen(false);
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
-  const goHome = () => {
-    navigate("/");
+  const handleCheckout = () => {
+    navigate("/paiement");
+    handleDrawerClose();
   };
 
   return (
@@ -69,16 +74,9 @@ export default function Header() {
         </div>
 
         <div className={styles.drawerFooter}>
-          <h3>Total Price: {totalPrice} Dh</h3>
-          <Button style={{ width: "100%" }}>Checkout</Button>
-          <Button
-            style={{
-              width: "100%",
-              backgroundColor: "white",
-              border: "1px solid #ffc222",
-            }}
-          >
-            View Cart
+          <h3>Prix total: {totalPrice} DH</h3>
+          <Button style={{ width: "100%" }} onClick={handleCheckout}>
+            Passer la commande
           </Button>
         </div>
       </Drawer>
@@ -90,7 +88,7 @@ export default function Header() {
           src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/10/logo_svg.svg"
           alt="logo"
         /> */}
-          <h1 onClick={goHome}>Bari Food</h1>
+          <h1 onClick={() => navigate("/")}>Bari Food</h1>
 
           <ul className={styles.menu}>
             {menu.map(({ to, alias }) => (

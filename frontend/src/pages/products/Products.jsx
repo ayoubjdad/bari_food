@@ -3,6 +3,7 @@ import styles from "./Products.module.scss";
 import { TextField } from "@mui/material";
 import { categories, products } from "../../data/data";
 import Product from "../../components/product/Product";
+import PageHeader from "../../components/page-header/PageHeader";
 
 export default function Products() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -31,9 +32,7 @@ export default function Products() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <div className={styles.pageHeader}>
-          <h1>Products</h1>
-        </div>
+        <PageHeader title="Produits" />
 
         <div className={styles.productsContainer}>
           <div className={styles.products}>

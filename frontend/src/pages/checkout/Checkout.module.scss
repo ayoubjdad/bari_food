@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  gap: 32px;
+  width: 100%;
+  display: grid;
+  margin: 80px 0;
+  max-width: 1200px;
+}
+
+.info {
+  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.group {
+  gap: 16px;
+  display: grid;
+  height: fit-content;
+}
+
+.recap {
+  padding: 32px;
+  height: fit-content;
+  border-radius: 30px;
+  border: 1px solid #e5e5e5;
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
