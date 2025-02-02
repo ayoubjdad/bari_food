@@ -1,0 +1,47 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: bisque;
+}
+
+.container {
+  gap: 32px;
+  width: 100%;
+  display: grid;
+  margin: 80px;
+  max-width: 1200px;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.text {
+  gap: 16px;
+  display: grid;
+  h1 {
+    color: white;
+    font-size: 76px;
+    line-height: 66px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.textFooter {
+  gap: 16px;
+  display: flex;
+  align-items: center;
+
+  p {
+    font-weight: 700;
+    font-size: 36px;
+  }
+}
+
+.image {
+  display: flex;
+  justify-content: flex-end;
+
+  img {
+    width: 400px;
+  }
+}

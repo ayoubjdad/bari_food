@@ -1,0 +1,43 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(240, 248, 255, 0.477);
+}
+
+.container {
+  gap: 32px;
+  width: 100%;
+  display: grid;
+  margin: 40px 0;
+  max-width: 1200px;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.category {
+  display: grid;
+  justify-items: center;
+}
+
+.image {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border-radius: 80px;
+  justify-content: center;
+  transition: all ease 0.35s;
+  background-color: rgb(255, 69, 0, 0.1);
+
+  img {
+    height: 60px;
+    position: relative;
+    transition: all ease 0.35s;
+  }
+}
+
+.name {
+  color: #1e1d23;
+  font-weight: 700;
+  text-align: center;
+}

@@ -1,15 +1,13 @@
 import React from "react";
 import styles from "./Header.module.scss";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import Badge from "@mui/material/Badge";
+import { useCart } from "../../context/cart/CartContext";
 
 const menu = [
   {
-    to: "/cart",
+    to: "/produits",
     alias: "Produits",
-  },
-  {
-    to: "/checkout",
-    alias: "Blog",
   },
   {
     to: "/faq",
@@ -17,7 +15,7 @@ const menu = [
   },
   {
     to: "/about",
-    alias: "A porpos",
+    alias: "A propos",
   },
   {
     to: "/contact",
@@ -26,14 +24,23 @@ const menu = [
 ];
 
 export default function Header() {
+  const { cart } = useCart();
+  const cartLength = cart.length;
+  const navigate = useNavigate();
+
+  const goHome = () => {
+    navigate("/");
+  };
+
   return (
     <header className={styles.main}>
       <nav className={styles.container}>
-        <img
+        {/* <img
           className={styles.logo}
           src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/10/logo_svg.svg"
           alt="logo"
-        />
+        /> */}
+        <h1 onClick={goHome}>Bari Food</h1>
 
         <ul className={styles.menu}>
           {menu.map(({ to, alias }) => (
@@ -41,17 +48,18 @@ export default function Header() {
           ))}
         </ul>
 
-        <ul>
-          <li style={{ display: "flex" }}>
-            <i className="fi fi-rr-circle-user" />
-            <div style={{ display: "grid" }}>
+        <ul className={styles.shippingContainer}>
+          <li className={styles.shipping}>
+            <i className="fi fi-rr-shipping-fast" />
+            <div className={styles.shippingText}>
               <p>Call and Order in</p>
-              <p>+1 718-904-4450</p>
+              <p className={styles.phone}>+1 718-904-4450</p>
             </div>
           </li>
-          <List to="/" alias={<i className="fi fi-rr-circle-user" />} />
-          <List to="/" alias={<i className="fi fi-rr-circle-user" />} />
-          <List to="/" alias={<i className="fi fi-rr-circle-user" />} />
+          <List to="/" alias={<i className="fi fi-rr-user" />} />
+          <Badge badgeContent={String(cartLength)} color="primary">
+            <List to="/" alias={<i className="fi fi-rr-shopping-cart" />} />
+          </Badge>
         </ul>
       </nav>
     </header>

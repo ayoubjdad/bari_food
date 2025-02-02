@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00a850;
+}
+
+.container {
+  gap: 32px;
+  width: 100%;
+  display: flex;
+  color: white;
+  margin: 20px 0;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: space-between;
+}

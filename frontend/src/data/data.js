@@ -4,28 +4,32 @@ export const categories = [
     name: "Boulangerie",
     slug: "boulangerie",
     description: "Pain frais et produits de boulangerie.",
-    image: "boulangerie.jpg",
+    image:
+      "https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png",
     subcategories: [
       {
         id: 101,
         name: "Les pains classiques",
         slug: "les-pains-classiques",
         description: "Variétés de pain traditionnel.",
-        image: "pains_classiques.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
       {
         id: 102,
         name: "Les pains prestiges",
         slug: "les-pains-prestiges",
         description: "Pains haut de gamme et premium.",
-        image: "pains_prestiges.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
       {
         id: 103,
         name: "Les pains sandwich",
         slug: "les-pains-sandwich",
         description: "Pains parfaits pour les sandwichs.",
-        image: "pains_sandwich.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
     ],
   },
@@ -34,36 +38,41 @@ export const categories = [
     name: "Viennoiserie",
     slug: "viennoiserie",
     description: "Pâtisseries à base de pâte riche.",
-    image: "viennoiserie.jpg",
-    subcategories: [], // Pas de sous-catégories pour le moment
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
+    subcategories: [],
   },
   {
     id: 3,
     name: "Pâtisserie",
     slug: "patisserie",
     description: "Délicieux gâteaux et desserts cuits.",
-    image: "patisserie.jpg",
+    image:
+      "https://lh6.googleusercontent.com/proxy/CZuGRQ-juVS0SJy0dow-NY4sIMVyBl7R8jnMW7vjEtYjZoq-oNqeus0SipqpRCB5WM1J7YOf8aN1LFPiL8pDzLM4NOYjjQ5yUg",
     subcategories: [
       {
         id: 301,
         name: "Cakes, muffins, madeleines",
         slug: "cakes-muffins-madeleines",
         description: "Une variété de cakes et petites pâtisseries.",
-        image: "cakes_muffins.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
       {
         id: 302,
         name: "Gaufres, churros, brioches",
         slug: "gaufres-churros-brioches",
         description: "Gaufres, churros et brioches moelleuses.",
-        image: "gaufres_churros.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
       {
         id: 303,
         name: "Pâtisserie snacking",
         slug: "patisserie-snacking",
         description: "Pâtisseries en format snacking.",
-        image: "patisserie_snacking.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
     ],
   },
@@ -72,28 +81,32 @@ export const categories = [
     name: "Glaces",
     slug: "glaces",
     description: "Une variété de desserts glacés.",
-    image: "glaces.jpg",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/043/771/525/non_2x/a-close-up-of-three-different-flavored-ice-cream-cones-with-a-variety-of-topping-on-transparent-background-free-png.png",
     subcategories: [
       {
         id: 401,
         name: "Crèmes glacées",
         slug: "cremes-glacees",
         description: "Glaces à base de crème.",
-        image: "cremes_glacees.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
       {
         id: 402,
         name: "Sorbets",
         slug: "sorbets",
         description: "Desserts glacés aux fruits.",
-        image: "sorbets.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
       {
         id: 403,
         name: "Desserts glacés",
         slug: "desserts-glaces",
         description: "Spécialités de desserts glacés.",
-        image: "desserts_glaces.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
     ],
   },
@@ -102,21 +115,24 @@ export const categories = [
     name: "Salés",
     slug: "sales",
     description: "Produits salés et spécialités.",
-    image: "sales.jpg",
+    image:
+      "https://static.vecteezy.com/system/resources/thumbnails/047/830/677/small_2x/delicious-savory-crepes-stuffed-with-ham-and-cheese-garnished-with-fresh-parsley-perfect-for-a-tasty-breakfast-or-light-brunch-png.png",
     subcategories: [
       {
         id: 501,
         name: "Délices salés",
         slug: "delices-sales",
         description: "Une sélection de délices salés.",
-        image: "delices_sales.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
       {
         id: 502,
         name: "Batbout, Harcha, msamen",
         slug: "batbout-harcha-msamen",
         description: "Pains marocains traditionnels.",
-        image: "batbout_harcha.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
     ],
   },
@@ -125,77 +141,43 @@ export const categories = [
     name: "Aides Culinaires",
     slug: "aides-culinaires",
     description: "Aides culinaires pour la cuisine et la pâtisserie.",
-    image: "aides_culinaires.jpg",
-    subcategories: [], // Pas de sous-catégories pour le moment
+    image: "https://www.pngarts.com/files/4/Flour-PNG-Pic.png",
+    subcategories: [],
   },
   {
     id: 7,
     name: "Créations gourmandes",
     slug: "creations-gourmandes",
     description: "Desserts gourmets et créatifs.",
-    image: "creations_gourmandes.jpg",
+    image: "https://www.pngarts.com/files/4/Flour-PNG-Pic.png",
     subcategories: [
       {
         id: 701,
         name: "Gâteaux glacés",
         slug: "gateaux-glaces",
         description: "Gâteaux surgelés.",
-        image: "gateaux_glaces.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
       {
         id: 702,
         name: "Gâteaux et Tartes",
         slug: "gateaux-et-tartes",
         description: "Gâteaux et tartes classiques.",
-        image: "gateaux_tartes.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
       {
         id: 703,
         name: "Cheese Cakes",
         slug: "cheese-cakes",
         description: "Cheese cakes avec différentes saveurs.",
-        image: "cheese_cakes.jpg",
+        image:
+          "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
       },
     ],
   },
 ];
-
-export const menu = [
-  {
-    image: "",
-    name: "Combo",
-  },
-  {
-    image: "",
-    name: "Kids menus",
-  },
-  {
-    image: "",
-    name: "Pizza",
-  },
-  {
-    image: "",
-    name: "Box meals",
-  },
-  {
-    image: "",
-    name: "Burger",
-  },
-  {
-    image: "",
-    name: "Chicken",
-  },
-  {
-    image: "",
-    name: "Sauces",
-  },
-  {
-    image: "",
-    name: "Drinks",
-  },
-];
-
-export const popularDishes = ["pizza", "sushi", "salats", "burger", "Dersest"];
 
 export const products = [
   // Boulangerie Products
@@ -207,7 +189,8 @@ export const products = [
     price: 12.5,
     categoryId: 1,
     subcategoryId: 101,
-    image: "pain_de_campagne.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 2,
@@ -217,7 +200,8 @@ export const products = [
     price: 15.0,
     categoryId: 1,
     subcategoryId: 101,
-    image: "pain_aux_cereales.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 3,
@@ -227,7 +211,8 @@ export const products = [
     price: 10.0,
     categoryId: 1,
     subcategoryId: 102,
-    image: "baguette_prestige.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 4,
@@ -237,7 +222,8 @@ export const products = [
     price: 8.5,
     categoryId: 1,
     subcategoryId: 103,
-    image: "pain_de_mie.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 5,
@@ -247,7 +233,8 @@ export const products = [
     price: 16.0,
     categoryId: 1,
     subcategoryId: 102,
-    image: "pain_aux_noix.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
 
   // Viennoiserie Products
@@ -259,7 +246,8 @@ export const products = [
     price: 5.0,
     categoryId: 2,
     subcategoryId: null,
-    image: "croissant_au_beurre.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 7,
@@ -269,7 +257,8 @@ export const products = [
     price: 6.0,
     categoryId: 2,
     subcategoryId: null,
-    image: "pain_au_chocolat.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 8,
@@ -279,7 +268,8 @@ export const products = [
     price: 15.0,
     categoryId: 2,
     subcategoryId: null,
-    image: "brioche_tressee.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
 
   // Pâtisserie Products
@@ -291,7 +281,8 @@ export const products = [
     price: 7.5,
     categoryId: 3,
     subcategoryId: 301,
-    image: "muffin_au_chocolat.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 10,
@@ -301,7 +292,8 @@ export const products = [
     price: 4.5,
     categoryId: 3,
     subcategoryId: 301,
-    image: "madeleine_citron.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 11,
@@ -311,7 +303,8 @@ export const products = [
     price: 9.0,
     categoryId: 3,
     subcategoryId: 302,
-    image: "gaufre_au_sucre.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 12,
@@ -321,7 +314,8 @@ export const products = [
     price: 10.0,
     categoryId: 3,
     subcategoryId: 302,
-    image: "churros_au_chocolat.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 13,
@@ -332,7 +326,8 @@ export const products = [
     price: 18.0,
     categoryId: 3,
     subcategoryId: 303,
-    image: "tartelette_aux_fraises.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
 
   // Glaces Products
@@ -344,7 +339,8 @@ export const products = [
     price: 12.0,
     categoryId: 4,
     subcategoryId: 401,
-    image: "glace_a_la_vanille.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 15,
@@ -354,7 +350,8 @@ export const products = [
     price: 10.0,
     categoryId: 4,
     subcategoryId: 402,
-    image: "sorbet_a_la_mangue.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 16,
@@ -364,7 +361,8 @@ export const products = [
     price: 14.5,
     categoryId: 4,
     subcategoryId: 403,
-    image: "parfait_glace.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
 
   // Salés Products
@@ -376,7 +374,8 @@ export const products = [
     price: 20.0,
     categoryId: 5,
     subcategoryId: 501,
-    image: "quiche_lorraine.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 18,
@@ -386,7 +385,8 @@ export const products = [
     price: 8.0,
     categoryId: 5,
     subcategoryId: 502,
-    image: "msamen_au_miel.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 19,
@@ -396,7 +396,8 @@ export const products = [
     price: 12.0,
     categoryId: 5,
     subcategoryId: 502,
-    image: "batbout_farci.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
 
   // Créations Gourmandes Products
@@ -408,7 +409,8 @@ export const products = [
     price: 25.0,
     categoryId: 7,
     subcategoryId: 703,
-    image: "cheesecake_new_york.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 21,
@@ -418,7 +420,8 @@ export const products = [
     price: 30.0,
     categoryId: 7,
     subcategoryId: 701,
-    image: "gateau_chocolat_glace.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
   {
     id: 22,
@@ -428,6 +431,7 @@ export const products = [
     price: 22.0,
     categoryId: 7,
     subcategoryId: 702,
-    image: "tarte_au_citron_meringuee.jpg",
+    image:
+      "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
   },
 ];

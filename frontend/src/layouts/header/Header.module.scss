@@ -2,16 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(234, 234, 234);
+  background-color: white;
 }
 
 .container {
   width: 100%;
   display: grid;
-  margin: 20px 0;
+  margin: 16px 0;
   max-width: 1200px;
   align-items: center;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1.5fr 1fr;
 }
 
 .logo {
@@ -19,7 +19,7 @@
 }
 
 ul {
-  gap: 20px;
+  gap: 32px;
   margin: 0;
   padding: 0;
   display: flex;
@@ -32,7 +32,11 @@ ul {
       text-decoration: none;
       color: black;
       i {
-        font-size: 20px;
+        border: 1px solid #e5e5e5;
+        border-radius: 80px;
+        height: 36px;
+        width: 36px;
+        font-size: 16px;
       }
     }
   }
@@ -41,4 +45,29 @@ ul {
 .menu {
   display: flex;
   justify-content: center;
+}
+
+.shippingContainer {
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+.shipping {
+  gap: 8px;
+  display: flex;
+  i {
+    font-size: 28px;
+  }
+}
+
+.shippingText {
+  color: #808080;
+  display: grid;
+}
+
+.phone {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e1d23;
+  color: #ffc222;
 }

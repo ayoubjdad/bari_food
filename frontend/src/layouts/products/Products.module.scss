@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  gap: 32px;
+  width: 100%;
+  display: grid;
+  margin: 80px 0;
+  max-width: 1200px;
+  justify-items: center;
+}
+
+.products {
+  gap: 32px;
+  width: 100%;
+  display: grid;
+  max-width: 1200px;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+}

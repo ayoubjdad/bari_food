@@ -1,0 +1,56 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(240, 248, 255);
+  // background-color: #181818
+}
+
+.container {
+  gap: 32px;
+  width: 100%;
+  display: grid;
+  margin: 80px 0;
+  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.item {
+  gap: 16px;
+  padding: 24px;
+  display: grid;
+  justify-items: start;
+  border-radius: 16px;
+  background-color: white;
+  transition: all ease 0.35s;
+  &:hover {
+    .icon {
+      background-color: rgb(255, 69, 0);
+      i {
+        left: 10px;
+      }
+    }
+  }
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 80px;
+  transition: all ease 0.35s;
+  background-color: rgb(255, 69, 0, 0.1);
+  i {
+    transition: all ease 0.35s;
+    left: 16px;
+    font-size: 36px;
+    position: relative;
+  }
+}
+
+.alias {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.description {
+}
