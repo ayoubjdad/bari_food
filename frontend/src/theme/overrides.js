@@ -9,6 +9,7 @@ export const theme = createTheme({
           gap: "8px",
           display: "flex",
           fontSize: "16px",
+          boxShadow: "none",
           fontWeight: "600",
           color: "#1e1d23",
           borderRadius: "80px",
@@ -67,6 +68,25 @@ export const theme = createTheme({
           "& .MuiOutlinedInput-notchedOutline": {
             borderColor: "#ccc",
           },
+        },
+      },
+    },
+
+    // * Drawer
+    MuiDrawer: {
+      styleOverrides: {
+        root: {
+          "& .MuiDrawer-paper": {
+            borderRadius: 0,
+            backgroundColor: "white",
+            boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.1)",
+          },
+        },
+        paper: {
+          width: 280,
+          backgroundColor: "#1E1E2F",
+          borderRadius: "0px 10px 10px 0px",
+          boxShadow: "4px 0px 10px rgba(0, 0, 0, 0.3)",
         },
       },
     },

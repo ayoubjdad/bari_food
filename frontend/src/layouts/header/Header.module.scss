@@ -68,6 +68,75 @@ ul {
 .phone {
   font-size: 18px;
   font-weight: 700;
-  color: #1e1d23;
+  // color: #1e1d23;
   color: #ffc222;
+}
+
+// * Drawer ===================================
+
+.drawerHeader {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+
+  i {
+    cursor: pointer;
+  }
+}
+
+.drawerBody {
+  padding: 16px;
+  flex-grow: 1; /* Prend tout l’espace disponible */
+  overflow-y: auto; /* Ajoute un scroll si le contenu dépasse */
+}
+
+.drawerMenu {
+  gap: 8px;
+  width: 100%;
+  display: grid;
+}
+
+.product {
+  gap: 16px;
+  display: flex;
+  align-items: center;
+
+  i {
+    color: red;
+    padding: 6px;
+    font-size: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    &:hover {
+      background-color: #f7f4ef;
+    }
+  }
+}
+
+.productImage {
+  img {
+    width: 46px;
+    height: 46px;
+    padding: 4px;
+    object-fit: cover;
+    border-radius: 20px;
+    background-color: #f7f4ef;
+  }
+}
+
+.productCaption {
+  font-size: 13px;
+}
+
+.productPrice {
+  color: #ffc222;
+}
+
+.drawerFooter {
+  gap: 12px;
+  display: grid;
+  padding: 16px;
+  border-top: 1px solid #e5e5e5;
 }
