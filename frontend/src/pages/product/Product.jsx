@@ -4,21 +4,15 @@ import Divider from "@mui/material/Divider";
 import { Box, Button } from "@mui/material";
 import Products from "../../layouts/products/Products";
 import { useLocation } from "react-router";
+import { useCart } from "../../context/cart/CartContext";
+import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
 
 export default function Product() {
+  const { addToCart } = useCart();
   const location = useLocation();
   const product = location.state || {};
 
-  const {
-    id,
-    name,
-    slug,
-    description,
-    price,
-    categoryId,
-    subcategoryId,
-    image,
-  } = product;
+  const { id, name, description, price } = product;
 
   const [options, setOptions] = useState({
     quantity: 1,
@@ -43,6 +37,15 @@ export default function Product() {
 
     if (type === "plus") {
       setOptions({ ...options, quantity: options.quantity + 1 });
+    }
+  };
+
+  const handleAddToCart = () => {
+    try {
+      addToCart(product, options?.quantity);
+      displaySuccessNotification();
+    } catch (error) {
+      console.error("❌", error);
     }
   };
 
@@ -85,9 +88,8 @@ export default function Product() {
               </div>
               <Button
                 startIcon={<i className="fi fi-rr-shopping-cart-add" />}
-                style={{
-                  width: "100%",
-                }}
+                style={{ width: "100%" }}
+                onClick={handleAddToCart}
               >
                 Add to cart
               </Button>

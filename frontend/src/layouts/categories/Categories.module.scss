@@ -12,9 +12,15 @@
   margin: 40px 0;
   max-width: 1200px;
   grid-template-columns: repeat(7, 1fr);
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
 .category {
+  gap: 8px;
   display: grid;
   justify-items: center;
 }

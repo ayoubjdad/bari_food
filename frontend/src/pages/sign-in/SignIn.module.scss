@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  gap: 32px;
+  width: 100%;
+  display: grid;
+  margin: 80px 0;
+  max-width: 1200px;
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    gap: 16px;
+    width: 40%;
+    padding: 32px;
+    display: grid;
+    border-radius: 16px;
+    justify-items: center;
+    background-color: #f6f6f6;
+  }
+}

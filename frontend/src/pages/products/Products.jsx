@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Products.module.scss";
 import { TextField } from "@mui/material";
 import { categories, products } from "../../data/data";
 import Product from "../../components/product/Product";
 import PageHeader from "../../components/page-header/PageHeader";
+import { useParams } from "react-router";
 
 export default function Products() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const { slug } = useParams();
+  const category = categories.find((category) => category.slug === slug); // Trouver la catégorie correspondante
 
-  // * Compute categories with product counts
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(
+    category ? category.id : null
+  );
+
+  // * Mettre à jour la catégorie sélectionnée si le slug change
+  useEffect(() => {
+    setSelectedCategory(category ? category.id : null);
+  }, [category]);
+
+  // * Calculer les catégories avec le nombre de produits
   const displayedCategories = categories.map((category) => ({
     categoryId: category.id,
     name: category.name,
@@ -18,7 +29,7 @@ export default function Products() {
     ).length,
   }));
 
-  // * Filter products based on search term and selected category
+  // * Filtrer les produits basés sur la recherche et la catégorie sélectionnée
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.name
       .toLowerCase()
@@ -32,13 +43,17 @@ export default function Products() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <PageHeader title="Produits" />
+        <PageHeader title={category ? category.name : "Produits"} />
 
         <div className={styles.productsContainer}>
           <div className={styles.products}>
-            {filteredProducts.map((product) => (
-              <Product key={product.id} product={product} />
-            ))}
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <Product key={product.id} product={product} />
+              ))
+            ) : (
+              <p>Aucun produit trouvé.</p>
+            )}
           </div>
 
           <div className={styles.filters}>
@@ -50,38 +65,40 @@ export default function Products() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
 
-            <div className={styles.categories}>
-              <h2>Categories</h2>
-              <ul>
-                <li
-                  onClick={() => setSelectedCategory(null)}
-                  className={!selectedCategory ? styles.active : ""}
-                >
-                  <div>
-                    <i className="fi fi-rr-burger-alt" />
-                    <p>All Categories</p>
-                  </div>
-                  <p>{`(${products?.length})`}</p>
-                </li>
-                {displayedCategories.map(
-                  ({ categoryId, name, productsQuantity }) => (
-                    <li
-                      key={categoryId}
-                      onClick={() => setSelectedCategory(categoryId)}
-                      className={
-                        selectedCategory === categoryId ? styles.active : ""
-                      }
-                    >
-                      <div>
-                        <i className="fi fi-rr-burger-alt" />
-                        <p>{name}</p>
-                      </div>
-                      <p>({productsQuantity})</p>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
+            {slug ? null : (
+              <div className={styles.categories}>
+                <h2>Catégories</h2>
+                <ul>
+                  <li
+                    onClick={() => setSelectedCategory(null)}
+                    className={!selectedCategory ? styles.active : ""}
+                  >
+                    <div>
+                      <i className="fi fi-rr-burger-alt" />
+                      <p>Toutes les catégories</p>
+                    </div>
+                    <p>{`(${products.length})`}</p>
+                  </li>
+                  {displayedCategories.map(
+                    ({ categoryId, name, productsQuantity }) => (
+                      <li
+                        key={categoryId}
+                        onClick={() => setSelectedCategory(categoryId)}
+                        className={
+                          selectedCategory === categoryId ? styles.active : ""
+                        }
+                      >
+                        <div>
+                          <i className="fi fi-rr-burger-alt" />
+                          <p>{name}</p>
+                        </div>
+                        <p>({productsQuantity})</p>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>

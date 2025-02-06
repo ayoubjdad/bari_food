@@ -14,10 +14,13 @@ import WhoWeAre from "./pages/who-we-are/WhoWeAre";
 import Contact from "./pages/contact/Contact";
 import FAQ from "./pages/faq/FAQ";
 import Checkout from "./pages/checkout/Checkout";
+import { ToastContainer } from "react-toastify";
+import SignIn from "./pages/sign-in/SignIn";
 
 // App Component
 const App = () => (
   <CartProvider>
+    <ToastContainer />
     <ThemeProvider theme={theme}>
       <Router>
         <Header />
@@ -25,10 +28,12 @@ const App = () => (
           <Route path="/" element={<Home />} />
           <Route path="/produit/:id/:slug" element={<Product />} />
           <Route path="/produits" element={<Products />} />
+          <Route path="/produits/:slug" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/qui-sommes-nous" element={<WhoWeAre />} />
           <Route path="/paiement" element={<Checkout />} />
+          <Route path="/inscription" element={<SignIn />} />
         </Routes>
         <Shipping />
         <Copyright />

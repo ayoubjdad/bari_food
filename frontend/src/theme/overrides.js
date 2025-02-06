@@ -92,6 +92,7 @@ export const theme = createTheme({
       },
     },
 
+    // * Radio Button
     MuiRadio: {
       styleOverrides: {
         root: {
@@ -108,6 +109,62 @@ export const theme = createTheme({
           color: "#333",
           fontSize: "14px",
           fontFamily: "Poppins",
+        },
+      },
+    },
+
+    // * Accordion
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+          fontFamily: "Poppins",
+          "&:before": { display: "none" },
+          "&.Mui-expanded": {
+            margin: 0,
+          },
+        },
+      },
+    },
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          minHeight: 0,
+          color: "#1e1d23",
+          borderRadius: "7px",
+          padding: "13px 30px",
+          backgroundColor: "#fbf7e8",
+          "&.Mui-expanded": {
+            minHeight: 0,
+            backgroundColor: "#ffc222",
+          },
+        },
+        content: {
+          margin: 0,
+          "&.Mui-expanded": {
+            margin: 0,
+          },
+        },
+      },
+    },
+    MuiAccordionDetails: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+          fontSize: "14px",
+          fontFamily: "Poppins",
+        },
+      },
+    },
+
+    // * Popover
+    MuiPopover: {
+      styleOverrides: {
+        paper: {
+          padding: "16px",
+          borderRadius: "8px",
+          backgroundColor: "white",
+          boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.1)",
         },
       },
     },

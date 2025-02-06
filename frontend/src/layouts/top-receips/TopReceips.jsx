@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./TopReceips.module.scss";
 import ProductLarge from "../../components/product-large/ProductLarge";
 import { products } from "../../data/data";
+import delivery from "../../assets/images/way-concept-illustration.png";
 
 export default function TopReceips() {
   return (
@@ -21,9 +22,15 @@ export default function TopReceips() {
         </div>
 
         <div className={styles.delivery}>
-          <p>Livraison rapide</p>
-          <p>CHICKEN</p>
-          <p>Livraison rapide</p>
+          <div className={styles.deliveryTitle}>
+            <p className={styles.top}>Bari vous livre</p>
+            <p className={styles.middle}>à Casablanca</p>
+            <p className={styles.bottom}>Appelez-nous sur</p>
+            <p className={styles.phone}>06 06 060 606</p>
+          </div>
+          <div className={styles.deliveryImage}>
+            <img src={delivery} alt="delivery" />
+          </div>
         </div>
       </div>
     </section>

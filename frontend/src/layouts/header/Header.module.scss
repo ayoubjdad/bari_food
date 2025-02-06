@@ -141,3 +141,29 @@ ul {
   padding: 16px;
   border-top: 1px solid #e5e5e5;
 }
+
+// * Login Modal ===================================
+
+.loginModal {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.loginModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    color: #ffc222;
+  }
+}
+
+.loginModalBody {
+  form {
+    gap: 8px;
+    display: grid;
+  }
+}

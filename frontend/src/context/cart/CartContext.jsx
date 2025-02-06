@@ -8,17 +8,17 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   // Add item to cart
-  const addToCart = (product) => {
+  const addToCart = (product, quantity = 1) => {
     setCart((prevCart) => {
       const productExists = prevCart.find((item) => item.id === product.id);
       if (productExists) {
         return prevCart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       } else {
-        return [...prevCart, { ...product, quantity: 1 }];
+        return [...prevCart, { ...product, quantity }];
       }
     });
   };

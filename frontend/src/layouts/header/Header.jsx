@@ -3,7 +3,7 @@ import styles from "./Header.module.scss";
 import { Link, useNavigate } from "react-router";
 import Badge from "@mui/material/Badge";
 import { useCart } from "../../context/cart/CartContext";
-import { Box, Button, Drawer } from "@mui/material";
+import { Box, Button, Drawer, Popover, TextField } from "@mui/material";
 
 const menu = [
   {
@@ -35,6 +35,9 @@ export default function Header() {
   const cartLength = cart.length;
 
   const [open, setOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const openLogin = Boolean(anchorEl);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -42,6 +45,14 @@ export default function Header() {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleloginOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleloginClose = () => {
+    setAnchorEl(null);
   };
 
   const handleCheckout = () => {
@@ -63,13 +74,17 @@ export default function Header() {
 
         <div className={styles.drawerBody}>
           <ul className={styles.drawerMenu}>
-            {cart.map((product) => (
-              <Product
-                product={product}
-                removeFromCart={removeFromCart}
-                updateQuantity={updateQuantity}
-              />
-            ))}
+            {cart?.length > 0 ? (
+              cart.map((product) => (
+                <Product
+                  product={product}
+                  removeFromCart={removeFromCart}
+                  updateQuantity={updateQuantity}
+                />
+              ))
+            ) : (
+              <p>Votre panier est vide</p>
+            )}
           </ul>
         </div>
 
@@ -104,7 +119,21 @@ export default function Header() {
                 <p className={styles.phone}>+1 718-904-4450</p>
               </div>
             </li>
-            <List to="/" alias={<i className="fi fi-rr-user" />} />
+            <div>
+              <List
+                to="/"
+                alias={<i className="fi fi-rr-user" />}
+                onClick={handleloginOpen}
+              />
+
+              {openLogin ? (
+                <LoginModal
+                  open={openLogin}
+                  onClose={handleloginClose}
+                  anchorEl={anchorEl}
+                />
+              ) : null}
+            </div>
             <Badge badgeContent={String(cartLength)} color="primary">
               <List
                 to="/"
@@ -155,5 +184,37 @@ const Product = ({ product, removeFromCart, updateQuantity }) => {
         onClick={() => updateQuantity(id, quantity + 1)}
       />
     </div>
+  );
+};
+
+const LoginModal = ({ open, onClose, anchorEl }) => {
+  return (
+    <Popover
+      open={open}
+      anchorEl={anchorEl}
+      onClose={onClose}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "right",
+      }}
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+    >
+      <div className={styles.loginModal}>
+        <div className={styles.loginModalHeader}>
+          <h3>Connexion</h3>
+          <Link to="/inscription">Créer un compte</Link>
+        </div>
+        <div className={styles.loginModalBody}>
+          <form>
+            <TextField placeholder="Email" type="email" />
+            <TextField placeholder="Mot de passe" type="password" />
+            <Button style={{ width: "100%", height: "43px" }}>Connexion</Button>
+          </form>
+        </div>
+      </div>
+    </Popover>
   );
 };
