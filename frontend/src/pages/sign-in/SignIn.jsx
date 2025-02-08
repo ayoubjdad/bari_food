@@ -1,34 +1,112 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SignIn.module.scss";
 import PageHeader from "../../components/page-header/PageHeader";
 import { Button, TextField } from "@mui/material";
+import axios from "axios";
 
 export default function SignIn() {
+  const [formData, setFormData] = useState({
+    email: "",
+    name: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if passwords match
+    if (formData.password !== formData.confirmPassword) {
+      alert("Les mots de passe ne correspondent pas");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/register",
+        {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          phone: formData.phone,
+        }
+      );
+
+      // Handle successful registration
+      console.log("User registered successfully:", response.data);
+      alert("Inscription réussie !");
+    } catch (error) {
+      // Handle errors
+      console.error(
+        "Registration failed:",
+        error.response?.data?.message || error.message
+      );
+      alert("Erreur lors de l'inscription. Veuillez réessayer.");
+    }
+  };
+
   return (
     <section className={styles.main}>
       <div className={styles.container}>
         <PageHeader title="Inscription" />
 
         <div className={styles.formContainer}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <TextField
               type="email"
+              name="email"
               placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
               style={{ width: "100%" }}
+              required
             />
-            <TextField placeholder="Nom complet" style={{ width: "100%" }} />
-            <TextField placeholder="Téléphone" style={{ width: "100%" }} />
+            <TextField
+              name="name"
+              placeholder="Nom complet"
+              value={formData.name}
+              onChange={handleChange}
+              style={{ width: "100%" }}
+              required
+            />
+            <TextField
+              name="phone"
+              placeholder="Téléphone"
+              value={formData.phone}
+              onChange={handleChange}
+              style={{ width: "100%" }}
+              required
+            />
             <TextField
               type="password"
+              name="password"
               placeholder="Mot de passe"
+              value={formData.password}
+              onChange={handleChange}
               style={{ width: "100%" }}
+              required
             />
             <TextField
               type="password"
+              name="confirmPassword"
               placeholder="Répétez votre mot de passe"
+              value={formData.confirmPassword}
+              onChange={handleChange}
               style={{ width: "100%" }}
+              required
             />
-            <Button style={{ width: "100%" }}>Inscription</Button>
+            <Button type="submit" style={{ width: "100%" }}>
+              Inscription
+            </Button>
           </form>
         </div>
       </div>

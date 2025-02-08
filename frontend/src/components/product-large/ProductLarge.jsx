@@ -25,7 +25,7 @@ export default function ProductLarge({ product = {} }) {
 
             <p className={styles.productDescription}>{name}</p>
             <div className={styles.productFooter}>
-              <p className={styles.productPrice}>${price}</p>
+              <p className={styles.productPrice}>{price} DH</p>
               <Box
                 component="i"
                 onClick={() => addToCart(product)}

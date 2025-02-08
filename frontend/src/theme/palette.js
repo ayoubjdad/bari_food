@@ -1,20 +1,19 @@
 export const palette = {
-  primary: {
-    main: "#007EA7",
+  green: {
+    light: "#ffc222",
+    main: "",
+    dark: "#006400",
   },
-  secondary: {
-    main: "#007EA7",
+  gray: {
+    light: "#FAF9F6",
   },
-  error: {
-    main: "#f44336",
+  yellow: {
+    light: "#FFFFE0",
   },
-  warning: {
-    main: "#ff9800",
+  red: {
+    main: "#ffc222",
   },
-  info: {
-    main: "#2196f3",
-  },
-  success: {
-    main: "#4caf50",
+  black: {
+    main: "#000000",
   },
 };

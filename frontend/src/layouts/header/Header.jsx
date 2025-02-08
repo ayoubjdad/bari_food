@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom"; // Fix: Use "react-router-dom" instead of "react-router"
 import Badge from "@mui/material/Badge";
 import { useCart } from "../../context/cart/CartContext";
 import { Box, Button, Drawer, Popover, TextField } from "@mui/material";
+import { useLogin } from "../../context/login/LoginContext"; // Import useLogin
+import axios from "axios";
 
 const menu = [
   {
@@ -27,6 +29,7 @@ const menu = [
 export default function Header() {
   const navigate = useNavigate();
   const { cart, removeFromCart, updateQuantity } = useCart();
+  const { login, logout, user, logged, setLogged } = useLogin();
 
   const totalPrice = cart.reduce(
     (acc, product) => acc + product.price * product.quantity,
@@ -47,17 +50,57 @@ export default function Header() {
     setOpen(false);
   };
 
-  const handleloginOpen = (event) => {
+  const handleLoginOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleloginClose = () => {
+  const handleLoginClose = () => {
     setAnchorEl(null);
   };
 
   const handleCheckout = () => {
     navigate("/paiement");
     handleDrawerClose();
+  };
+
+  const handleLogin = async (email, password) => {
+    try {
+      // Send a POST request to your backend login endpoint
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+
+      // If login is successful
+      if (response.data) {
+        const { _id, name, email, isAdmin, token } = response.data;
+
+        // Store the token in localStorage (optional)
+        localStorage.setItem("token", token);
+
+        // Update the login context with user data
+        login({ _id, name, email, isAdmin }); // Use the login function from context
+
+        handleLoginClose(); // Close the login modal
+        alert("Connexion réussie !");
+      } else {
+        alert("Email ou mot de passe incorrect.");
+      }
+    } catch (error) {
+      console.error(
+        "Login failed:",
+        error.response?.data?.message || error.message
+      );
+      alert("Erreur lors de la connexion. Veuillez réessayer.");
+    }
+  };
+
+  const handleLogout = () => {
+    logout(false); // Update login state
+    alert("Déconnexion réussie !");
   };
 
   return (
@@ -77,6 +120,7 @@ export default function Header() {
             {cart?.length > 0 ? (
               cart.map((product) => (
                 <Product
+                  key={product.id} // Add key prop
                   product={product}
                   removeFromCart={removeFromCart}
                   updateQuantity={updateQuantity}
@@ -98,16 +142,11 @@ export default function Header() {
 
       <header className={styles.main}>
         <nav className={styles.container}>
-          {/* <img
-          className={styles.logo}
-          src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/10/logo_svg.svg"
-          alt="logo"
-        /> */}
           <h1 onClick={() => navigate("/")}>Bari Food</h1>
 
           <ul className={styles.menu}>
             {menu.map(({ to, alias }) => (
-              <List to={to} alias={alias} />
+              <List key={to} to={to} alias={alias} />
             ))}
           </ul>
 
@@ -115,22 +154,25 @@ export default function Header() {
             <li className={styles.shipping}>
               <i className="fi fi-rr-shipping-fast" />
               <div className={styles.shippingText}>
-                <p>Call and Order in</p>
-                <p className={styles.phone}>+1 718-904-4450</p>
+                <p>Commandez sur</p>
+                <p className={styles.phone}>+212 660-606-606</p>
               </div>
             </li>
             <div>
               <List
-                to="/"
                 alias={<i className="fi fi-rr-user" />}
-                onClick={handleloginOpen}
+                onClick={handleLoginOpen} // Open login modal on click
               />
 
               {openLogin ? (
                 <LoginModal
+                  user={user}
                   open={openLogin}
-                  onClose={handleloginClose}
+                  logged={logged}
+                  onClose={handleLoginClose}
+                  onLogin={handleLogin}
                   anchorEl={anchorEl}
+                  onLogout={handleLogout}
                 />
               ) : null}
             </div>
@@ -187,7 +229,23 @@ const Product = ({ product, removeFromCart, updateQuantity }) => {
   );
 };
 
-const LoginModal = ({ open, onClose, anchorEl }) => {
+const LoginModal = ({
+  user = {},
+  open = false,
+  logged = false,
+  onClose = () => {},
+  onLogin = () => {},
+  onLogout = () => {},
+  anchorEl,
+}) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onLogin(email, password); // Call the login handler
+  };
+
   return (
     <Popover
       open={open}
@@ -202,19 +260,42 @@ const LoginModal = ({ open, onClose, anchorEl }) => {
         horizontal: "right",
       }}
     >
-      <div className={styles.loginModal}>
-        <div className={styles.loginModalHeader}>
-          <h3>Connexion</h3>
-          <Link to="/inscription">Créer un compte</Link>
+      {logged ? (
+        <div className={styles.loginModal}>
+          <h3>Welcome {user.name}</h3>
+          <Button onClick={onLogout} style={{ width: "100%", height: "43px" }}>
+            Déconnexion
+          </Button>
         </div>
-        <div className={styles.loginModalBody}>
-          <form>
-            <TextField placeholder="Email" type="email" />
-            <TextField placeholder="Mot de passe" type="password" />
-            <Button style={{ width: "100%", height: "43px" }}>Connexion</Button>
-          </form>
+      ) : (
+        <div className={styles.loginModal}>
+          <div className={styles.loginModalHeader}>
+            <h3>Connexion</h3>
+            <Link to="/inscription" onClick={onClose}>
+              Créer un compte
+            </Link>
+          </div>
+          <div className={styles.loginModalBody}>
+            <form onSubmit={handleSubmit}>
+              <TextField
+                placeholder="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <TextField
+                placeholder="Mot de passe"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Button type="submit" style={{ width: "100%", height: "43px" }}>
+                Connexion
+              </Button>
+            </form>
+          </div>
         </div>
-      </div>
+      )}
     </Popover>
   );
 };

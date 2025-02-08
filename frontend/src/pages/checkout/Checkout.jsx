@@ -10,9 +10,11 @@ import {
   TextField,
 } from "@mui/material";
 import { useCart } from "../../context/cart/CartContext";
+import { useLogin } from "../../context/login/LoginContext";
 
 const Checkout = () => {
   const { cart } = useCart();
+  const { user } = useLogin();
 
   const totalPrice = cart.reduce(
     (acc, product) => acc + product.price * product.quantity,
@@ -20,8 +22,8 @@ const Checkout = () => {
   );
 
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
+    fullName: user?.name || "",
+    email: user?.email || "",
     address: "",
     city: "",
   });
@@ -32,7 +34,6 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(":::::: ~ formData", formData);
   };
 
   return (
@@ -48,6 +49,7 @@ const Checkout = () => {
               name="fullName"
               fullWidth
               required
+              defaultValue={formData.fullName}
               onChange={handleChange}
             />
             <TextField
@@ -63,6 +65,7 @@ const Checkout = () => {
               name="email"
               type="email"
               fullWidth
+              defaultValue={formData.email}
               onChange={handleChange}
             />
             <TextField
@@ -95,13 +98,13 @@ const Checkout = () => {
                   {product.name} x {product.quantity}
                 </p>
 
-                <p>{product.price * product.quantity}</p>
+                <p>{product.price * product.quantity} DH</p>
               </div>
             ))}
             <Divider />
             <div className={styles.element}>
               <b>Total</b>
-              <b>{totalPrice}</b>
+              <b>{totalPrice} DH</b>
             </div>
             <Divider />
             <RadioGroup
@@ -111,19 +114,14 @@ const Checkout = () => {
             >
               <FormControlLabel
                 value="COD"
-                control={<Radio />}
-                defaultChecked
+                control={<Radio checked />}
                 label="Paiement à la livraison"
               />
               <FormControlLabel
-                value="paypal"
-                control={<Radio />}
-                label="PayPal"
-              />
-              <FormControlLabel
+                disabled
                 value="bankTransfer"
                 control={<Radio />}
-                label="Virement bancaire direct"
+                label="Carte banquaire (Sera disponible prochainement)"
               />
             </RadioGroup>
             <p>

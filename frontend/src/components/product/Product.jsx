@@ -3,11 +3,21 @@ import styles from "./Product.module.scss";
 import { useCart } from "../../context/cart/CartContext";
 import { Box } from "@mui/material";
 import { Link } from "react-router";
+import { displaySuccessNotification } from "../toast/success/SuccessToast";
 
 export default function Product({ product = {} }) {
   const { addToCart } = useCart();
 
   const { id, name, slug, description, price } = product;
+
+  const handleAddToCart = () => {
+    try {
+      addToCart(product);
+      displaySuccessNotification("Ajouté à la carte");
+    } catch (error) {
+      console.error("❌", error);
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -33,13 +43,10 @@ export default function Product({ product = {} }) {
 
           <p className={styles.productDescription}>{description}</p>
           <div className={styles.productFooter}>
-            <p className={styles.productPrice}>${price}</p>
+            <p className={styles.productPrice}>{price} DH</p>
             <Box
               component="i"
-              onClick={(e) => {
-                e.preventDefault();
-                addToCart(product);
-              }}
+              onClick={handleAddToCart}
               className={`fi fi-rr-shopping-cart-add ${styles.productCart}`}
             />
           </div>

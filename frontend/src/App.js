@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./layouts/header/Header";
@@ -16,30 +16,34 @@ import FAQ from "./pages/faq/FAQ";
 import Checkout from "./pages/checkout/Checkout";
 import { ToastContainer } from "react-toastify";
 import SignIn from "./pages/sign-in/SignIn";
+import { LoginProvider } from "./context/login/LoginContext";
 
-// App Component
-const App = () => (
-  <CartProvider>
-    <ToastContainer />
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/produit/:id/:slug" element={<Product />} />
-          <Route path="/produits" element={<Products />} />
-          <Route path="/produits/:slug" element={<Products />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/qui-sommes-nous" element={<WhoWeAre />} />
-          <Route path="/paiement" element={<Checkout />} />
-          <Route path="/inscription" element={<SignIn />} />
-        </Routes>
-        <Shipping />
-        <Copyright />
-      </Router>
-    </ThemeProvider>
-  </CartProvider>
-);
+const App = () => {
+  return (
+    <LoginProvider>
+      <CartProvider>
+        <ToastContainer />
+        <ThemeProvider theme={theme}>
+          <Router>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/produit/:id/:slug" element={<Product />} />
+              <Route path="/produits" element={<Products />} />
+              <Route path="/produits/:slug" element={<Products />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/qui-sommes-nous" element={<WhoWeAre />} />
+              <Route path="/paiement" element={<Checkout />} />
+              <Route path="/inscription" element={<SignIn />} />
+            </Routes>
+            <Shipping />
+            <Copyright />
+          </Router>
+        </ThemeProvider>
+      </CartProvider>
+    </LoginProvider>
+  );
+};
 
 export default App;
