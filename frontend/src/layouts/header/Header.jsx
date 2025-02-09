@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import { Link, useNavigate } from "react-router-dom"; // Fix: Use "react-router-dom" instead of "react-router"
 import Badge from "@mui/material/Badge";
@@ -6,6 +6,7 @@ import { useCart } from "../../context/cart/CartContext";
 import { Box, Button, Drawer, Popover, TextField } from "@mui/material";
 import { useLogin } from "../../context/login/LoginContext"; // Import useLogin
 import axios from "axios";
+import logo from "../../assets/logo/bari-logo-green.png";
 
 const menu = [
   {
@@ -29,7 +30,7 @@ const menu = [
 export default function Header() {
   const navigate = useNavigate();
   const { cart, removeFromCart, updateQuantity } = useCart();
-  const { login, logout, user, logged, setLogged } = useLogin();
+  const { login, logout, user, logged } = useLogin();
 
   const totalPrice = cart.reduce(
     (acc, product) => acc + product.price * product.quantity,
@@ -107,7 +108,7 @@ export default function Header() {
     <>
       <Drawer anchor="right" open={open} onClose={handleDrawerClose}>
         <div className={styles.drawerHeader}>
-          <h2>Bari Food</h2>
+          <img src={logo} alt="logo" className={styles.logo} />
           <Box
             component="i"
             className="fi fi-rr-cross"
@@ -142,7 +143,12 @@ export default function Header() {
 
       <header className={styles.main}>
         <nav className={styles.container}>
-          <h1 onClick={() => navigate("/")}>Bari Food</h1>
+          <img
+            src={logo}
+            alt="logo"
+            className={styles.logo}
+            onClick={() => navigate("/")}
+          />
 
           <ul className={styles.menu}>
             {menu.map(({ to, alias }) => (
@@ -222,7 +228,7 @@ const Product = ({ product, removeFromCart, updateQuantity }) => {
       </div>
       <Box
         component="i"
-        className="fi fi-rr-plus"
+        className={`fi fi-rr-plus ${styles.addIcon}`}
         onClick={() => updateQuantity(id, quantity + 1)}
       />
     </div>

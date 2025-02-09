@@ -32,7 +32,10 @@ export default function Offers() {
 
 const Container = ({ index, title, description, footerText, image }) => {
   return (
-    <div className={styles.group} key={index}>
+    <div
+      className={`${styles.group} ${index === 1 && styles.middleGroup}`}
+      key={index}
+    >
       <div className={styles.text}>
         <p className={styles.title}>{title}</p>
         <p className={styles.description}>{description}</p>

@@ -1,17 +1,18 @@
 export const palette = {
   green: {
-    light: "#ffc222",
+    soft: "#50a6491a",
+    light: "#50a649",
     main: "",
-    dark: "#006400",
+    dark: "#0a5440",
   },
   gray: {
-    light: "#FAF9F6",
+    light: "#faf9f6 ",
   },
   yellow: {
-    light: "#FFFFE0",
+    light: "#ffffe0",
   },
   red: {
-    main: "#ffc222",
+    main: "#ff0000",
   },
   black: {
     main: "#000000",

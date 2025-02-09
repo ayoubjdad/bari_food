@@ -1,10 +1,10 @@
 .container {
   gap: 10px;
+  height: auto;
   display: grid;
   padding: 10px;
   cursor: pointer;
   background: #fff;
-  height: fit-content;
   border-radius: 30px;
   border: 1px solid #e5e5e5;
   transition: all 0.4s ease-in-out;
@@ -12,7 +12,7 @@
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 
     .productImage img {
-      background-color: #ffc222;
+      background-color: #50a649;
     }
   }
 
@@ -32,7 +32,7 @@
   font-weight: bold;
   position: absolute;
   border-radius: 80px;
-  background-color: #1e1d23;
+  background-color: #ff0000;
 }
 
 .productImage {
@@ -41,7 +41,7 @@
     width: 100%;
     border-radius: 20px;
     transition: all ease 0.35s;
-    background-color: rgb(255, 194, 34, 0.1);
+    background-color: rgba(80, 166, 73, 0.1); // rgb(255, 194, 34, 0.1);
   }
 }
 
@@ -84,9 +84,10 @@
 .productCart {
   width: 36px;
   height: 36px;
+  color: white;
   cursor: pointer;
   font-size: 16px;
   font-weight: 700;
   border-radius: 80px;
-  background-color: #ffc222;
+  background-color: #50a649;
 }

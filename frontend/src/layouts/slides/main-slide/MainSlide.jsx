@@ -12,11 +12,7 @@ export default function MainSlide() {
       <div className={styles.container}>
         <div className={styles.text}>
           <h1>Croissant Arty 75g</h1>
-          <p>
-            Une nouvelle forme originale, moderne et pyramidale qui offre un
-            feuilletage extérieur fin et délicat avec des feuillets bien marqués
-            et une mie soyeuse.
-          </p>
+          <p>Une nouvelle forme originale, moderne et pyramidale</p>
           <div className={styles.textFooter}>
             <Button>Commande maintenant</Button>
             <p>

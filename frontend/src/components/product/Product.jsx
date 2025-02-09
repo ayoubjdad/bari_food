@@ -23,7 +23,7 @@ export default function Product({ product = {} }) {
     <div className={styles.container}>
       <Link to={`/produit/${id}/${slug}`} state={product}>
         <div className={styles.productImage}>
-          <p className={styles.onsale}>Sale!</p>
+          {/* <p className={styles.onsale}>Sale!</p> */}
           <img
             className={styles.productImage}
             src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/40-1-150x150.png"

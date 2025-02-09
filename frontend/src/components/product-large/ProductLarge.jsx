@@ -7,7 +7,7 @@ import { Link } from "react-router";
 export default function ProductLarge({ product = {} }) {
   const { addToCart } = useCart();
 
-  const { id, name, slug, description, price } = product;
+  const { id, name, slug, price } = product;
 
   return (
     <Link to={`/produit/${id}/${slug}`} state={product}>

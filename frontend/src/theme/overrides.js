@@ -11,13 +11,13 @@ export const theme = createTheme({
           fontSize: "16px",
           boxShadow: "none",
           fontWeight: "600",
-          color: "#1e1d23",
+          color: "white",
           borderRadius: "80px",
           width: "fit-content",
           padding: "10px 20px",
           textTransform: "none",
           fontFamily: "inherit",
-          backgroundColor: "#ffc222",
+          backgroundColor: "#0a5440",
         },
         startIcon: {
           marginLeft: 0,
@@ -35,8 +35,8 @@ export const theme = createTheme({
       styleOverrides: {
         badge: {
           top: 6,
-          color: "#1e1d23",
-          backgroundColor: "#ffc222",
+          color: "white",
+          backgroundColor: "#0a5440",
         },
       },
     },
@@ -53,10 +53,10 @@ export const theme = createTheme({
             backgroundColor: "white",
             borderRadius: "80px",
             "&:hover .MuiOutlinedInput-notchedOutline": {
-              borderColor: "rgb(255, 194, 34)",
+              borderColor: "#0a5440",
             },
             "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-              borderColor: "rgb(255, 194, 34)",
+              borderColor: "#0a5440",
             },
           },
           "& .MuiInputLabel-root": {
@@ -98,7 +98,7 @@ export const theme = createTheme({
         root: {
           // color: "#1976d2", // Couleur par défaut
           "&.Mui-checked": {
-            color: "#ffc222", // Couleur quand coché
+            color: "#006400", // Couleur quand coché
           },
         },
       },
@@ -133,10 +133,10 @@ export const theme = createTheme({
           color: "#1e1d23",
           borderRadius: "7px",
           padding: "13px 30px",
-          backgroundColor: "#fbf7e8",
+          backgroundColor: "#faf9f6",
           "&.Mui-expanded": {
             minHeight: 0,
-            backgroundColor: "#ffc222",
+            backgroundColor: "#50a649",
           },
         },
         content: {

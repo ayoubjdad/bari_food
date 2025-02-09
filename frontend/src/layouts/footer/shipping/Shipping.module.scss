@@ -2,8 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(240, 248, 255);
-  // background-color: #181818
+  background-color: #faf9f6;
 }
 
 .container {
@@ -25,7 +24,7 @@
   transition: all ease 0.35s;
   &:hover {
     .icon {
-      background-color: rgb(255, 69, 0);
+      background-color: #50a649;
       i {
         left: 10px;
       }
@@ -38,7 +37,8 @@
   height: 36px;
   border-radius: 80px;
   transition: all ease 0.35s;
-  background-color: rgb(255, 69, 0, 0.1);
+  background-color: #50a6491a;
+
   i {
     transition: all ease 0.35s;
     left: 16px;

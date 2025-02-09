@@ -14,7 +14,7 @@ export default function Newsletter() {
           </p>
         </div>
         <div className={styles.form}>
-          <TextField placeholder="Addresse email" />
+          <TextField placeholder="Email" type="email" />
           <Button style={{ height: "43px" }}>Subscribe</Button>
         </div>
       </div>

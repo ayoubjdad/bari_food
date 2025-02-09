@@ -15,7 +15,8 @@
 }
 
 .logo {
-  width: 100px;
+  width: 80px;
+  cursor: pointer;
 }
 
 ul {
@@ -31,6 +32,12 @@ ul {
     a {
       text-decoration: none;
       color: black;
+
+      &:hover {
+        color: #0a5440;
+        text-decoration: underline;
+      }
+
       i {
         border: 1px solid #e5e5e5;
         border-radius: 80px;
@@ -61,15 +68,13 @@ ul {
 }
 
 .shippingText {
-  color: #808080;
   display: grid;
 }
 
 .phone {
   font-size: 18px;
   font-weight: 700;
-  // color: #1e1d23;
-  color: #ffc222;
+  color: #0a5440;
 }
 
 // * Drawer ===================================
@@ -132,7 +137,12 @@ ul {
 }
 
 .productPrice {
-  color: #ffc222;
+  color: #0a5440;
+}
+
+.addIcon {
+  color: #0a5440 !important;
+  background-color: #f7f4ef;
 }
 
 .drawerFooter {
@@ -157,7 +167,7 @@ ul {
   justify-content: space-between;
 
   a {
-    color: #ffc222;
+    color: #0a5440;
   }
 }
 

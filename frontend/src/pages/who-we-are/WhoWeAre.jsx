@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./WhoWeAre.module.scss";
 import PageHeader from "../../components/page-header/PageHeader";
 import { Button } from "@mui/material";
+import image1 from "../../assets/images/image1-h4.jpg";
+import image2 from "../../assets/images/image2-h4.jpg";
+import image3 from "../../assets/images/image3-h4.jpg";
 
 export default function WhoWeAre() {
   return (
@@ -12,33 +15,27 @@ export default function WhoWeAre() {
         <div className={styles.topSection}>
           <div className={styles.topSectionText}>
             <h3>Welcome!</h3>
-            <h1>Best burger ideas & traditions from the whole world</h1>
+            <h1>Du surgelé à la dégustation en un clin d’œil !</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam.
+              Plus besoin de perdre du temps en cuisine ! Bari vous propose une
+              sélection exquise de produits surgelés prêts à l’emploi. Découvrez
+              notre gamme complète de pains boulangers et de viennoiseries pur
+              beurre, conçus pour être enfournés en quelques minutes et dégustés
+              dans toute leur fraîcheur.
             </p>
             <p>
-              Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat
-              fermentum. Aliquam non tincidunt urna. Integer tincidunt nec nisl
-              vitae ullamcorper. Proin sed ultrices erat.
+              Savourez également nos délicieuses pâtisseries et desserts glacés,
+              préparés avec soin par nos chefs pour ravir vos papilles. Chaque
+              bouchée est une invitation à la gourmandise, avec des recettes
+              authentiques et des ingrédients de qualité.
             </p>
             <Button>Contactez-nous</Button>
           </div>
           <div className={styles.topSectionImages}>
-            <img
-              src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/image1-h4.jpg"
-              alt=""
-            />
+            <img src={image1} alt="" />
             <div className={styles.topSubSectionImages}>
-              <img
-                src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/image2-h4.jpg"
-                alt=""
-              />
-              <img
-                src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/image3-h4.jpg"
-                alt=""
-              />
+              <img src={image2} alt="" />
+              <img src={image3} alt="" />
             </div>
           </div>
         </div>
