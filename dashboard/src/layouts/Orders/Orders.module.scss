@@ -1,0 +1,96 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  gap: 32px;
+  width: 100%;
+  display: grid;
+  max-width: 1200px;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.orders {
+  display: grid;
+  align-items: center;
+  border-radius: 16px;
+  justify-items: center;
+  background-color: #faf9f6;
+  padding: 16px 32px 16px 30px;
+  justify-content: space-between;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.today {
+  gap: 8px;
+  display: flex;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+  align-items: center;
+  &:hover {
+    background-color: #eeede8;
+  }
+}
+
+.item {
+  gap: 4px;
+  display: grid;
+}
+
+.title {
+  font-size: 12px;
+  color: #808080;
+}
+
+.value {
+  font-size: 16px;
+  color: #1e1d23;
+  font-weight: 700;
+}
+
+// * Modal
+.modalContainer {
+  padding: 24px;
+  display: grid;
+  min-width: 400px;
+  align-items: center;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  i {
+    cursor: pointer;
+  }
+}
+
+.modalContent {
+  gap: 16px;
+  width: 100%;
+  display: grid;
+
+  form {
+    gap: 16px;
+    display: grid;
+  }
+}
+
+.buttonContainer {
+  gap: 16px;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+}

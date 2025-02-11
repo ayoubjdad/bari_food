@@ -1,0 +1,96 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  gap: 32px;
+  width: 100%;
+  display: grid;
+  max-width: 1200px;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orders {
+  display: grid;
+  align-items: center;
+  border-radius: 16px;
+  justify-items: center;
+  background-color: #faf9f6;
+  padding: 16px 32px 16px 30px;
+  justify-content: space-between;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.today {
+  gap: 8px;
+  display: flex;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+  align-items: center;
+  &:hover {
+    background-color: #eeede8;
+  }
+}
+
+.item {
+  gap: 4px;
+  display: grid;
+}
+
+.title {
+  font-size: 12px;
+  color: #808080;
+}
+
+.value {
+  font-size: 16px;
+  color: #1e1d23;
+  font-weight: 700;
+}
+
+.actions {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.check,
+.cross {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  font-size: 10px;
+  cursor: pointer;
+  color: #065e49;
+  border: 1px solid;
+  border-radius: 6px;
+  align-items: center;
+  border-color: #065e49;
+  justify-content: center;
+  background-color: #d3fcd2;
+
+  &:hover {
+    background-color: #c0e8bf;
+  }
+}
+
+.cross {
+  font-size: 8px;
+  color: #7a0916;
+  border-color: #7a0916;
+  background-color: #ffe9d5;
+
+  &:hover {
+    background-color: #e9d4c0;
+  }
+}
