@@ -7,6 +7,7 @@ import { Box, Button, Drawer, Popover, TextField } from "@mui/material";
 import { useLogin } from "../../context/login/LoginContext"; // Import useLogin
 import axios from "axios";
 import logo from "../../assets/logo/bari-logo-green.png";
+import { serverUrl } from "../../config/config";
 
 const menu = [
   {
@@ -67,13 +68,10 @@ export default function Header() {
   const handleLogin = async (email, password) => {
     try {
       // Send a POST request to your backend login endpoint
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post(`${serverUrl}/api/auth/login`, {
+        email,
+        password,
+      });
 
       // If login is successful
       if (response.data) {

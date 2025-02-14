@@ -3,6 +3,8 @@ import styles from "./SignIn.module.scss";
 import PageHeader from "../../components/page-header/PageHeader";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
+import { serverUrl } from "../../config/config";
+import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -31,23 +33,17 @@ export default function SignIn() {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
-        {
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-          phone: formData.phone,
-        }
-      );
+      await axios.post(`${serverUrl}/api/auth/register`, {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        phone: formData.phone,
+      });
 
-      // Handle successful registration
-      console.log("User registered successfully:", response.data);
-      alert("Inscription réussie !");
+      displaySuccessNotification("Inscription réussie!");
     } catch (error) {
-      // Handle errors
       console.error(
-        "Registration failed:",
+        "❌ Registration failed:",
         error.response?.data?.message || error.message
       );
       alert("Erreur lors de l'inscription. Veuillez réessayer.");

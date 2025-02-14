@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import { useCart } from "../../context/cart/CartContext";
 import { useLogin } from "../../context/login/LoginContext";
+import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
+import { serverUrl } from "../../config/config";
 
 const Checkout = () => {
   const { cart } = useCart();
@@ -24,16 +26,50 @@ const Checkout = () => {
   const [formData, setFormData] = useState({
     fullName: user?.name || "",
     email: user?.email || "",
-    address: "",
-    city: "",
+    address: user?.address || "",
+    city: user?.city || "",
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const orderData = {
+      user: user?._id,
+      items: cart.map((product) => ({
+        product: String(product.id),
+        quantity: product.quantity,
+        price: product.price,
+      })),
+      totalAmount: totalPrice,
+      paymentMethod: formData.paymentMethod || "Cash on Delivery",
+      shippingAddress: {
+        fullName: formData.fullName,
+        address: formData.address,
+        city: formData.city,
+      },
+    };
+
+    try {
+      const response = await fetch(`${serverUrl}/api/orders`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to place order");
+      }
+
+      displaySuccessNotification("Commande confirmée");
+    } catch (error) {
+      console.error("Error submitting order:", error);
+    }
   };
 
   return (
