@@ -5,19 +5,23 @@ const LoginContext = createContext();
 
 // Login Provider Component
 export const LoginProvider = ({ children }) => {
-  const [logged, setLogged] = useState(false);
-  const [user, setUser] = useState(null); // Add user state
+  const storedUser = localStorage.getItem("user");
+
+  const [logged, setLogged] = useState(Boolean(storedUser));
+  const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null); // Add user state
 
   // Function to log in the user
   const login = (userData) => {
     setLogged(true);
     setUser(userData); // Set user data
+    localStorage.setItem("user", JSON.stringify(userData)); // Store user in localStorage
   };
 
   // Function to log out the user
   const logout = () => {
     setLogged(false);
     setUser(null); // Clear user data
+    localStorage.removeItem("user"); // Remove user from localStorage
   };
 
   return (
