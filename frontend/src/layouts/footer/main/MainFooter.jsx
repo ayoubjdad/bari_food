@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./MainFooter.module.scss";
 import { Box } from "@mui/material";
+import logo from "../../../assets/logo/bari-logo-green.png";
 
 const social = [
   {
@@ -29,6 +30,12 @@ export default function MainFooter() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
+        <div className={styles.logoContainer}>
+          <div />
+          <img src={logo} alt="logo" className={styles.logo} />
+          <div />
+        </div>
+
         <div className={styles.elements}>
           <Container
             index={0}
@@ -43,6 +50,12 @@ export default function MainFooter() {
           />
           <Container
             index={2}
+            title="Contact"
+            description="contact@bari.com"
+            footerText="Tél : +212 660 606 606"
+          />
+          <Container
+            index={3}
             title="Réseaux sociaux"
             description="Rejoignez-nous sur les réseaux sociaux"
           />
@@ -54,15 +67,18 @@ export default function MainFooter() {
 
 const Container = ({ index, title, description, footerText }) => (
   <div className={styles.element} key={index}>
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <p>{footerText}</p>
-    {index === 2 ? (
-      <div className={styles.social}>
-        {social.map(({ title, icon }) => (
-          <Box component="i" className={icon} title={title} />
-        ))}
-      </div>
-    ) : null}
+    <h2>{title}</h2>
+
+    <div className={styles.elementParagraphs}>
+      <p>{description}</p>
+      <p>{footerText}</p>
+      {index === 3 ? (
+        <div className={styles.social}>
+          {social.map(({ title, icon }) => (
+            <Box component="i" className={icon} title={title} />
+          ))}
+        </div>
+      ) : null}
+    </div>
   </div>
 );

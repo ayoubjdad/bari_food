@@ -4,23 +4,23 @@ import styles from "./Shipping.module.scss";
 const items = [
   {
     icon: "free-delivery",
-    alias: "Livraison gratuite",
-    description: "Nous livrons des marchandises dans le monde entier",
+    alias: "Livraison gratuite*",
+    description: "Livraison gratuite partout au Maroc.",
   },
   {
     icon: "shield-check",
     alias: "Meilleure qualité",
-    description: "Nous sommes une chaîne internationale de restaurants.",
+    description: "Des produits de qualité supérieure pour nos clients.",
   },
   {
     icon: "store-alt",
     alias: "Notre magasin",
-    description: "Vous pouvez voir nos produits « ici et maintenant »",
+    description: "Découvrez nos produits en magasin ou en ligne.",
   },
   {
     icon: "shipping-fast",
     alias: "Livraison rapide",
-    description: "Nous livrons des marchandises dans le monde entier",
+    description: "Livraison rapide et fiable partout au Maroc.",
   },
 ];
 
