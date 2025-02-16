@@ -18,6 +18,7 @@ import { ToastContainer } from "react-toastify";
 import SignIn from "./pages/sign-in/SignIn";
 import { LoginProvider } from "./context/login/LoginContext";
 import ScrollToTop from "./layouts/scroll-to-top/ScrollToTop";
+import MainFooter from "./layouts/footer/main/MainFooter";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/inscription" element={<SignIn />} />
             </Routes>
             <Shipping />
+            <MainFooter />
             <Copyright />
           </Router>
         </ThemeProvider>
