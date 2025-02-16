@@ -37,9 +37,7 @@
   background-color: #0a5440;
 
   .text {
-    .title {
-      color: white !important;
-    }
+    color: white;
   }
 
   &:hover {
@@ -53,12 +51,12 @@
   gap: 16px;
   height: 100%;
   display: grid;
+  color: #1e1d23;
   justify-content: space-between;
 }
 
 .title {
   font-size: 24px;
-  color: #1e1d23;
   font-weight: 700;
   text-decoration: none;
 }

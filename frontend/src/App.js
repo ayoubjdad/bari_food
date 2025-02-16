@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./layouts/header/Header";
@@ -17,6 +17,7 @@ import Checkout from "./pages/checkout/Checkout";
 import { ToastContainer } from "react-toastify";
 import SignIn from "./pages/sign-in/SignIn";
 import { LoginProvider } from "./context/login/LoginContext";
+import ScrollToTop from "./layouts/scroll-to-top/ScrollToTop";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Header />
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/produit/:id/:slug" element={<Product />} />

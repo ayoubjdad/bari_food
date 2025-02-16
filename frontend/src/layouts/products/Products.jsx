@@ -15,7 +15,9 @@ export default function Products() {
           ))}
         </div>
 
-        <Button>Tout les produits</Button>
+        <Link to="/produits">
+          <Button>Tout les produits</Button>
+        </Link>
       </div>
     </section>
   );

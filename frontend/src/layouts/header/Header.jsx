@@ -8,6 +8,7 @@ import { useLogin } from "../../context/login/LoginContext"; // Import useLogin
 import axios from "axios";
 import logo from "../../assets/logo/bari-logo-green.png";
 import { serverUrl } from "../../config/config";
+import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
 
 const menu = [
   {
@@ -84,7 +85,7 @@ export default function Header() {
         login({ _id, name, email, isAdmin }); // Use the login function from context
 
         handleLoginClose(); // Close the login modal
-        alert("Connexion réussie !");
+        displaySuccessNotification("Connexion réussie !");
       } else {
         alert("Email ou mot de passe incorrect.");
       }
@@ -162,10 +163,10 @@ export default function Header() {
                 <p className={styles.phone}>+212 660-606-606</p>
               </div>
             </li>
-            <div>
+            <div className={styles.userCartContainer}>
               <List
                 alias={<i className="fi fi-rr-user" />}
-                onClick={handleLoginOpen} // Open login modal on click
+                onClick={handleLoginOpen}
               />
 
               {openLogin ? (
@@ -266,7 +267,7 @@ const LoginModal = ({
     >
       {logged ? (
         <div className={styles.loginModal}>
-          <h3>Welcome {user.name}</h3>
+          <h3>Bonjour {user.name}</h3>
           <Button onClick={onLogout} style={{ width: "100%", height: "43px" }}>
             Déconnexion
           </Button>

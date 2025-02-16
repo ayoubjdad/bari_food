@@ -31,6 +31,28 @@
   h1 {
     font-size: 42px;
   }
+
+  p {
+    gap: 8px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+
+    span {
+      &:hover {
+        color: #0a5440;
+        text-decoration: underline;
+      }
+    }
+
+    i {
+      width: 26px;
+      height: 26px;
+      font-size: 20px;
+      border-radius: 8px;
+      background-color: #50a649;
+    }
+  }
 }
 
 .receips {

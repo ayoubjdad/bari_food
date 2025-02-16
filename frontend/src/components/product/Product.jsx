@@ -10,7 +10,9 @@ export default function Product({ product = {} }) {
 
   const { id, name, slug, description, price } = product;
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e?.preventDefault();
+
     try {
       addToCart(product);
       displaySuccessNotification("Ajouté à la carte");

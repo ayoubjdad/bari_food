@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Offers.module.scss";
+import starburst from "../../assets/images/starburst.jpg";
 
 export default function Offers() {
   return (
@@ -7,22 +8,22 @@ export default function Offers() {
       <div className={styles.container}>
         <Container
           index={0}
-          title="Any day offers"
+          title="Pain aux Céréales"
           description="new phenomenon burger taste"
-          footerText="$12.90"
+          footerText="25DH / 10pièces"
           image="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/09/h1_banner1-1.png"
         />
         <Container
           index={1}
-          title="Other flavors"
+          title="Croissant au Beurre"
           description="Save room we made salats"
-          footerText="$12.90"
+          footerText="12DH"
           image="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/09/h1_banner2-2.png"
         />
         <Container
           index={2}
-          title="Find a Poco store near you"
-          footerText="Contact us"
+          title="Le magasin le plus proche de chez vous"
+          description="Trouver un magasin"
           image="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/09/h1_banner3.png"
         />
       </div>
@@ -34,12 +35,22 @@ const Container = ({ index, title, description, footerText, image }) => {
   return (
     <div
       className={`${styles.group} ${index === 1 && styles.middleGroup}`}
+      style={
+        index === 1
+          ? {
+              // backgroundImage: `url(${starburst})`,
+              // backgroundPosition: "center",
+            }
+          : {}
+      }
       key={index}
     >
       <div className={styles.text}>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.description}>{description}</p>
-        <p className={styles.footerText}>{footerText}</p>
+        {title ? <p className={styles.title}>{title}</p> : null}
+        {description ? (
+          <p className={styles.description}>{description}</p>
+        ) : null}
+        {footerText ? <p className={styles.footerText}>{footerText}</p> : null}
       </div>
       <div className={styles.image}>
         <img src={image} alt={image} />

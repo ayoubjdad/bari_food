@@ -11,7 +11,10 @@ export default function TopReceips() {
         <div className={styles.receipsContainer}>
           <div className={styles.header}>
             <h1>Top Receips</h1>
-            <p>Voir tout</p>
+            <p>
+              <span>Voir tout</span>
+              <i class="fi fi-rr-arrow-small-right"></i>
+            </p>
           </div>
 
           <div className={styles.receips}>
