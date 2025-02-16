@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import styles from "./Orders.module.scss";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import {
   Autocomplete,
@@ -15,7 +14,6 @@ import {
   MenuItem,
   Modal,
   Pagination,
-  Popover,
   Select,
   TextField,
 } from "@mui/material";
@@ -386,9 +384,17 @@ const ordersData = [
 ];
 
 export default function Orders() {
+  const dateRef = useRef(null);
+
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [selectedDate, setSelectedDate] = useState();
+
+  const filtredRows = useMemo(() => {
+    const today = new Date().toISOString().split("T")[0];
+    return rows.filter((row) => row.date.includes(selectedDate || today));
+  }, [selectedDate]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -405,6 +411,13 @@ export default function Orders() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleDateClick = (newValue) => {
+    if (dateRef.current) {
+      dateRef.current.focus(); // Met le focus sur l'input
+      dateRef.current.showPicker?.(); // Force l'ouverture du date picker (Chrome, Edge)
+    }
   };
 
   return (
@@ -424,8 +437,17 @@ export default function Orders() {
 
           <div className={styles.orders}>
             <p className={styles.today}>
+              <TextField
+                type="date"
+                inputRef={dateRef}
+                defaultValue={new Date().toISOString().split("T")[0]}
+                onChange={(e) => setSelectedDate(e.target.value)}
+                style={{ display: "none" }}
+              />
               <Box component="i" className="fi fi-rr-calendar" />
-              <span>Aujourd'hui</span>
+              <span onClick={handleDateClick}>
+                {selectedDate || "Aujourd'hui"}
+              </span>
             </p>
             <Divider orientation="vertical" flexItem />
             {ordersData.map(({ title, value }, index) => (
@@ -467,7 +489,7 @@ export default function Orders() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows
+                {filtredRows
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => {
                     return (
@@ -533,7 +555,7 @@ export default function Orders() {
               </Select>
             </Box>
             <Pagination
-              count={Math.ceil(rows.length / rowsPerPage)}
+              count={Math.ceil(filtredRows.length / rowsPerPage)}
               page={page}
               onChange={handleChangePage}
               variant="outlined"
