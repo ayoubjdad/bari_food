@@ -13,35 +13,27 @@
   gap: 32px;
   width: 100%;
   display: grid;
-  margin: 120px 80px;
-  max-width: 1200px;
+  padding: 160px 80px;
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 0.1fr 1fr 0.1fr;
 }
 
 .text {
-  gap: 32px;
+  gap: 24px;
   display: grid;
   h1 {
     color: #1e1d23;
     font-size: 76px;
     line-height: 66px;
-    // text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
 
-.textFooter {
-  gap: 16px;
-  display: flex;
-  align-items: center;
+.price {
+  font-weight: 700;
+  font-size: 36px;
 
-  p {
-    font-weight: 700;
-    font-size: 36px;
-
-    span {
-      font-size: 14px;
-    }
+  span {
+    font-size: 14px;
   }
 }
 
@@ -52,4 +44,25 @@
   img {
     width: 400px;
   }
+}
+
+.arrowLeft,
+.arrowRight {
+  i {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 80px;
+    border: 1px solid #e5e5e5;
+
+    &:hover {
+      color: #0a5440;
+    }
+  }
+}
+
+.arrowRight {
+  display: flex;
+  justify-content: flex-end;
 }
