@@ -3,6 +3,10 @@
   align-items: center;
   justify-content: center;
   background-position: center;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .container {

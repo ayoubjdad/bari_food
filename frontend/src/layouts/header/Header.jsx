@@ -41,6 +41,7 @@ export default function Header() {
   const cartLength = cart.length;
 
   const [open, setOpen] = useState(false);
+  const [openMobileDrawer, setOpenMobileDrawer] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const openLogin = Boolean(anchorEl);
@@ -51,6 +52,14 @@ export default function Header() {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleMobileDrawerOpen = () => {
+    setOpenMobileDrawer(true);
+  };
+
+  const handleMobileDrawerClose = () => {
+    setOpenMobileDrawer(false);
   };
 
   const handleLoginOpen = (event) => {
@@ -140,6 +149,31 @@ export default function Header() {
         </div>
       </Drawer>
 
+      <Drawer
+        anchor="right"
+        open={openMobileDrawer}
+        onClose={handleMobileDrawerClose}
+      >
+        <div className={styles.drawerHeader}>
+          <img src={logo} alt="logo" className={styles.logo} />
+          <Box
+            component="i"
+            className="fi fi-rr-cross"
+            onClick={handleMobileDrawerClose}
+          />
+        </div>
+
+        <div className={styles.drawerBody}>
+          <ul className={styles.mobileMenu}>
+            {menu.map(({ to, alias }) => (
+              <List key={to} to={to} alias={alias} />
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.drawerFooter}></div>
+      </Drawer>
+
       <header className={styles.main}>
         <nav className={styles.container}>
           <img
@@ -163,6 +197,14 @@ export default function Header() {
                 <p className={styles.phone}>+212 660-606-606</p>
               </div>
             </li>
+
+            <div className={styles.mobileMenuBurger}>
+              <List
+                alias={<i className="fi fi-rr-menu-burger" />}
+                onClick={handleMobileDrawerOpen}
+              />
+            </div>
+
             <div className={styles.userCartContainer}>
               <List
                 alias={<i className="fi fi-rr-user" />}
@@ -181,6 +223,7 @@ export default function Header() {
                 />
               ) : null}
             </div>
+
             <Badge badgeContent={String(cartLength)} color="primary">
               <List
                 to="/"

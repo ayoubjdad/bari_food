@@ -13,6 +13,10 @@
   max-width: 1200px;
   align-items: center;
   grid-template-columns: 2fr 1fr;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .receipsContainer {
@@ -60,6 +64,11 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  @media screen and (max-width: 768px) {
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
 }
 
 .delivery {

@@ -11,6 +11,10 @@
   margin: 80px 0;
   max-width: 1200px;
   justify-items: center;
+
+  @media screen and (max-width: 768px) {
+    margin: 40px 0;
+  }
 }
 
 .products {
@@ -20,4 +24,8 @@
   max-width: 1200px;
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

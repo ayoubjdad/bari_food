@@ -15,6 +15,10 @@
   max-width: 1200px;
   text-align: center;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    margin: 40px 0;
+  }
 }
 
 .logoContainer {
@@ -22,6 +26,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 
   div {
     border-bottom: 1px solid #3d3d3d;
@@ -38,6 +46,10 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .element {

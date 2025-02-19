@@ -10,12 +10,20 @@
   display: grid;
   margin: 80px 0;
   max-width: 1200px;
+
+  @media screen and (max-width: 768px) {
+    margin: 40px 0;
+  }
 }
 
 .info {
   gap: 32px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .group {

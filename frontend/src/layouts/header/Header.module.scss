@@ -4,6 +4,11 @@
   justify-content: center;
   background-color: white;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    box-shadow: none;
+  }
 }
 
 .container {
@@ -13,6 +18,13 @@
   max-width: 1200px;
   align-items: center;
   grid-template-columns: 1fr 1.5fr 1fr;
+
+  @media (max-width: 768px) {
+    margin: 0;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .logo {
@@ -26,10 +38,12 @@ ul {
   padding: 0;
   display: flex;
   list-style: none;
+
   li {
     display: flex;
     align-items: center;
     justify-content: center;
+
     a {
       text-decoration: none;
       color: black;
@@ -55,19 +69,47 @@ ul {
   align-items: center;
 }
 
+.mobileMenuBurger {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .menu {
   display: flex;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  gap: 16px;
+  display: grid;
+  justify-items: start;
 }
 
 .shippingContainer {
   gap: 16px;
   justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 }
 
 .shipping {
   gap: 8px;
   display: flex;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
   i {
     font-size: 28px;
   }
@@ -115,12 +157,18 @@ ul {
   display: grid;
   align-items: center;
   grid-template-columns: 0.3fr 1fr 2fr 0.3fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 2fr;
+  }
+
   i {
     color: red;
     padding: 6px;
     font-size: 8px;
     cursor: pointer;
     border-radius: 4px;
+
     &:hover {
       background-color: #f7f4ef;
     }
@@ -158,6 +206,23 @@ ul {
   border-top: 1px solid #e5e5e5;
 }
 
+// * Mobile Drawer ===================================
+
+.mobileDrawerContainer {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+}
+
 // * Login Modal ===================================
 
 .loginModal {
@@ -165,6 +230,11 @@ ul {
   display: flex;
   flex-direction: column;
   background-color: white;
+  padding: 16px;
+
+  @media (max-width: 768px) {
+    padding: 8px;
+  }
 }
 
 .loginModalHeader {

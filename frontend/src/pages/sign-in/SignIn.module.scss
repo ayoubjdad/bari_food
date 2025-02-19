@@ -10,6 +10,10 @@
   display: grid;
   margin: 80px 0;
   max-width: 1200px;
+
+  @media screen and (max-width: 768px) {
+    margin: 40px 0;
+  }
 }
 
 .formContainer {
@@ -26,5 +30,9 @@
     border-radius: 16px;
     justify-items: center;
     background-color: #f6f6f6;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
   }
 }

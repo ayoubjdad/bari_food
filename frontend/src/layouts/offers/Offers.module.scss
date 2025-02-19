@@ -3,6 +3,10 @@
   align-items: center;
   justify-content: center;
   background-color: #50a6491a;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .container {

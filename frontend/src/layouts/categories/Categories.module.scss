@@ -13,6 +13,10 @@
   max-width: 1200px;
   grid-template-columns: repeat(7, 1fr);
 
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   a {
     cursor: pointer;
     text-decoration: none;
@@ -34,6 +38,11 @@
   justify-content: center;
   transition: all ease 0.35s;
   background-color: #50a6491a;
+
+  @media screen and (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
 
   &:hover {
     background-color: #50a649;

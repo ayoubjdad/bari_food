@@ -16,6 +16,10 @@
   gap: 32px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .topSectionText {
@@ -46,6 +50,10 @@
   display: grid;
   height: fit-content;
   grid-template-columns: repeat(2, 1fr);
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 
   img {
     border-radius: 8px;

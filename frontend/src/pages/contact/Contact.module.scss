@@ -32,6 +32,11 @@
   height: fit-content;
   justify-items: start;
 
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    justify-items: center;
+  }
+
   i {
     font-size: 56px;
     color: #006400;
@@ -46,12 +51,20 @@
   gap: 32px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contactFormContainer {
   height: 500px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .map {
