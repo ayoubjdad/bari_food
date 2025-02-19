@@ -58,6 +58,12 @@ export default function Contact() {
                 name="message"
                 multiline
                 rows={4}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    padding: 0,
+                    borderRadius: "24px",
+                  },
+                }}
               />
               <Button
                 type="submit"
