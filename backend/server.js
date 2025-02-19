@@ -7,10 +7,25 @@ const authRoutes = require("./routes/auth");
 const productRoutes = require("./routes/product");
 const categoryRoutes = require("./routes/category");
 const orderRoutes = require("./routes/order");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
+const slowDown = require("express-slow-down");
 
 dotenv.config();
 
 connectDB();
+
+const speedLimiter = slowDown({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  delayAfter: 50, // Commence à ralentir après 50 requêtes
+  delayMs: 500, // Ajoute 500ms de délai à chaque requête supplémentaire
+});
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limite à 100 requêtes par IP
+  message: "Trop de requêtes, veuillez réessayer plus tard.",
+});
 
 const app = express();
 
@@ -22,6 +37,10 @@ app.use(
   //   credentials: true, // Allow cookies (if needed)
   // }
 );
+
+app.use(limiter);
+app.use(helmet());
+app.use(speedLimiter);
 
 // Parse JSON bodies
 app.use(express.json());
