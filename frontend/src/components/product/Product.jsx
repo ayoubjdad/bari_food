@@ -33,13 +33,13 @@ export default function Product({ product = {} }) {
           />
         </div>
         <div className={styles.productCaption}>
-          <div className={styles.rate}>
-            <i className="fi fi-rr-star" />
-            <i className="fi fi-rr-star" />
-            <i className="fi fi-rr-star" />
-            <i className="fi fi-rr-star" />
-            <i className="fi fi-rr-star" />
-          </div>
+          {/* <div className={styles.rate}>
+            <i className="fi fi-sr-star" />
+            <i className="fi fi-sr-star" />
+            <i className="fi fi-sr-star" />
+            <i className="fi fi-sr-star" />
+            <i className="fi fi-sr-star" />
+          </div> */}
 
           <p className={styles.productTitle}>{name}</p>
 

@@ -6,8 +6,9 @@
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    padding: 0 16px;
     box-shadow: none;
+    flex-direction: column;
   }
 }
 
@@ -20,8 +21,6 @@
   grid-template-columns: 1fr 1.5fr 1fr;
 
   @media (max-width: 768px) {
-    margin: 0;
-    padding: 16px;
     display: flex;
     justify-content: space-between;
   }

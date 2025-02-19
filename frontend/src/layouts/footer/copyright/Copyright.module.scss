@@ -3,6 +3,10 @@
   align-items: center;
   justify-content: center;
   background-color: #50a649;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
 }
 
 .container {
