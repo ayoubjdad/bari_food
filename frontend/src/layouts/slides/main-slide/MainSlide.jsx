@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./MainSlide.module.scss";
 import Button from "@mui/material/Button";
@@ -27,11 +27,18 @@ const slides = [
 ];
 
 export default function MainSlide() {
+  const intervalTime = 5000;
   const [index, setIndex] = useState(0);
 
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % slides.length);
   };
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, intervalTime);
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
 
   return (
     <section className={styles.main}>
