@@ -1,22 +1,31 @@
 import React, { useState } from "react";
 import styles from "./Product.module.scss";
 import Divider from "@mui/material/Divider";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Chip } from "@mui/material";
 import Products from "../../layouts/products/Products";
 import { useLocation } from "react-router";
 import { useCart } from "../../context/cart/CartContext";
 import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
+import { categories } from "../../data/data";
 
 export default function Product() {
   const { addToCart } = useCart();
   const location = useLocation();
   const product = location.state || {};
 
-  const { id, name, description, price } = product;
+  const {
+    id,
+    categoryId,
+    name,
+    description: { short, long } = {},
+    price,
+  } = product;
 
   const [options, setOptions] = useState({
     quantity: 1,
   });
+
+  const { name: category } = categories.find((item) => item.id === categoryId);
 
   if (!id) {
     return (
@@ -61,15 +70,17 @@ export default function Product() {
           </div>
 
           <div className={styles.infos}>
+            <Chip label="En stock" color="primary" />
             <p className={styles.title}>{name}</p>
-            <div className={styles.rate}>
+            {/* <div className={styles.rate}>
               <i className="fi fi-rr-star" />
               <i className="fi fi-rr-star" />
               <i className="fi fi-rr-star" />
               <i className="fi fi-rr-star" />
               <i className="fi fi-rr-star" />
-            </div>
-            <p className={styles.description}>{description}</p>
+            </div> */}
+            <p className={styles.description}>{short}</p>
+            <p className={styles.description}>{long}</p>
             <p className={styles.price}>{price} Dh</p>
             <Divider />
             <div className={styles.cart}>
@@ -91,18 +102,19 @@ export default function Product() {
                 style={{ width: "100%" }}
                 onClick={handleAddToCart}
               >
-                Add to cart
+                Ajouter au panier
               </Button>
             </div>
             <Divider />
             <div>
               <p>
-                Category : <span className={styles.description}>Pasta </span>
+                Categorie :{" "}
+                <span className={styles.description}>{category}</span>
               </p>
             </div>
             <Divider />
             <div className={styles.checkout}>
-              <p>Guaranteed Safe Checkout</p>
+              <p>Paiement sécurisé garanti</p>
               <img
                 src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/trust-symbols.png"
                 alt=""

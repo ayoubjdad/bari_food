@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a5440;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  margin: 8px 0;
+  color: white;
+  max-width: 1200px;
+  text-align: center;
+  align-items: center;
+}

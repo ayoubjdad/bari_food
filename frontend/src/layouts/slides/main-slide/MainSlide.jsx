@@ -45,25 +45,27 @@ export default function MainSlide() {
           transition={{ duration: 0.1 }}
           style={{ backgroundImage: `url(${slides[index].image})` }}
         >
-          <div className={styles.arrowLeft}>
-            <Box
-              component="i"
-              className="fi fi-rr-arrow-small-left"
-              onClick={nextSlide}
-            />
-          </div>
-          <div className={styles.text}>
-            <h1>{slides[index].title}</h1>
-            <p>{slides[index].description}</p>
-            <p className={styles.price}>{slides[index].price}</p>
-            <Button onClick={nextSlide}>Commande maintenant</Button>
-          </div>
-          <div className={styles.arrowRight}>
-            <Box
-              component="i"
-              className="fi fi-rr-arrow-small-right"
-              onClick={nextSlide}
-            />
+          <div className={styles.slideContainer}>
+            <div className={styles.arrowLeft}>
+              <Box
+                component="i"
+                className="fi fi-rr-arrow-small-left"
+                onClick={nextSlide}
+              />
+            </div>
+            <div className={styles.text}>
+              <h1>{slides[index].title}</h1>
+              <p>{slides[index].description}</p>
+              <p className={styles.price}>{slides[index].price}</p>
+              <Button onClick={nextSlide}>Commande maintenant</Button>
+            </div>
+            <div className={styles.arrowRight}>
+              <Box
+                component="i"
+                className="fi fi-rr-arrow-small-right"
+                onClick={nextSlide}
+              />
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>

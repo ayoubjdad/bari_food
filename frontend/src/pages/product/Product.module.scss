@@ -10,6 +10,10 @@
   display: grid;
   margin: 80px 0;
   max-width: 1200px;
+
+  @media screen and (max-width: 768px) {
+    margin: 40px 0;
+  }
 }
 
 .product {
@@ -26,6 +30,11 @@
   gap: 32px;
   display: grid;
   height: fit-content;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 16px;
+  }
+
   img {
     width: 100%;
     border-radius: 16px;
@@ -37,12 +46,17 @@
   gap: 32px;
   display: grid;
   height: fit-content;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 16px;
+  }
 }
 
 .title {
   font-size: 52px;
   color: #1e1d23;
   font-weight: 700;
+  line-height: 52px;
   text-decoration: none;
 }
 
@@ -69,6 +83,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    gap: 16px;
+    display: grid;
+  }
 }
 
 .quantity {

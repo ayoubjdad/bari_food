@@ -10,9 +10,16 @@
 }
 
 .container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.slideContainer {
   gap: 32px;
   width: 100%;
   display: grid;
+  max-width: 1200px;
   padding: 160px 80px;
   align-items: center;
   grid-template-columns: 0.1fr 1fr 0.1fr;
@@ -54,6 +61,7 @@
     cursor: pointer;
     font-size: 16px;
     border-radius: 80px;
+    background-color: white;
     border: 1px solid #e5e5e5;
 
     &:hover {

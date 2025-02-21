@@ -19,6 +19,7 @@ import SignIn from "./pages/sign-in/SignIn";
 import { LoginProvider } from "./context/login/LoginContext";
 import ScrollToTop from "./layouts/scroll-to-top/ScrollToTop";
 import MainFooter from "./layouts/footer/main/MainFooter";
+import HeaderTop from "./layouts/header-top/HeaderTop";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <ToastContainer />
         <ThemeProvider theme={theme}>
           <Router>
+            <HeaderTop />
             <Header />
             <ScrollToTop />
             <Routes>

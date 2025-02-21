@@ -168,5 +168,20 @@ export const theme = createTheme({
         },
       },
     },
+
+    // * Chip
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontSize: "12px",
+          fontWeight: "600",
+          backgroundColor: "#50a6491a",
+          border: "1px solid #0a5440",
+          color: "#0a5440",
+          width: "fit-content",
+          fontFamily: "Poppins",
+        },
+      },
+    },
   },
 });

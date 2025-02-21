@@ -5,8 +5,11 @@ import { Button } from "@mui/material";
 import image1 from "../../assets/images/image1-h4.jpg";
 import image2 from "../../assets/images/image2-h4.jpg";
 import image3 from "../../assets/images/image3-h4.jpg";
+import { useNavigate } from "react-router-dom"; // Fix: Use "react-router-dom" instead of "react-router"
 
 export default function WhoWeAre() {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.main}>
       <div className={styles.container}>
@@ -29,7 +32,7 @@ export default function WhoWeAre() {
               bouchée est une invitation à la gourmandise, avec des recettes
               authentiques et des ingrédients de qualité.
             </p>
-            <Button>Contactez-nous</Button>
+            <Button onClick={() => navigate("/contact")}>Contactez-nous</Button>
           </div>
           <div className={styles.topSectionImages}>
             <img src={image1} alt="" />

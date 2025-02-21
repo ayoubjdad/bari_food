@@ -18,25 +18,28 @@ export default function Contact() {
         <PageHeader title="Contact" />
 
         <div className={styles.header}>
-          <h1>Appelez-nous ou visitez nos locaux</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h1>Contactez-nous ou passez nous voir</h1>
+          <p>
+            Nous sommes ravis de vous accueillir et de répondre à toutes vos
+            questions.
+          </p>
         </div>
 
         <div className={styles.contact}>
           <Info
             title="Téléphone"
             icon="fi fi-rr-phone-call"
-            description="+ 44 123 456 78 90"
+            description="+212 678 123 456"
           />
           <Info
             title="Adresse"
             icon="fi fi-rr-land-layer-location"
-            description="Box 565, Pinney's Beach, Charlestown, Nevis, Antilles, Caraïbes"
+            description="Bd de la Liberté, Casablanca 20250"
           />
           <Info
             title="E-mail"
             icon="fi fi-rr-envelope"
-            description="info@exemple.com"
+            description="info@barifood.com"
           />
         </div>
 
@@ -44,13 +47,16 @@ export default function Contact() {
           <div className={styles.map}>
             <img
               src="https://fr.casablancamap360.com/img/1200/plan-attractions-casablanca.jpg"
-              alt="map"
+              alt="Carte de Casablanca"
             />
           </div>
           <div className={styles.contactForm}>
             <h1>Envoyez-nous un message</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <form className={styles.form}>
+            <p>
+              Une question, une demande ou une suggestion ? Écrivez-nous et nous
+              vous répondrons dans les plus brefs délais.
+            </p>
+            <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
               <TextField placeholder="Nom" name="name" />
               <TextField placeholder="Email" name="email" />
               <TextField
@@ -65,12 +71,7 @@ export default function Contact() {
                   },
                 }}
               />
-              <Button
-                type="submit"
-                style={{
-                  width: "100%",
-                }}
-              >
+              <Button type="submit" style={{ width: "100%" }}>
                 Envoyer
               </Button>
             </form>

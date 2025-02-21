@@ -12,19 +12,23 @@
 .container {
   gap: 32px;
   width: 100%;
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 40px 0;
   max-width: 1200px;
-  grid-template-columns: repeat(7, 1fr);
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
 
   a {
     cursor: pointer;
     text-decoration: none;
   }
+}
+
+.categories {
+  width: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .category {
@@ -63,4 +67,26 @@
   color: #1e1d23;
   font-weight: 700;
   text-align: center;
+}
+
+.arrowLeft,
+.arrowRight {
+  i {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 80px;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+
+    &:hover {
+      color: #0a5440;
+    }
+  }
+}
+
+.arrowRight {
+  display: flex;
+  justify-content: flex-end;
 }

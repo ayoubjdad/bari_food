@@ -1,8 +1,11 @@
 import React from "react";
 import styles from "./Offers.module.scss";
 import starburst from "../../assets/images/starburst.jpg";
+import { useNavigate } from "react-router";
 
 export default function Offers() {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.main}>
       <div className={styles.container}>
@@ -25,15 +28,24 @@ export default function Offers() {
           title="Le magasin le plus proche de chez vous"
           description="Trouver un magasin"
           image="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/09/h1_banner3.png"
+          onClick={() => navigate("/contact")}
         />
       </div>
     </section>
   );
 }
 
-const Container = ({ index, title, description, footerText, image }) => {
+const Container = ({
+  index,
+  title,
+  description,
+  footerText,
+  image,
+  onClick,
+}) => {
   return (
     <div
+      onClick={onClick}
       className={`${styles.group} ${index === 1 && styles.middleGroup}`}
       style={
         index === 1

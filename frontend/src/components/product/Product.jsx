@@ -8,7 +8,7 @@ import { displaySuccessNotification } from "../toast/success/SuccessToast";
 export default function Product({ product = {} }) {
   const { addToCart } = useCart();
 
-  const { id, name, slug, description, price } = product;
+  const { id, name, slug, description: { short } = {}, price } = product;
 
   const handleAddToCart = (e) => {
     e?.preventDefault();
@@ -43,7 +43,7 @@ export default function Product({ product = {} }) {
 
           <p className={styles.productTitle}>{name}</p>
 
-          <p className={styles.productDescription}>{description}</p>
+          <p className={styles.productDescription}>{short}</p>
           <div className={styles.productFooter}>
             <p className={styles.productPrice}>{price} DH</p>
             <Box
