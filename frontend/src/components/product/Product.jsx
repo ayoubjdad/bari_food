@@ -4,11 +4,27 @@ import { useCart } from "../../context/cart/CartContext";
 import { Box } from "@mui/material";
 import { Link } from "react-router";
 import { displaySuccessNotification } from "../toast/success/SuccessToast";
+import { getProductImage } from "../../helpers/functions.helper";
 
 export default function Product({ product = {} }) {
   const { addToCart } = useCart();
 
-  const { id, name, slug, description: { short } = {}, price } = product;
+  const {
+    id,
+    reference,
+    name,
+    fileName,
+    slug,
+    image,
+    description: { short, long } = {},
+    price,
+    pieces,
+    countInStock,
+    categoryId,
+    isNew,
+  } = product;
+
+  const imageSrc = getProductImage(fileName);
 
   const handleAddToCart = (e) => {
     e?.preventDefault();
@@ -25,12 +41,8 @@ export default function Product({ product = {} }) {
     <div className={styles.container}>
       <Link to={`/produit/${id}/${slug}`} state={product}>
         <div className={styles.productImage}>
-          {/* <p className={styles.onsale}>Sale!</p> */}
-          <img
-            className={styles.productImage}
-            src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/40-1-150x150.png"
-            alt={name}
-          />
+          {isNew ? <p className={styles.onsale}>Nouveau!</p> : null}
+          <img src={imageSrc} alt={name} />
         </div>
         <div className={styles.productCaption}>
           {/* <div className={styles.rate}>

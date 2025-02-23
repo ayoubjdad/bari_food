@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./MainSlide.module.scss";
 import Button from "@mui/material/Button";
 import mainSlide from "../../../assets/images/main-slide.jpg";
 import { Box } from "@mui/material";
+import { products } from "../../../data/data";
+import { getProductImage } from "../../../helpers/functions.helper";
 
 const slides = [
   {
@@ -30,6 +32,19 @@ export default function MainSlide() {
   const intervalTime = 5000;
   const [index, setIndex] = useState(0);
 
+  const slides = useMemo(() => {
+    const filteredProducts = products.filter(
+      (product) => product.isHighlighted
+    );
+
+    return filteredProducts.map((product) => ({
+      image: getProductImage(product.fileName),
+      name: product.name,
+      description: product.description,
+      price: product.price,
+    }));
+  }, [products]);
+
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % slides.length);
   };
@@ -37,45 +52,50 @@ export default function MainSlide() {
   useEffect(() => {
     const interval = setInterval(nextSlide, intervalTime);
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <section className={styles.main}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={index}
-          className={styles.container}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.1 }}
-          style={{ backgroundImage: `url(${slides[index].image})` }}
-        >
-          <div className={styles.slideContainer}>
-            <div className={styles.arrowLeft}>
-              <Box
-                component="i"
-                className="fi fi-rr-arrow-small-left"
-                onClick={nextSlide}
-              />
-            </div>
-            <div className={styles.text}>
-              <h1>{slides[index].title}</h1>
-              <p>{slides[index].description}</p>
-              <p className={styles.price}>{slides[index].price}</p>
-              <Button onClick={nextSlide}>Commande maintenant</Button>
-            </div>
-            <div className={styles.arrowRight}>
-              <Box
-                component="i"
-                className="fi fi-rr-arrow-small-right"
-                onClick={nextSlide}
-              />
-            </div>
+      <div className={styles.container}>
+        <div className={styles.slideContainer}>
+          <div className={styles.arrowLeft}>
+            <Box
+              component="i"
+              className="fi fi-rr-arrow-small-left"
+              onClick={nextSlide}
+            />
           </div>
-        </motion.div>
-      </AnimatePresence>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.1 }}
+              className={styles.slide}
+            >
+              <div className={styles.text}>
+                <h1>{slides[index].name}</h1>
+                <p>{slides[index].description.short}</p>
+                <p className={styles.price}>{slides[index].price} DH</p>
+                <Button onClick={nextSlide}>Commande maintenant</Button>
+              </div>
+
+              <div className={styles.productImage}>
+                <img src={slides[index].image} alt={slides[index].name} />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+          <div className={styles.arrowRight}>
+            <Box
+              component="i"
+              className="fi fi-rr-arrow-small-right"
+              onClick={nextSlide}
+            />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

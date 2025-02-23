@@ -29,9 +29,20 @@ a {
   background-color: #50a6491a;
 }
 
-.productImage img {
-  width: 100px;
+.productImage {
   height: 100px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  border-radius: 20px;
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+
+  img {
+    max-width: 80%;
+    max-height: 80%;
+  }
 }
 
 .productCaption {

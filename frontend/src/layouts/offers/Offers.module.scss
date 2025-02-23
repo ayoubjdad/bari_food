@@ -20,12 +20,15 @@
 }
 
 .group {
-  display: flex;
+  display: grid;
   padding: 24px;
   cursor: pointer;
   border-radius: 6px;
   align-items: center;
   background-color: white;
+  height: -webkit-fill-available;
+  grid-template-columns: repeat(2, 1fr);
+
   &:hover {
     .image {
       background-color: #0a5440;
@@ -62,11 +65,13 @@
 .title {
   font-size: 24px;
   font-weight: 700;
+  line-height: 24px;
   text-decoration: none;
 }
 
 .description {
   width: 80%;
+  line-height: 14px;
 }
 
 .footerText {
@@ -85,8 +90,9 @@
   background-color: #50a6491a;
 
   img {
-    right: 20px;
-    width: 160px;
+    // right: 20px;
+    max-width: 100%;
+    max-height: 100%;
     position: relative;
     transition: all ease 0.35s;
   }

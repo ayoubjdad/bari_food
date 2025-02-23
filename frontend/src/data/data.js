@@ -119,7 +119,8 @@ export const products = [
     id: 1,
     reference: "",
     name: "Pain De Mie Assylor Nature 470 Gr",
-    slug: "pain-de-campagne",
+    fileName: "pain-de-mie-assylor-nature-470-gr",
+    slug: "pain-de-mie-assylor-nature-470-gr",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -135,7 +136,8 @@ export const products = [
     id: 2,
     reference: "",
     name: "Pain De Mie Assylor Complet 470 Gr",
-    slug: "pain-de-campagne",
+    fileName: "pain-de-mie-assylor-complet-470-gr",
+    slug: "pain-de-mie-assylor-complet-470-gr",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -151,7 +153,8 @@ export const products = [
     id: 3,
     reference: "",
     name: "Pain Tacos Maxi Complet Assylor 6pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-tacos-maxi-complet-assylor-6pcs",
+    slug: "pain-tacos-maxi-complet-assylor-6pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -167,7 +170,8 @@ export const products = [
     id: 4,
     reference: "",
     name: "Pain De Mie Extra Moelleux Aux Fibres",
-    slug: "pain-de-campagne",
+    fileName: "pain-de-mie-extra-moelleux-aux-fibres",
+    slug: "pain-de-mie-extra-moelleux-aux-fibres",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -183,7 +187,8 @@ export const products = [
     id: 5,
     reference: "",
     name: "Pain Pavot",
-    slug: "pain-de-campagne",
+    fileName: "pain-pavot",
+    slug: "pain-pavot",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -199,7 +204,8 @@ export const products = [
     id: 6,
     reference: "",
     name: "Pain De Mie Sans Sel",
-    slug: "pain-de-campagne",
+    fileName: "pain-de-mie-sans-sel",
+    slug: "pain-de-mie-sans-sel",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -215,7 +221,8 @@ export const products = [
     id: 7,
     reference: "",
     name: "Pain Assylor Au Lait Pepites De Chocolat",
-    slug: "pain-de-campagne",
+    fileName: "pain-assylor-au-lait-pepites-de-chocolat",
+    slug: "pain-assylor-au-lait-pepites-de-chocolat",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -231,7 +238,8 @@ export const products = [
     id: 8,
     reference: "",
     name: "Pain De Mie A L’huile D’olive",
-    slug: "pain-de-campagne",
+    fileName: "pain-de-mie-a-lhuile-dolive",
+    slug: "pain-de-mie-a-lhuile-dolive",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -247,7 +255,8 @@ export const products = [
     id: 9,
     reference: "",
     name: "Pain De Mie Assylor Familiale Nature",
-    slug: "pain-de-campagne",
+    fileName: "pain-de-mie-assylor-familiale-nature",
+    slug: "pain-de-mie-assylor-familiale-nature",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -263,7 +272,8 @@ export const products = [
     id: 10,
     reference: "",
     name: "Pain De Mie Pain D’or Nature 520 Grs",
-    slug: "pain-de-campagne",
+    fileName: "pain-de-mie-pain-dor-nature-520-grs",
+    slug: "pain-de-mie-pain-dor-nature-520-grs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -279,7 +289,8 @@ export const products = [
     id: 11,
     reference: "",
     name: "Tortilla 30 Cm *6 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "tortilla-30-cm-6-pcs",
+    slug: "tortilla-30-cm-6-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -295,7 +306,8 @@ export const products = [
     id: 12,
     reference: "",
     name: "Tortilla 20 Cm",
-    slug: "pain-de-campagne",
+    fileName: "tortilla-20-cm",
+    slug: "tortilla-20-cm",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -311,7 +323,8 @@ export const products = [
     id: 13,
     reference: "",
     name: "Pain Au Lait",
-    slug: "pain-de-campagne",
+    fileName: "pain-au-lait",
+    slug: "pain-au-lait",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -327,7 +340,8 @@ export const products = [
     id: 14,
     reference: "",
     name: "Pain Libanais 20 X 7 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-libanais-20-x-7-pcs",
+    slug: "pain-libanais-20-x-7-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -343,7 +357,8 @@ export const products = [
     id: 15,
     reference: "",
     name: "Pain Libanais 22 X 7 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-libanais-22-x-7-pcs",
+    slug: "pain-libanais-22-x-7-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -359,7 +374,8 @@ export const products = [
     id: 16,
     reference: "",
     name: "Pain Libanais 26 X 5 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-libanais-26-x-5-pcs",
+    slug: "pain-libanais-26-x-5-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -375,7 +391,8 @@ export const products = [
     id: 17,
     reference: "",
     name: "Pain Libanais Complet 20 X 5 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-libanais-complet-20-x-5-pcs",
+    slug: "pain-libanais-complet-20-x-5-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -391,7 +408,8 @@ export const products = [
     id: 18,
     reference: "",
     name: "Pate A Pizza Onion Garlic Assylor 3 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pate-a-pizza-onion-garlic-assylor-3-pcs",
+    slug: "pate-a-pizza-onion-garlic-assylor-3-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -407,7 +425,8 @@ export const products = [
     id: 19,
     reference: "",
     name: "Pate A Pizza Chili Garlic Assylor 3 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pate-a-pizza-chili-garlic-assylor-3-pcs",
+    slug: "pate-a-pizza-chili-garlic-assylor-3-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -423,7 +442,8 @@ export const products = [
     id: 20,
     reference: "",
     name: "Pain Hamburger 4 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-hamburger-4-pcs",
+    slug: "pain-hamburger-4-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -439,7 +459,8 @@ export const products = [
     id: 21,
     reference: "",
     name: "Assylor Pain De Mie Multi Céréale",
-    slug: "pain-de-campagne",
+    fileName: "assylor-pain-de-mie-multi-cereale",
+    slug: "assylor-pain-de-mie-multi-cereale",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -455,7 +476,8 @@ export const products = [
     id: 22,
     reference: "",
     name: "Pain Hamburger Géant 4 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-hamburger-geant-4-pcs",
+    slug: "pain-hamburger-geant-4-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -471,7 +493,8 @@ export const products = [
     id: 23,
     reference: "",
     name: "Pain Panini Gm 4 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-panini-gm-4-pcs",
+    slug: "pain-panini-gm-4-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -487,7 +510,8 @@ export const products = [
     id: 24,
     reference: "",
     name: "Pain Panini Pm 6 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-panini-pm-6-pcs",
+    slug: "pain-panini-pm-6-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -503,7 +527,8 @@ export const products = [
     id: 25,
     reference: "",
     name: "Mini Burger",
-    slug: "pain-de-campagne",
+    fileName: "mini-burger",
+    slug: "mini-burger",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -519,7 +544,8 @@ export const products = [
     id: 26,
     reference: "",
     name: "Assylor Mini Pizza Feuilletee",
-    slug: "pain-de-campagne",
+    fileName: "assylor-mini-pizza-feuilletee",
+    slug: "assylor-mini-pizza-feuilletee",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -530,12 +556,14 @@ export const products = [
     pieces: 3,
     countInStock: 100,
     categoryId: 7,
+    isHighlighted: true,
   },
   {
     id: 27,
     reference: "",
     name: "Pate A Pizza Feuilletee *3",
-    slug: "pain-de-campagne",
+    fileName: "pate-a-pizza-feuilletee-3",
+    slug: "pate-a-pizza-feuilletee-3",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -551,7 +579,8 @@ export const products = [
     id: 28,
     reference: "",
     name: "Pain Saucisse 4 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-saucisse-4-pcs",
+    slug: "pain-saucisse-4-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -562,12 +591,14 @@ export const products = [
     pieces: 3,
     countInStock: 100,
     categoryId: 14,
+    isHighlighted: true,
   },
   {
     id: 29,
     reference: "",
     name: "Pate A Pizza X10 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pate-a-pizza-x10-pcs",
+    slug: "pate-a-pizza-x10-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -583,7 +614,8 @@ export const products = [
     id: 30,
     reference: "",
     name: "Pate A Pizza Moyenne 3 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pate-a-pizza-moyenne-3-pcs",
+    slug: "pate-a-pizza-moyenne-3-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -599,7 +631,8 @@ export const products = [
     id: 31,
     reference: "",
     name: "Pate A Pizza Familiale 2 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pate-a-pizza-familiale-2-pcs",
+    slug: "pate-a-pizza-familiale-2-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -615,7 +648,8 @@ export const products = [
     id: 32,
     reference: "",
     name: "Pate A Pizza D’or 2 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pate-a-pizza-dor-2-pcs",
+    slug: "pate-a-pizza-dor-2-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -626,12 +660,14 @@ export const products = [
     pieces: 3,
     countInStock: 100,
     categoryId: 7,
+    isNew: true,
   },
   {
     id: 33,
     reference: "",
     name: "Traiteur Familiale",
-    slug: "pain-de-campagne",
+    fileName: "traiteur-familiale",
+    slug: "traiteur-familiale",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -647,7 +683,8 @@ export const products = [
     id: 34,
     reference: "",
     name: "Traiteur Moyenne",
-    slug: "pain-de-campagne",
+    fileName: "traiteur-moyenne",
+    slug: "traiteur-moyenne",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -663,7 +700,8 @@ export const products = [
     id: 35,
     reference: "",
     name: "Assylor Pate A Pizza Complete",
-    slug: "pain-de-campagne",
+    fileName: "assylor-pate-a-pizza-complete",
+    slug: "assylor-pate-a-pizza-complete",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -674,12 +712,14 @@ export const products = [
     pieces: 3,
     countInStock: 100,
     categoryId: 7,
+    isNew: true,
   },
   {
     id: 36,
     reference: "",
     name: "Pain D’or, Pizza Semoule Au Thym",
-    slug: "pain-de-campagne",
+    fileName: "pain-dor-pizza-semoule-au-thym",
+    slug: "pain-dor-pizza-semoule-au-thym",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -690,12 +730,14 @@ export const products = [
     pieces: 3,
     countInStock: 100,
     categoryId: 7,
+    isNew: true,
   },
   {
     id: 37,
     reference: "",
     name: "Assylor Pizza A L’huile D’olive",
-    slug: "pain-de-campagne",
+    fileName: "assylor-pizza-a-lhuile-dolive",
+    slug: "assylor-pizza-a-lhuile-dolive",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -706,12 +748,14 @@ export const products = [
     pieces: 3,
     countInStock: 100,
     categoryId: 7,
+    isNew: true,
   },
   {
     id: 38,
     reference: "",
     name: "Mini Pate A Pizza Complete Assylor *12",
-    slug: "pain-de-campagne",
+    fileName: "mini-pate-a-pizza-complete-assylor-12",
+    slug: "mini-pate-a-pizza-complete-assylor-12",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -727,7 +771,8 @@ export const products = [
     id: 39,
     reference: "",
     name: "Assylor Pain Burger Complet",
-    slug: "pain-de-campagne",
+    fileName: "assylor-pain-burger-complet",
+    slug: "assylor-pain-burger-complet",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -743,7 +788,8 @@ export const products = [
     id: 40,
     reference: "",
     name: "Fond De Tarte Sale 9cm",
-    slug: "pain-de-campagne",
+    fileName: "fond-de-tarte-sale-9cm",
+    slug: "fond-de-tarte-sale-9cm",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -759,7 +805,8 @@ export const products = [
     id: 41,
     reference: "",
     name: "Fond De Tarte Sucree 9cm",
-    slug: "pain-de-campagne",
+    fileName: "fond-de-tarte-sucree-9cm",
+    slug: "fond-de-tarte-sucree-9cm",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -770,12 +817,14 @@ export const products = [
     pieces: 3,
     countInStock: 100,
     categoryId: 10,
+    isHighlighted: true,
   },
   {
     id: 42,
     reference: "",
     name: "Chapelure Nature 250 Gr (exonéré)",
-    slug: "pain-de-campagne",
+    fileName: "chapelure-nature-250-gr-exonere",
+    slug: "chapelure-nature-250-gr-exonere",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -791,7 +840,8 @@ export const products = [
     id: 43,
     reference: "",
     name: "Chapelure Poulet 250 Gr",
-    slug: "pain-de-campagne",
+    fileName: "chapelure-poulet-250-gr",
+    slug: "chapelure-poulet-250-gr",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {
@@ -807,7 +857,8 @@ export const products = [
     id: 44,
     reference: "",
     name: "Pain Ciabatta A L’huile D’olive Assylor 4 Pcs",
-    slug: "pain-de-campagne",
+    fileName: "pain-ciabatta-a-lhuile-dolive-assylor-4-pcs",
+    slug: "pain-ciabatta-a-lhuile-dolive-assylor-4-pcs",
     image:
       "https://www.pngplay.com/wp-content/uploads/15/Viennoiserie-Download-Free-PNG.png",
     description: {

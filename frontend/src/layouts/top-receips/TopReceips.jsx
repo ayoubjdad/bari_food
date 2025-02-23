@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styles from "./TopReceips.module.scss";
 import ProductLarge from "../../components/product-large/ProductLarge";
 import { products } from "../../data/data";
 import delivery from "../../assets/images/way-concept-illustration.png";
 
 export default function TopReceips() {
+  const list = useMemo(
+    () => products.filter((product) => product.name.includes("Pain Libanais")),
+    [products]
+  );
+
   return (
     <section className={styles.main}>
       <div className={styles.container}>
         <div className={styles.receipsContainer}>
           <div className={styles.header}>
-            <h1>Top Receips</h1>
+            <h1>Pain Libanais</h1>
             <p>
               <span>Voir tout</span>
               <i class="fi fi-rr-arrow-small-right"></i>
@@ -18,7 +23,7 @@ export default function TopReceips() {
           </div>
 
           <div className={styles.receips}>
-            {products.slice(0, 6).map((product) => (
+            {list.slice(0, 6).map((product) => (
               <ProductLarge product={product} />
             ))}
           </div>
