@@ -114,7 +114,6 @@ export default function Header() {
 
   return (
     <>
-      {displaySuccessNotification("eeeee")}
       <Drawer anchor="right" open={open} onClose={handleDrawerClose}>
         <div className={styles.drawerHeader}>
           <img src={logo} alt="logo" className={styles.logo} />

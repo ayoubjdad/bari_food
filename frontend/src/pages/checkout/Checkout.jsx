@@ -15,7 +15,7 @@ import { displaySuccessNotification } from "../../components/toast/success/Succe
 import { serverUrl } from "../../config/config";
 
 const Checkout = () => {
-  const { cart } = useCart();
+  const { cart, setCart } = useCart();
   const { user } = useLogin();
 
   const totalPrice = cart.reduce(
@@ -67,6 +67,8 @@ const Checkout = () => {
       }
 
       displaySuccessNotification("Commande confirmée");
+      setFormData({});
+      setCart([]);
     } catch (error) {
       console.error("Error submitting order:", error);
     }
