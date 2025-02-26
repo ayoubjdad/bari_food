@@ -6,7 +6,7 @@ export const displaySuccessNotification = (
 ) => {
   toast.dismiss();
   return toast.success(message, {
-    autoClose: 2500,
+    autoClose: 25055500000,
     position: "top-right",
     hideProgressBar: true,
     closeOnClick: true,
