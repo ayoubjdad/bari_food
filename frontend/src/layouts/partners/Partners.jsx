@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Partners.module.scss";
+import enovaFoods from "../../assets/partners/enova-foods.jpeg";
 
 const items = [
   {
@@ -19,6 +20,10 @@ const items = [
   {
     alias: "Pain d'or",
     image: "https://joyfood.ma/wp-content/uploads/2024/12/04.png",
+  },
+  {
+    alias: "enova-foods",
+    image: enovaFoods,
   },
 ];
 
