@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Offers.module.scss";
-import { useNavigate } from "react-router";
-import { products } from "../../data/data";
+import { Link } from "react-router";
+import { categories, products } from "../../data/data";
 import { getProductImage } from "../../helpers/functions.helper";
 
 export default function Offers() {
@@ -22,8 +22,6 @@ export default function Offers() {
 }
 
 const Container = ({ id, index, title, description, footerText, image }) => {
-  const navigate = useNavigate();
-
   const product = products.find((product) => product.id === id) || {};
 
   const {
@@ -32,37 +30,29 @@ const Container = ({ id, index, title, description, footerText, image }) => {
     slug,
     description: { short = description } = {},
     price = footerText,
-    pieces,
+    categoryId,
   } = product;
-
-  const imageSrc = image || getProductImage(fileName);
-
-  const onClick = () => {
-    navigate(index === 2 ? "/contact" : `/produit/${id}/${slug}`);
-  };
+  const { slug: categorySlug } =
+    categories.find((category) => category.id === categoryId) || {};
+  const imageSrc =
+    image ||
+    require(`../../assets/images/products/${categorySlug}/${fileName}.JPG`);
 
   return (
-    <div
-      onClick={onClick}
-      className={`${styles.group} ${index === 1 && styles.middleGroup}`}
-      style={
-        index === 1
-          ? {
-              // backgroundImage: `url(${starburst})`,
-              // backgroundPosition: "center",
-            }
-          : {}
-      }
-      key={index}
-    >
-      <div className={styles.text}>
-        {name ? <p className={styles.title}>{name}</p> : null}
-        {short ? <p className={styles.description}>{short}</p> : null}
-        {price ? <p className={styles.footerText}>{price}</p> : null}
+    <Link to={`/produit/${id}/${slug}`} state={product}>
+      <div
+        key={index}
+        className={`${styles.group} ${index === 1 && styles.middleGroup}`}
+      >
+        <div className={styles.text}>
+          {name ? <p className={styles.title}>{name}</p> : null}
+          {short ? <p className={styles.description}>{short}</p> : null}
+          {price ? <p className={styles.footerText}>{price}</p> : null}
+        </div>
+        <div className={styles.image}>
+          <img src={imageSrc} alt={imageSrc} />
+        </div>
       </div>
-      <div className={styles.image}>
-        <img src={imageSrc} alt={imageSrc} />
-      </div>
-    </div>
+    </Link>
   );
 };

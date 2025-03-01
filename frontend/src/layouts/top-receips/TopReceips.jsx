@@ -32,9 +32,11 @@ export default function TopReceips() {
         <div className={styles.delivery}>
           <div className={styles.deliveryTitle}>
             <p className={styles.top}>Bari vous livre</p>
-            <p className={styles.middle}>à Casablanca</p>
-            <p className={styles.bottom}>Appelez-nous sur</p>
-            <p className={styles.phone}>06 06 060 606</p>
+            <p className={styles.middle}>
+              à Casablanca, Mohammedia, Rabat, Temara, Salé, Berrchid, Bouskoura
+            </p>
+            <p className={styles.bottom}>Whatsapp</p>
+            <p className={styles.phone}>+212 664 27 35 23</p>
           </div>
           <div className={styles.deliveryImage}>
             <img src={delivery} alt="delivery" />

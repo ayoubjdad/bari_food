@@ -7,6 +7,7 @@ import { useLocation } from "react-router";
 import { useCart } from "../../context/cart/CartContext";
 import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
 import { categories } from "../../data/data";
+import { getProductImage } from "../../helpers/functions.helper";
 
 export default function Product() {
   const { addToCart } = useCart();
@@ -17,7 +18,8 @@ export default function Product() {
     id,
     categoryId,
     name,
-    description: { short, long } = {},
+    fileName,
+    description: { long } = {},
     price,
   } = product;
 
@@ -25,7 +27,9 @@ export default function Product() {
     quantity: 1,
   });
 
-  const { name: category } = categories.find((item) => item.id === categoryId);
+  const { name: category, slug } =
+    categories.find((category) => category.id === categoryId) || {};
+  const imageSrc = getProductImage(slug, fileName);
 
   if (!id) {
     return (
@@ -63,23 +67,12 @@ export default function Product() {
       <div className={styles.container}>
         <div className={styles.product}>
           <div className={styles.images}>
-            <img
-              src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/35-1-768x768.png"
-              alt=""
-            />
+            <img src={imageSrc} alt={name} />
           </div>
 
           <div className={styles.infos}>
             <Chip label="En stock" color="primary" />
             <p className={styles.title}>{name}</p>
-            {/* <div className={styles.rate}>
-              <i className="fi fi-rr-star" />
-              <i className="fi fi-rr-star" />
-              <i className="fi fi-rr-star" />
-              <i className="fi fi-rr-star" />
-              <i className="fi fi-rr-star" />
-            </div> */}
-            <p className={styles.description}>{short}</p>
             <p className={styles.description}>{long}</p>
             <p className={styles.price}>{price} Dh</p>
             <Divider />
@@ -112,18 +105,18 @@ export default function Product() {
                 <span className={styles.description}>{category}</span>
               </p>
             </div>
-            <Divider />
+            {/* <Divider />
             <div className={styles.checkout}>
               <p>Paiement sécurisé garanti</p>
               <img
                 src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/trust-symbols.png"
                 alt=""
               />
-            </div>
+            </div> */}
           </div>
         </div>
 
-        <h1>Related products</h1>
+        <h1>Autres produits</h1>
         <Products products={[]} />
       </div>
     </section>

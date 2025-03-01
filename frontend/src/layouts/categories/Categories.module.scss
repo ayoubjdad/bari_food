@@ -26,9 +26,9 @@
 
 .categories {
   width: 80%;
-  display: flex;
+  display: grid;
   align-items: flex-start;
-  justify-content: space-between;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .category {

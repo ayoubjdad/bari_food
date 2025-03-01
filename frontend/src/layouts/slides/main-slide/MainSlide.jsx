@@ -2,51 +2,43 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./MainSlide.module.scss";
 import Button from "@mui/material/Button";
-import mainSlide from "../../../assets/images/main-slide.jpg";
 import { Box } from "@mui/material";
-import { products } from "../../../data/data";
+import { categories, products } from "../../../data/data";
 import { getProductImage } from "../../../helpers/functions.helper";
-
-const slides = [
-  {
-    image: mainSlide,
-    title: "Croissant Arty 75g",
-    description: "Une nouvelle forme originale, moderne et pyramidale",
-    price: "4.5 Dh /10 pièces",
-  },
-  {
-    image: mainSlide,
-    title: "Pain au Chocolat 80g",
-    description: "Délicieux et croustillant avec du chocolat fondant",
-    price: "5 Dh /10 pièces",
-  },
-  {
-    image: mainSlide,
-    title: "Brioche Moelleuse 100g",
-    description: "Une texture moelleuse avec un goût irrésistible",
-    price: "6 Dh /10 pièces",
-  },
-];
+import { useNavigate } from "react-router-dom"; // Fix: Use "react-router-dom" instead of "react-router"
 
 export default function MainSlide() {
+  const navigate = useNavigate();
+
   const intervalTime = 5000;
+
   const [index, setIndex] = useState(0);
 
   const slides = useMemo(() => {
     const filteredProducts = products.filter(
       (product) => product.isHighlighted
     );
+    const result = filteredProducts.map((product) => {
+      const { slug } = categories.find(
+        (category) => category.id === product.categoryId
+      );
+      return {
+        ...product,
+        image: getProductImage(slug, product.fileName),
+      };
+    });
 
-    return filteredProducts.map((product) => ({
-      image: getProductImage(product.fileName),
-      name: product.name,
-      description: product.description,
-      price: product.price,
-    }));
+    return result;
   }, [products]);
 
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % slides.length);
+  };
+
+  const buyNow = () => {
+    navigate(`/produit/${slides[index].id}/${slides[index].slug}`, {
+      state: { ...slides[index] },
+    });
   };
 
   useEffect(() => {
@@ -79,7 +71,7 @@ export default function MainSlide() {
                 <h1>{slides[index].name}</h1>
                 <p>{slides[index].description.short}</p>
                 <p className={styles.price}>{slides[index].price} DH</p>
-                <Button onClick={nextSlide}>Commande maintenant</Button>
+                <Button onClick={buyNow}>Commande maintenant</Button>
               </div>
 
               <div className={styles.productImage}>

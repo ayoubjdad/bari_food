@@ -193,8 +193,8 @@ export default function Header() {
             <li className={styles.shipping}>
               <i className="fi fi-rr-shipping-fast" />
               <div className={styles.shippingText}>
-                <p>Commandez sur</p>
-                <p className={styles.phone}>+212 660-606-606</p>
+                <p>Whatsapp</p>
+                <p className={styles.phone}>+212 664 27 35 23</p>
               </div>
             </li>
 

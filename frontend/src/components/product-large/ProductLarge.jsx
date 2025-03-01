@@ -4,13 +4,15 @@ import { useCart } from "../../context/cart/CartContext";
 import { Box } from "@mui/material";
 import { Link } from "react-router";
 import { getProductImage } from "../../helpers/functions.helper";
+import { categories } from "../../data/data";
 
 export default function ProductLarge({ product = {} }) {
   const { addToCart } = useCart();
 
-  const { id, name, fileName, slug, price } = product;
-
-  const imageSrc = getProductImage(fileName);
+  const { id, name, fileName, slug, price, categoryId } = product;
+  const { slug: categorySlug } =
+    categories.find((category) => category.id === categoryId) || {};
+  const imageSrc = getProductImage(categorySlug, fileName);
 
   return (
     <Link to={`/produit/${id}/${slug}`} state={product}>

@@ -33,11 +33,13 @@
   }
 
   .products {
+    height: fit-content;
     grid-area: products;
   }
 
   .filters {
     grid-area: filters;
+    height: fit-content;
   }
 }
 
