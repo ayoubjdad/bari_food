@@ -37,6 +37,11 @@ const Checkout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (totalPrice < 250) {
+      alert("Le montant minimum de commande est de 250 DH.");
+      return;
+    }
+
     const orderData = {
       user: user?._id,
       items: cart.map((product) => ({

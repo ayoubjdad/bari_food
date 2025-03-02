@@ -28,7 +28,11 @@ const App = () => {
         <ToastContainer />
         <ThemeProvider theme={theme}>
           <Router>
-            <HeaderTop />
+            <HeaderTop text="🚀 Soyez parmi les 200 livrés par jour & profitez de nos offres exclusives et de la livraison rapide !" />
+            <HeaderTop
+              text="Commande minimum : 150dh produits frais et cuits 250dh produits surgelés"
+              style={{ backgroundColor: "#1e1e1e" }}
+            />
             <Header />
             <ScrollToTop />
             <Routes>
