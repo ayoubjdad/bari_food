@@ -23,7 +23,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="cart"
         options={{
-          title: 'Cart',
+          title: 'Panier',
           tabBarIcon: ({ color, size }) => (
             <ShoppingBag size={size} color={color} />
           ),
@@ -32,7 +32,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="orders"
         options={{
-          title: 'Orders',
+          title: 'Commandes',
           tabBarIcon: ({ color, size }) => <Clock size={size} color={color} />,
         }}
       />

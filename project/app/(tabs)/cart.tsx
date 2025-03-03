@@ -16,8 +16,6 @@ import { Link } from 'expo-router';
 export default function CartScreen() {
   const [items, setItems] = useState<CartItem[]>(cartItems);
   const [subtotal, setSubtotal] = useState(0);
-  const deliveryFee = 2.99;
-  const tax = 1.5;
 
   useEffect(() => {
     calculateSubtotal();
@@ -47,15 +45,15 @@ export default function CartScreen() {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
-  const total = subtotal + deliveryFee + tax;
+  const total = subtotal;
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Your Cart</Text>
+        <Text style={styles.title}>Panier</Text>
         {items.length > 0 && (
           <Text style={styles.itemCount}>
-            {items.length} item{items.length !== 1 ? 's' : ''}
+            {items.length} élément{items.length !== 1 ? 's' : ''}
           </Text>
         )}
       </View>
@@ -68,13 +66,13 @@ export default function CartScreen() {
             }}
             style={styles.emptyCartImage}
           />
-          <Text style={styles.emptyCartText}>Your cart is empty</Text>
+          <Text style={styles.emptyCartText}>Votre panier est vide</Text>
           <Text style={styles.emptyCartSubtext}>
-            Add some delicious food to your cart
+            Ajoutez de la nourriture délicieuse à votre panier
           </Text>
           <Link href="/" asChild>
             <TouchableOpacity style={styles.browseButton}>
-              <Text style={styles.browseButtonText}>Browse Menu</Text>
+              <Text style={styles.browseButtonText}>Revenir au menu</Text>
             </TouchableOpacity>
           </Link>
         </View>
@@ -120,23 +118,19 @@ export default function CartScreen() {
           <View style={styles.summaryContainer}>
             <View style={styles.summaryRow}>
               <Text style={styles.summaryLabel}>Subtotal</Text>
-              <Text style={styles.summaryValue}>${subtotal.toFixed(2)}</Text>
+              <Text style={styles.summaryValue}>{subtotal.toFixed(2)} DH</Text>
             </View>
             <View style={styles.summaryRow}>
-              <Text style={styles.summaryLabel}>Delivery Fee</Text>
-              <Text style={styles.summaryValue}>${deliveryFee.toFixed(2)}</Text>
-            </View>
-            <View style={styles.summaryRow}>
-              <Text style={styles.summaryLabel}>Tax</Text>
-              <Text style={styles.summaryValue}>${tax.toFixed(2)}</Text>
+              <Text style={styles.summaryLabel}>Livraison</Text>
+              <Text style={styles.summaryValue}>Gratuite</Text>
             </View>
             <View style={[styles.summaryRow, styles.totalRow]}>
               <Text style={styles.totalLabel}>Total</Text>
-              <Text style={styles.totalValue}>${total.toFixed(2)}</Text>
+              <Text style={styles.totalValue}>{total.toFixed(2)} DH</Text>
             </View>
 
             <TouchableOpacity style={styles.checkoutButton}>
-              <Text style={styles.checkoutButtonText}>Proceed to Checkout</Text>
+              <Text style={styles.checkoutButtonText}>Passer la commande</Text>
             </TouchableOpacity>
           </View>
         </>

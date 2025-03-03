@@ -27,7 +27,7 @@ export default function Product() {
     quantity: 1,
   });
 
-  const { name: category, slug } =
+  const { name: category, slug = "" } =
     categories.find((category) => category.id === categoryId) || {};
   const imageSrc = getProductImage(slug, fileName);
 

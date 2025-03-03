@@ -56,40 +56,22 @@ export default function FoodDetailScreen() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Image source={{ uri: foodItem.image }} style={styles.foodImage} />
+        {/* <Image source={{ uri: foodItem.image }} style={styles.foodImage} /> */}
 
         <View style={styles.contentContainer}>
           <View style={styles.titleRow}>
             <View>
               <Text style={styles.foodName}>{foodItem.name}</Text>
-              <View style={styles.ratingContainer}>
-                <Star size={16} color="#FFD700" fill="#FFD700" />
-                <Text style={styles.rating}>{foodItem.rating}</Text>
-                <Text style={styles.reviews}>({foodItem.reviews} reviews)</Text>
+              <View style={styles.priceContainer}>
+                <Text style={styles.price}>{foodItem.price.toFixed(2)} DH</Text>
               </View>
-            </View>
-            <View style={styles.priceContainer}>
-              <Text style={styles.price}>${foodItem.price.toFixed(2)}</Text>
             </View>
           </View>
 
           <Text style={styles.sectionTitle}>Description</Text>
           <Text style={styles.description}>{foodItem.description}</Text>
 
-          {foodItem.ingredients && (
-            <>
-              <Text style={styles.sectionTitle}>Ingredients</Text>
-              <View style={styles.ingredientsContainer}>
-                {foodItem.ingredients.map((ingredient, index) => (
-                  <View key={index} style={styles.ingredientBadge}>
-                    <Text style={styles.ingredientText}>{ingredient}</Text>
-                  </View>
-                ))}
-              </View>
-            </>
-          )}
-
-          <Text style={styles.sectionTitle}>Quantity</Text>
+          <Text style={styles.sectionTitle}>Quantité</Text>
           <View style={styles.quantityContainer}>
             <TouchableOpacity
               style={styles.quantityButton}
@@ -110,11 +92,11 @@ export default function FoodDetailScreen() {
 
       <View style={styles.footer}>
         <View style={styles.totalContainer}>
-          <Text style={styles.totalLabel}>Total Price</Text>
-          <Text style={styles.totalPrice}>${totalPrice.toFixed(2)}</Text>
+          <Text style={styles.totalLabel}>Prix Total</Text>
+          <Text style={styles.totalPrice}>{totalPrice.toFixed(2)} DH</Text>
         </View>
         <TouchableOpacity style={styles.addToCartButton}>
-          <Text style={styles.addToCartText}>Add to Cart</Text>
+          <Text style={styles.addToCartText}>Ajouter à la carte</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -187,6 +169,7 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   priceContainer: {
+    alignSelf: 'flex-start',
     backgroundColor: '#FFF0E6',
     paddingHorizontal: 12,
     paddingVertical: 6,

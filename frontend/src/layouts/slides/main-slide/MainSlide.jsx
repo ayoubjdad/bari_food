@@ -19,12 +19,12 @@ export default function MainSlide() {
       (product) => product.isHighlighted
     );
     const result = filteredProducts.map((product) => {
-      const { slug } = categories.find(
+      const category = categories.find(
         (category) => category.id === product.categoryId
       );
       return {
         ...product,
-        image: getProductImage(slug, product.fileName),
+        image: getProductImage(category?.slug, product.fileName),
       };
     });
 

@@ -1,13 +1,13 @@
 export interface FoodItem {
   id: string;
   name: string;
+  fileName: string;
   description: string;
   price: number;
-  image: string;
-  category: string;
-  rating: number;
-  reviews: number;
-  ingredients?: string[];
+  slug: string;
+  countInStock: number;
+  categoryId: number;
+  image?: number;
 }
 
 export interface CartItem {

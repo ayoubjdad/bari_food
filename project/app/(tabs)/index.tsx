@@ -10,15 +10,16 @@ import {
 } from 'react-native';
 import { Search, Filter, Star } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { foodItems } from '../../data/foodItems';
+import { foodItems, productsCategories } from '../../data/foodItems';
 import { FoodItem } from '../../types';
 import { Link } from 'expo-router';
+import { productImages } from '@/helpers/images';
 
 export default function MenuScreen() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredItems, setFilteredItems] = useState<FoodItem[]>(foodItems);
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const categories = ['All', 'Burgers', 'Pizza', 'Pasta', 'Desserts', 'Drinks'];
+  const categories = productsCategories.map((category) => category.name);
 
   useEffect(() => {
     filterItems();
@@ -36,18 +37,26 @@ export default function MenuScreen() {
 
     // Filter by category
     if (selectedCategory !== 'All') {
-      filtered = filtered.filter((item) => item.category === selectedCategory);
+      filtered = filtered.filter(
+        (item) => String(item.categoryId) === selectedCategory
+      );
     }
 
     setFilteredItems(filtered);
+  };
+
+  const getImage = (category: number, slug: string): number | undefined => {
+    return productImages[slug];
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View>
-          <Text style={styles.greeting}>Hello, Ayoub!</Text>
-          <Text style={styles.subtitle}>What would you like to eat today?</Text>
+          <Text style={styles.greeting}>Bonjour, Ayoub!</Text>
+          <Text style={styles.subtitle}>
+            Qu'est-ce que tu aimerais manger aujourd'hui ?
+          </Text>
         </View>
       </View>
 
@@ -56,7 +65,7 @@ export default function MenuScreen() {
           <Search size={20} color="#9E9E9E" />
           <TextInput
             style={styles.searchInput}
-            placeholder="Search for food..."
+            placeholder="Rechercher..."
             value={searchQuery}
             onChangeText={setSearchQuery}
           />
@@ -72,7 +81,7 @@ export default function MenuScreen() {
         style={styles.categoriesContainer}
         contentContainerStyle={styles.categoriesContent}
       >
-        {categories.map((category) => (
+        {['Tout', ...categories].map((category) => (
           <TouchableOpacity
             key={category}
             style={[
@@ -93,27 +102,38 @@ export default function MenuScreen() {
         ))}
       </ScrollView>
 
-      <Text style={styles.sectionTitle}>Popular Items</Text>
+      <Text style={styles.sectionTitle}>Articles populaires</Text>
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.foodGrid}>
-          {filteredItems.map((item) => (
-            <Link href={`/food/${item.id}`} key={item.id} asChild>
-              <TouchableOpacity style={styles.foodCard}>
-                <Image source={{ uri: item.image }} style={styles.foodImage} />
-                <View style={styles.foodInfo}>
-                  <Text style={styles.foodName}>{item.name}</Text>
-                  <View style={styles.foodMeta}>
-                    <View style={styles.ratingContainer}>
-                      <Star size={14} color="#FFD700" fill="#FFD700" />
-                      <Text style={styles.rating}>{item.rating}</Text>
+          {filteredItems.map((item) => {
+            const imageSource =
+              getImage(item.categoryId, item.slug) ||
+              require('../assets/images/products/chapelure/chapelure-nature-250g.png');
+
+            return (
+              <Link href={`/food/${item.id}`} key={item.id} asChild>
+                <TouchableOpacity style={styles.foodCard}>
+                  <Image
+                    source={{ uri: imageSource }}
+                    style={styles.foodImage}
+                  />
+                  <View style={styles.foodInfo}>
+                    <Text style={styles.foodName}>{item.name}</Text>
+                    <View style={styles.foodMeta}>
+                      <View style={styles.ratingContainer}>
+                        <Star size={14} color="#FFD700" fill="#FFD700" />
+                        <Text style={styles.rating}>5</Text>
+                      </View>
+                      <Text style={styles.price}>
+                        {item.price.toFixed(2)} DH
+                      </Text>
                     </View>
-                    <Text style={styles.price}>${item.price.toFixed(2)}</Text>
                   </View>
-                </View>
-              </TouchableOpacity>
-            </Link>
-          ))}
+                </TouchableOpacity>
+              </Link>
+            );
+          })}
         </View>
       </ScrollView>
     </SafeAreaView>

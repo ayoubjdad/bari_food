@@ -10,7 +10,7 @@ export default function ProductLarge({ product = {} }) {
   const { addToCart } = useCart();
 
   const { id, name, fileName, slug, price, categoryId } = product;
-  const { slug: categorySlug } =
+  const { slug: categorySlug = "" } =
     categories.find((category) => category.id === categoryId) || {};
   const imageSrc = getProductImage(categorySlug, fileName);
 

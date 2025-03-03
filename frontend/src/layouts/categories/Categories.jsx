@@ -4,7 +4,10 @@ import { categories, products } from "../../data/data";
 import { Link } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box } from "@mui/material";
-import { getProductImage } from "../../helpers/functions.helper";
+import {
+  getCategoryImage,
+  getProductImage,
+} from "../../helpers/functions.helper";
 
 export default function Categories() {
   const [index, setIndex] = useState(0);
@@ -57,18 +60,13 @@ export default function Categories() {
             {categories
               .slice(index, index + itemsPerPage)
               .map(({ id, name, slug }) => {
-                const { slug: productSlug, fileName } = products.find(
-                  (product) => product.categoryId === id
-                );
-                const imageSrc = getProductImage(productSlug, fileName);
+                const imageSrc = getCategoryImage(slug);
 
                 return (
                   <Link to={`/produits/${slug}`} key={slug}>
                     <div className={styles.category}>
                       <div className={styles.image}>
-                        {productSlug && fileName && (
-                          <img src={imageSrc} alt={name} />
-                        )}
+                        <img src={imageSrc} alt={name} />
                       </div>
                       <p className={styles.name}>{name}</p>
                     </div>

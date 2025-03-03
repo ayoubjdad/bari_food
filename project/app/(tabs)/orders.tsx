@@ -16,11 +16,11 @@ import { orders } from '../../data/orders';
 export default function OrdersScreen() {
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Delivered':
+      case 'Livrée':
         return '#4CAF50';
-      case 'Processing':
+      case 'En attente':
         return '#FF9800';
-      case 'Cancelled':
+      case 'Annulée':
         return '#FF3B30';
       default:
         return '#9E9E9E';
@@ -29,11 +29,11 @@ export default function OrdersScreen() {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'Delivered':
+      case 'Livrée':
         return <CheckCircle size={16} color="#4CAF50" />;
-      case 'Processing':
+      case 'En attente':
         return <Clock size={16} color="#FF9800" />;
-      case 'Cancelled':
+      case 'Annulée':
         return <XCircle size={16} color="#FF3B30" />;
       default:
         return null;
@@ -43,20 +43,20 @@ export default function OrdersScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Your Orders</Text>
+        <Text style={styles.title}>Liste des Commandes</Text>
       </View>
 
-      <View style={styles.tabs}>
+      {/* <View style={styles.tabs}>
         <TouchableOpacity style={[styles.tab, styles.activeTab]}>
           <Text style={[styles.tabText, styles.activeTabText]}>All</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tab}>
-          <Text style={styles.tabText}>Processing</Text>
+          <Text style={styles.tabText}>En attente</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tab}>
-          <Text style={styles.tabText}>Delivered</Text>
+          <Text style={styles.tabText}>Livrée</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
 
       <ScrollView showsVerticalScrollIndicator={false}>
         {orders.map((order) => (
@@ -96,10 +96,10 @@ export default function OrdersScreen() {
 
             <View style={styles.orderFooter}>
               <Text style={styles.totalLabel}>Total</Text>
-              <Text style={styles.totalValue}>${order.total.toFixed(2)}</Text>
+              <Text style={styles.totalValue}>{order.total.toFixed(2)} DH</Text>
             </View>
 
-            <View style={styles.actionButtons}>
+            {/* <View style={styles.actionButtons}>
               <TouchableOpacity style={styles.actionButton}>
                 <Text style={styles.actionButtonText}>Track Order</Text>
               </TouchableOpacity>
@@ -108,7 +108,7 @@ export default function OrdersScreen() {
               >
                 <Text style={styles.secondaryButtonText}>Reorder</Text>
               </TouchableOpacity>
-            </View>
+            </View> */}
           </TouchableOpacity>
         ))}
       </ScrollView>
