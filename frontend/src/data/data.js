@@ -51,7 +51,6 @@ export const products = [
     },
     countInStock: 100,
     categoryId: 1,
-    isHighlighted: true,
   },
   {
     id: 2,
@@ -300,6 +299,7 @@ export const products = [
     },
     countInStock: 100,
     categoryId: 1,
+    isHighlighted: true,
   },
   {
     id: 21,
