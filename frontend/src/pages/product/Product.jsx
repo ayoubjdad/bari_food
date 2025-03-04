@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import styles from "./Product.module.scss";
 import Divider from "@mui/material/Divider";
-import { Box, Button, Chip } from "@mui/material";
+import {
+  Box,
+  Button,
+  Chip,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
 import Products from "../../layouts/products/Products";
 import { useLocation } from "react-router";
 import { useCart } from "../../context/cart/CartContext";
@@ -51,6 +58,10 @@ export default function Product() {
     if (type === "plus") {
       setOptions({ ...options, quantity: options.quantity + 1 });
     }
+  };
+
+  const handleSizeChange = (event) => {
+    setOptions({ ...options, size: event.target.value });
   };
 
   const handleAddToCart = () => {
@@ -105,14 +116,38 @@ export default function Product() {
                 <span className={styles.description}>{category}</span>
               </p>
             </div>
-            {/* <Divider />
+
+            {categoryId === 4 && (
+              <>
+                <Divider />
+                <div className={styles.sizeSelector}>
+                  <RadioGroup
+                    row
+                    value={options.size}
+                    onChange={handleSizeChange}
+                  >
+                    <FormControlLabel
+                      value="minis"
+                      control={<Radio />}
+                      label="Minis (8)"
+                    />
+                    <FormControlLabel
+                      value="grands"
+                      control={<Radio />}
+                      label="Grands (4)"
+                    />
+                  </RadioGroup>
+                </div>
+              </>
+            )}
+
             <div className={styles.checkout}>
               <p>Paiement sécurisé garanti</p>
               <img
                 src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/trust-symbols.png"
                 alt=""
               />
-            </div> */}
+            </div>
           </div>
         </div>
 
