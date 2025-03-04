@@ -1917,7 +1917,7 @@ export const products = [
   {
     id: 145,
     name: "Mini Pain Choco",
-    price: 3.5,
+    price: 3.8,
     fileName: "mini-pain-choco",
     slug: "mini-pain-choco",
     description: {
@@ -1930,7 +1930,7 @@ export const products = [
   {
     id: 146,
     name: "Mini Croissant",
-    price: 3,
+    price: 3.2,
     fileName: "mini-croissant",
     slug: "mini-croissant",
     description: {
@@ -1943,7 +1943,7 @@ export const products = [
   {
     id: 147,
     name: "Mini Torsade",
-    price: 4,
+    price: 4.5,
     fileName: "mini-torsade",
     slug: "mini-torsade",
     description: {
@@ -1956,7 +1956,7 @@ export const products = [
   {
     id: 148,
     name: "Pain choco 110g",
-    price: 6.5,
+    price: 6.8,
     fileName: "pain-choco-110g",
     slug: "pain-choco-110g",
     description: {
@@ -1969,7 +1969,7 @@ export const products = [
   {
     id: 149,
     name: "Chausson aux pommes 100g",
-    price: 11,
+    price: 11.5,
     fileName: "chausson-aux-pommes-100g",
     slug: "chausson-aux-pommes-100g",
     description: {
@@ -1982,7 +1982,7 @@ export const products = [
   {
     id: 150,
     name: "Croissant 70g",
-    price: 5.8,
+    price: 6,
     fileName: "croissant-70g",
     slug: "croissant-70g",
     description: {
@@ -1995,7 +1995,7 @@ export const products = [
   {
     id: 151,
     name: "Pain suisse chocolat 100g",
-    price: 9.5,
+    price: 10,
     fileName: "pain-suisse-chocolat-100g",
     slug: "pain-suisse-chocolat-100g",
     description: {
