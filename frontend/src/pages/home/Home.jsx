@@ -7,6 +7,7 @@ import MainSlide from "../../layouts/slides/main-slide/MainSlide";
 import TopReceips from "../../layouts/top-receips/TopReceips";
 import Newsletter from "../../layouts/newsletter/Newsletter";
 import Partners from "../../layouts/partners/Partners";
+import GetOurApps from "../../layouts/get-our-app/GetOurApps";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Categories />
         <Offers />
         <Products />
+        <GetOurApps />
         <TopReceips />
         <Partners />
         <Newsletter />

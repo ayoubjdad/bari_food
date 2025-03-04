@@ -5,10 +5,12 @@ export const getProductImage = (category, fileName) => {
     try {
       return require(`../assets/images/products/${category}/${fileName}.JPG`);
     } catch (error) {
-      console.warn(
-        `Image non trouvée : ${fileName}, utilisation de l'image par défaut.`
-      );
-      return null; // require(`../assets/images/products/image44.png`);
+      try {
+        return require(`../assets/logo/bari-lion.png`);
+      } catch (error) {
+        console.error("❌ Image produit non trouvée:", error);
+        return null;
+      }
     }
   }
 };
@@ -20,10 +22,8 @@ export const getCategoryImage = (slug) => {
     try {
       return require(`../assets/images/categories/${slug}.JPG`);
     } catch (error) {
-      console.warn(
-        `Image non trouvée : ${slug}, utilisation de l'image par défaut.`
-      );
-      return null; // require(`../assets/images/products/image44.png`);
+      console.error("❌ Image categorie non trouvée:", error);
+      return null;
     }
   }
 };
