@@ -94,14 +94,14 @@ export default function CartScreen() {
                       style={styles.quantityButton}
                       onPress={() => updateQuantity(item.id, -1)}
                     >
-                      <Minus size={16} color="#0a5440" />
+                      <Minus size={16} color="#2faa7a" />
                     </TouchableOpacity>
                     <Text style={styles.quantity}>{item.quantity}</Text>
                     <TouchableOpacity
                       style={styles.quantityButton}
                       onPress={() => updateQuantity(item.id, 1)}
                     >
-                      <Plus size={16} color="#0a5440" />
+                      <Plus size={16} color="#2faa7a" />
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   browseButton: {
-    backgroundColor: '#0a5440',
+    backgroundColor: '#2faa7a',
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 12,
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
   itemPrice: {
     fontFamily: 'Poppins-Bold',
     fontSize: 16,
-    color: '#0a5440',
+    color: '#2faa7a',
     marginTop: 4,
   },
   quantityContainer: {
@@ -283,10 +283,10 @@ const styles = StyleSheet.create({
   totalValue: {
     fontFamily: 'Poppins-Bold',
     fontSize: 18,
-    color: '#0a5440',
+    color: '#2faa7a',
   },
   checkoutButton: {
-    backgroundColor: '#0a5440',
+    backgroundColor: '#2faa7a',
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',

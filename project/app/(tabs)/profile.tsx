@@ -19,22 +19,22 @@ import {
 export default function ProfileScreen() {
   const menuItems = [
     {
-      icon: <CreditCard size={20} color="#0a5440" />,
+      icon: <CreditCard size={20} color="#2faa7a" />,
       title: 'Payment Methods',
       subtitle: 'Add or remove payment methods',
     },
     {
-      icon: <MapPin size={20} color="#0a5440" />,
+      icon: <MapPin size={20} color="#2faa7a" />,
       title: 'Delivery Addresses',
       subtitle: 'Add or remove delivery addresses',
     },
     {
-      icon: <Bell size={20} color="#0a5440" />,
+      icon: <Bell size={20} color="#2faa7a" />,
       title: 'Notifications',
       subtitle: 'Customize notification preferences',
     },
     {
-      icon: <HelpCircle size={20} color="#0a5440" />,
+      icon: <HelpCircle size={20} color="#2faa7a" />,
       title: 'Help & Support',
       subtitle: 'Get help with your orders',
     },

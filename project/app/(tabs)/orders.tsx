@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
   totalValue: {
     fontFamily: 'Poppins-Bold',
     fontSize: 16,
-    color: '#0a5440',
+    color: '#2faa7a',
   },
   actionButtons: {
     flexDirection: 'row',
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     flex: 1,
-    backgroundColor: '#0a5440',
+    backgroundColor: '#2faa7a',
     borderRadius: 12,
     paddingVertical: 12,
     alignItems: 'center',
@@ -248,13 +248,13 @@ const styles = StyleSheet.create({
   secondaryButton: {
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#0a5440',
+    borderColor: '#2faa7a',
     marginRight: 0,
     marginLeft: 8,
   },
   secondaryButtonText: {
     fontFamily: 'Poppins-Medium',
     fontSize: 14,
-    color: '#0a5440',
+    color: '#2faa7a',
   },
 });

@@ -46,7 +46,8 @@ export default function MenuScreen() {
   };
 
   const getImage = (category: number, slug: string): number | undefined => {
-    return productImages[slug];
+    return productImages['pain-sandwich-blanc'];
+    // return productImages[slug];
   };
 
   return (
@@ -55,7 +56,7 @@ export default function MenuScreen() {
         <View>
           <Text style={styles.greeting}>Bonjour, Ayoub!</Text>
           <Text style={styles.subtitle}>
-            Qu'est-ce que tu aimerais manger aujourd'hui ?
+            Qu'est-ce que tu aimerais manger ?
           </Text>
         </View>
       </View>
@@ -75,7 +76,7 @@ export default function MenuScreen() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView
+      {/* <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         style={styles.categoriesContainer}
@@ -100,24 +101,19 @@ export default function MenuScreen() {
             </Text>
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </ScrollView> */}
 
-      <Text style={styles.sectionTitle}>Articles populaires</Text>
+      {/* <Text style={styles.sectionTitle}>Articles populaires</Text> */}
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.foodGrid}>
           {filteredItems.map((item) => {
-            const imageSource =
-              getImage(item.categoryId, item.slug) ||
-              require('../assets/images/products/chapelure/chapelure-nature-250g.png');
+            const imageSource = getImage(item.categoryId, item.slug);
 
             return (
               <Link href={`/food/${item.id}`} key={item.id} asChild>
                 <TouchableOpacity style={styles.foodCard}>
-                  <Image
-                    source={{ uri: imageSource }}
-                    style={styles.foodImage}
-                  />
+                  <Image source={imageSource} style={styles.foodImage} />
                   <View style={styles.foodInfo}>
                     <Text style={styles.foodName}>{item.name}</Text>
                     <View style={styles.foodMeta}>
@@ -184,7 +180,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   filterButton: {
-    backgroundColor: '#0a5440',
+    backgroundColor: '#2faa7a',
     borderRadius: 12,
     padding: 12,
   },
@@ -192,9 +188,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   categoriesContent: {
+    alignSelf: 'flex-start',
     paddingRight: 16,
   },
   categoryButton: {
+    height: 38,
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
@@ -202,7 +200,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   selectedCategory: {
-    backgroundColor: '#0a5440',
+    backgroundColor: '#2faa7a',
   },
   categoryText: {
     fontFamily: 'Poppins-Medium',
@@ -267,6 +265,6 @@ const styles = StyleSheet.create({
   price: {
     fontFamily: 'Poppins-Bold',
     fontSize: 14,
-    color: '#0a5440',
+    color: '#2faa7a',
   },
 });
