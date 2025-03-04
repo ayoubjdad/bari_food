@@ -6,11 +6,15 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router";
 
 export default function Products() {
+  const highlightedProducts = products.filter((product) =>
+    [145, 146, 147, 148, 149, 150, 2, 8].includes(product.id)
+  );
+
   return (
     <section className={styles.main}>
       <div className={styles.container}>
         <div className={styles.products}>
-          {products.slice(0, 8).map((product) => (
+          {highlightedProducts.map((product) => (
             <Product product={product} />
           ))}
         </div>
