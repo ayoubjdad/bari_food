@@ -1,7 +1,7 @@
 export const categories = [
   {
     id: 1,
-    name: "Pain Frai",
+    name: "Pain Frais",
     slug: "pain-frai",
     description:
       "Pain fraîchement préparé chaque jour, idéal pour accompagner vos repas ou réaliser de délicieux sandwiches.",
@@ -50,12 +50,12 @@ export const products = [
       long: "A classic white sandwich bread, ideal for a variety of sandwiches.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 2,
     name: "Pain Sandwich Ciabata",
-    price: 3.2,
+    price: 12,
     fileName: "pain-sandwich-ciabata",
     slug: "pain-sandwich-ciabata",
     description: {
@@ -63,12 +63,12 @@ export const products = [
       long: "Ciabatta bread with a chewy texture, perfect for robust sandwiches.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 3,
     name: "Pain Sandwich Tradition Complet",
-    price: 3.4,
+    price: 12,
     fileName: "pain-sandwich-tradition-complet",
     slug: "pain-sandwich-tradition-complet",
     description: {
@@ -76,7 +76,7 @@ export const products = [
       long: "Traditional whole grain bread, rich in fiber and nutrients.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 4,
@@ -89,7 +89,7 @@ export const products = [
       long: "A natural and traditional sandwich bread, weighing 110g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 5,
@@ -102,7 +102,7 @@ export const products = [
       long: "A multi-grain bread packed with various cereals for a healthy meal.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 6,
@@ -115,7 +115,7 @@ export const products = [
       long: "A hearty ciabatta bread made with multiple grains for added flavor.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 7,
@@ -128,7 +128,7 @@ export const products = [
       long: "A traditional ciabatta bread, perfect for Italian-style sandwiches.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 8,
