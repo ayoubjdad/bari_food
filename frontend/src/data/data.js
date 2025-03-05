@@ -303,13 +303,13 @@ export const products = [
   },
   {
     id: 21,
-    name: "Pain Panini (Kfc) 2pcs",
+    name: "Pain Panini 2pcs",
     price: 7.0,
-    fileName: "pain-panini-kfc-2pcs",
-    slug: "pain-panini-kfc-2pcs",
+    fileName: "pain-panini-2pcs",
+    slug: "pain-panini-2pcs",
     description: {
-      short: "Panini bread, KFC style, 2 pieces.",
-      long: "Panini bread designed for KFC, in a pack of 2 pieces.",
+      short: "Panini bread, 2 pieces.",
+      long: "Panini bread, in a pack of 2 pieces.",
     },
     countInStock: 100,
     categoryId: 1,
@@ -368,13 +368,13 @@ export const products = [
   },
   {
     id: 26,
-    name: "Pain Hamburger Kids Kfc",
+    name: "Pain Hamburger Kids",
     price: 11.5,
-    fileName: "pain-hamburger-kids-kfc",
-    slug: "pain-hamburger-kids-kfc",
+    fileName: "pain-hamburger-kids",
+    slug: "pain-hamburger-kids",
     description: {
-      short: "KFC-style hamburger buns for kids.",
-      long: "Hamburger buns designed for kids, KFC style.",
+      short: "Hamburger buns for kids.",
+      long: "Hamburger buns designed for kids.",
     },
     countInStock: 100,
     categoryId: 1,
@@ -383,7 +383,7 @@ export const products = [
     id: 27,
     name: "Pain Hamburger Géant*4",
     price: 13.5,
-    fileName: "pain-hamburger-geant-3",
+    fileName: "pain-hamburger-geant-4",
     slug: "pain-hamburger-geant-4",
     description: {
       short: "Giant hamburger buns, 4 pieces.",
@@ -485,35 +485,9 @@ export const products = [
     categoryId: 1,
   },
   {
-    id: 35,
-    name: "Pain Mega Nature *4",
-    price: 12.0,
-    fileName: "pain-mega-nature-3",
-    slug: "pain-mega-nature-4",
-    description: {
-      short: "Natural mega burger buns, 4 pieces.",
-      long: "Large natural burger buns, in a pack of 4.",
-    },
-    countInStock: 100,
-    categoryId: 1,
-  },
-  {
-    id: 36,
-    name: "Pain Mega Chili *4",
-    price: 14.0,
-    fileName: "pain-mega-chili-3",
-    slug: "pain-mega-chili-4",
-    description: {
-      short: "Chili-flavored mega burger buns, 4 pieces.",
-      long: "Large chili-flavored burger buns, in a pack of 4.",
-    },
-    countInStock: 100,
-    categoryId: 1,
-  },
-  {
     id: 37,
     name: "Pâte À Pizza *12",
-    price: 10.0,
+    price: 11.0,
     fileName: "pate-a-pizza-12",
     slug: "pate-a-pizza-12",
     description: {
@@ -526,7 +500,7 @@ export const products = [
   {
     id: 38,
     name: "Pâte À Pizza Feuilletée *12",
-    price: 11.0,
+    price: 12.0,
     fileName: "pate-a-pizza-feuilletee-12",
     slug: "pate-a-pizza-feuilletee-12",
     description: {
@@ -655,10 +629,10 @@ export const products = [
   },
   {
     id: 48,
-    name: "Chaplure Nature 250g",
+    name: "Chapelure Nature 250g",
     price: 7.0,
-    fileName: "chaplure-nature-250g",
-    slug: "chaplure-nature-250g",
+    fileName: "chapelure-nature-250g",
+    slug: "chapelure-nature-250g",
     description: {
       short: "Natural bread crumbs, 250g.",
       long: "Natural bread crumbs, perfect for coating and baking, 250g.",
@@ -668,10 +642,10 @@ export const products = [
   },
   {
     id: 49,
-    name: "Chaplure Poulet 250g",
+    name: "Chapelure Poulet 250g",
     price: 8.0,
-    fileName: "chaplure-poulet-250g",
-    slug: "chaplure-poulet-250g",
+    fileName: "chapelure-poulet-250g",
+    slug: "chapelure-poulet-250g",
     description: {
       short: "Chicken-flavored bread crumbs, 250g.",
       long: "Chicken-flavored bread crumbs, ideal for savory dishes, 250g.",
@@ -693,24 +667,11 @@ export const products = [
     categoryId: 1,
   },
   {
-    id: 51,
-    name: "Tortilla 12cm 5pcs",
-    price: 10.0,
-    fileName: "tortilla-12cm-5pcs",
-    slug: "tortilla-12cm-5pcs",
-    description: {
-      short: "Small tortilla wraps, 12cm, 5 pieces.",
-      long: "Small tortilla wraps, 12cm in diameter, in a pack of 5 pieces.",
-    },
-    countInStock: 100,
-    categoryId: 1,
-  },
-  {
     id: 52,
-    name: "Tortilla 30cm",
+    name: "Tortilla Maxi",
     price: 17.0,
-    fileName: "tortilla-30cm",
-    slug: "tortilla-30cm",
+    fileName: "tortilla-maxi",
+    slug: "tortilla-maxi",
     description: {
       short: "Large tortilla wrap, 30cm.",
       long: "A large tortilla wrap, 30cm in diameter, perfect for big meals.",
@@ -772,10 +733,10 @@ export const products = [
   },
   {
     id: 57,
-    name: "Pain Semoul GM 241g",
+    name: "Pain Semoule GM 241g",
     price: 4.8,
-    fileName: "pain-semoul-gm-241g",
-    slug: "pain-semoul-gm-241g",
+    fileName: "pain-semoule-gm-241g",
+    slug: "pain-semoule-gm-241g",
     description: {
       short: "Large semolina bread, 241g.",
       long: "A large semolina bread, weighing 241g.",
@@ -794,7 +755,7 @@ export const products = [
       long: "A small semolina bread, weighing 45g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 59,
@@ -807,7 +768,7 @@ export const products = [
       long: "A small whole grain bread, weighing 45g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 60,
@@ -820,7 +781,7 @@ export const products = [
       long: "A large whole grain bread, weighing 220g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 61,
@@ -833,7 +794,7 @@ export const products = [
       long: "A rustic country-style bread, weighing 400g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 62,
@@ -846,7 +807,7 @@ export const products = [
       long: "A large barley bread, weighing 225g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 63,
@@ -859,7 +820,7 @@ export const products = [
       long: "A small barley bread, weighing 45g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 64,
@@ -872,7 +833,7 @@ export const products = [
       long: "An economical round bread, weighing 210g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 65,
@@ -885,12 +846,12 @@ export const products = [
       long: "A nutritious six-grain bread, weighing 400g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 66,
     name: "Pain Compagne Seigle 400g",
-    price: 26.0,
+    price: 12.0,
     fileName: "pain-compagne-seigle-400g",
     slug: "pain-compagne-seigle-400g",
     description: {
@@ -898,7 +859,7 @@ export const products = [
       long: "A rustic rye country-style bread, weighing 400g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 67,
@@ -911,7 +872,7 @@ export const products = [
       long: "A traditional whole grain round bread, weighing 100g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 68,
@@ -924,7 +885,7 @@ export const products = [
       long: "A large whole grain bread without added salt.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 69,
@@ -937,7 +898,7 @@ export const products = [
       long: "Mini burger buns, perfect for small servings or snacks.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 70,
@@ -950,7 +911,7 @@ export const products = [
       long: "Dark mini burger buns, offering a unique flavor.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 71,
@@ -963,7 +924,7 @@ export const products = [
       long: "Classic burger buns, perfect for your favorite burger recipes.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 72,
@@ -976,7 +937,7 @@ export const products = [
       long: "Dark burger buns, offering a rich and distinctive flavor.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 73,
@@ -989,7 +950,7 @@ export const products = [
       long: "Extra-large burger buns, perfect for big and hearty burgers.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 74,
@@ -1002,7 +963,7 @@ export const products = [
       long: "A large rustic bread, perfect for a hearty and filling meal.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 75,
@@ -1015,7 +976,7 @@ export const products = [
       long: "A rustic bread inspired by Norwegian traditions.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 76,
@@ -1028,7 +989,7 @@ export const products = [
       long: "A rustic bread made with rye, offering a robust and hearty flavor.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 77,
@@ -1041,7 +1002,7 @@ export const products = [
       long: "A large rustic bread, perfect for a hearty and filling meal.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 78,
@@ -1054,7 +1015,7 @@ export const products = [
       long: "A long polka bread, perfect for a unique and stylish presentation.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 79,
@@ -1067,7 +1028,7 @@ export const products = [
       long: "A large sliced bread, weighing 1.5kg, perfect for big families.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
   },
   {
     id: 80,
@@ -1080,7 +1041,20 @@ export const products = [
       long: "An artisan whole grain sliced bread, weighing 650g.",
     },
     countInStock: 100,
-    categoryId: 1,
+    categoryId: 3,
+  },
+  {
+    id: 152,
+    name: "Pain De Mie Maxi Complet",
+    price: 14.0,
+    fileName: "pain-de-mie-maxi-complet",
+    slug: "pain-de-mie-maxi-complet",
+    description: {
+      short: "Artisan whole grain sliced bread, 650g.",
+      long: "An artisan whole grain sliced bread, weighing 650g.",
+    },
+    countInStock: 100,
+    categoryId: 3,
   },
   {
     id: 81,

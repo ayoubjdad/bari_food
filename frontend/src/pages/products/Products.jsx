@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import styles from "./Products.module.scss";
 import { TextField } from "@mui/material";
 import { categories, products } from "../../data/data";
@@ -40,10 +40,17 @@ export default function Products() {
     return matchesSearch && matchesCategory;
   });
 
+  const cat = useMemo(
+    () => categories.find((categ) => categ.id === selectedCategory),
+    [selectedCategory]
+  );
+
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <PageHeader title={category ? category.name : "Produits"} />
+        <PageHeader
+          title={`Produits${selectedCategory ? " / " + cat.name : ""}`}
+        />
 
         <div className={styles.productsContainer}>
           <div className={styles.products}>

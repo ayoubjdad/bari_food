@@ -166,7 +166,12 @@ export default function Header() {
         <div className={styles.drawerBody}>
           <ul className={styles.mobileMenu}>
             {menu.map(({ to, alias }) => (
-              <List key={to} to={to} alias={alias} />
+              <List
+                key={to}
+                to={to}
+                alias={alias}
+                onClick={handleMobileDrawerClose}
+              />
             ))}
           </ul>
         </div>
@@ -185,7 +190,12 @@ export default function Header() {
 
           <ul className={styles.menu}>
             {menu.map(({ to, alias }) => (
-              <List key={to} to={to} alias={alias} />
+              <List
+                key={to}
+                to={to}
+                alias={alias}
+                onClick={handleMobileDrawerClose}
+              />
             ))}
           </ul>
 
