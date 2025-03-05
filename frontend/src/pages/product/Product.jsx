@@ -141,13 +141,13 @@ export default function Product() {
               </>
             )}
 
-            <div className={styles.checkout}>
+            {/* <div className={styles.checkout}>
               <p>Paiement sécurisé garanti</p>
               <img
                 src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/trust-symbols.png"
                 alt=""
               />
-            </div>
+            </div> */}
           </div>
         </div>
 
