@@ -9,6 +9,8 @@ import axios from "axios";
 import logo from "../../assets/logo/bari-logo-green.png";
 import { serverUrl } from "../../config/config";
 import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
+import { categories } from "../../data/data";
+import { getProductImage } from "../../helpers/functions.helper";
 
 const menu = [
   {
@@ -257,7 +259,9 @@ const List = ({ to, alias, onClick }) => {
 };
 
 const Product = ({ product, removeFromCart, updateQuantity }) => {
-  const { id, name, price, quantity } = product;
+  const { id, name, price, quantity, categoryId, fileName } = product;
+  const category = categories.find((categ) => categ.id === categoryId);
+  const imageSrc = getProductImage(category?.slug, fileName);
 
   return (
     <div className={styles.product} key={id}>
@@ -267,10 +271,7 @@ const Product = ({ product, removeFromCart, updateQuantity }) => {
         onClick={() => removeFromCart(id)}
       />
       <div className={styles.productImage}>
-        <img
-          src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/40-1-150x150.png"
-          alt={name}
-        />
+        <img src={imageSrc} alt={name} />
       </div>
       <div className={styles.productCaption}>
         <p>{name}</p>

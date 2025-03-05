@@ -27,7 +27,7 @@ export default function Product({ product = {} }) {
     e?.preventDefault();
 
     try {
-      addToCart(product);
+      addToCart(product, categoryId !== 4 ? 1 : 4);
       displaySuccessNotification("Ajouté à la carte");
     } catch (error) {
       console.error("❌", error);

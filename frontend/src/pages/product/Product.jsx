@@ -65,8 +65,15 @@ export default function Product() {
   };
 
   const handleAddToCart = () => {
+    if (categoryId === 4 && !options.size) {
+      alert("Veuillez sélectionner une taille avant d'ajouter au panier.");
+      return;
+    }
+
     try {
-      addToCart(product, options?.quantity);
+      const quantity =
+        categoryId !== 4 ? options.quantity : options.quantity * options.size;
+      addToCart(product, quantity);
       displaySuccessNotification();
     } catch (error) {
       console.error("❌", error);
@@ -120,6 +127,13 @@ export default function Product() {
             {categoryId === 4 && (
               <>
                 <Divider />
+
+                {!options.size && (
+                  <p className={styles.error}>
+                    Veuillez sélectionner une taille*
+                  </p>
+                )}
+
                 <div className={styles.sizeSelector}>
                   <RadioGroup
                     row
@@ -127,14 +141,14 @@ export default function Product() {
                     onChange={handleSizeChange}
                   >
                     <FormControlLabel
-                      value="minis"
+                      value={4}
                       control={<Radio />}
-                      label="Minis (8)"
+                      label="Minis (4)"
                     />
                     <FormControlLabel
-                      value="grands"
+                      value={8}
                       control={<Radio />}
-                      label="Grands (4)"
+                      label="Grands (8)"
                     />
                   </RadioGroup>
                 </div>

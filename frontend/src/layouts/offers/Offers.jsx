@@ -9,7 +9,7 @@ export default function Offers() {
     <section className={styles.main}>
       <div className={styles.container}>
         <Container id={53} index={0} />
-        <Container id={66} index={1} />
+        <Container id={42} index={1} />
         <Container
           index={2}
           title="Le magasin le plus proche de chez vous"
