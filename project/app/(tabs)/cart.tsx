@@ -12,6 +12,7 @@ import { Minus, Plus, Trash2 } from 'lucide-react-native';
 import { cartItems } from '../../data/cartItems';
 import { CartItem } from '../../types';
 import { Link } from 'expo-router';
+import { productImages } from '@/helpers/images';
 
 export default function CartScreen() {
   const [items, setItems] = useState<CartItem[]>(cartItems);
@@ -43,6 +44,11 @@ export default function CartScreen() {
 
   const removeItem = (id: string) => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
+  const getImage = (category: number, slug: string): number | undefined => {
+    return productImages['pain-sandwich-blanc'];
+    // return productImages[slug];
   };
 
   const total = subtotal;
@@ -79,40 +85,45 @@ export default function CartScreen() {
       ) : (
         <>
           <ScrollView showsVerticalScrollIndicator={false}>
-            {items.map((item) => (
-              <View key={item.id} style={styles.cartItem}>
-                <Image source={{ uri: item.image }} style={styles.itemImage} />
-                <View style={styles.itemDetails}>
-                  <View>
-                    <Text style={styles.itemName}>{item.name}</Text>
-                    <Text style={styles.itemPrice}>
-                      ${item.price.toFixed(2)}
-                    </Text>
+            {items.map((item) => {
+              const imageSource = getImage(item.quantity, item.image);
+
+              return (
+                <View key={item.id} style={styles.cartItem}>
+                  <Image source={imageSource} style={styles.itemImage} />
+
+                  <View style={styles.itemDetails}>
+                    <View>
+                      <Text style={styles.itemName}>{item.name}</Text>
+                      <Text style={styles.itemPrice}>
+                        {item.price.toFixed(2)} DH
+                      </Text>
+                    </View>
+                    <View style={styles.quantityContainer}>
+                      <TouchableOpacity
+                        style={styles.quantityButton}
+                        onPress={() => updateQuantity(item.id, -1)}
+                      >
+                        <Minus size={16} color="#2faa7a" />
+                      </TouchableOpacity>
+                      <Text style={styles.quantity}>{item.quantity}</Text>
+                      <TouchableOpacity
+                        style={styles.quantityButton}
+                        onPress={() => updateQuantity(item.id, 1)}
+                      >
+                        <Plus size={16} color="#2faa7a" />
+                      </TouchableOpacity>
+                    </View>
                   </View>
-                  <View style={styles.quantityContainer}>
-                    <TouchableOpacity
-                      style={styles.quantityButton}
-                      onPress={() => updateQuantity(item.id, -1)}
-                    >
-                      <Minus size={16} color="#2faa7a" />
-                    </TouchableOpacity>
-                    <Text style={styles.quantity}>{item.quantity}</Text>
-                    <TouchableOpacity
-                      style={styles.quantityButton}
-                      onPress={() => updateQuantity(item.id, 1)}
-                    >
-                      <Plus size={16} color="#2faa7a" />
-                    </TouchableOpacity>
-                  </View>
+                  <TouchableOpacity
+                    style={styles.removeButton}
+                    onPress={() => removeItem(item.id)}
+                  >
+                    <Trash2 size={20} color="#FF3B30" />
+                  </TouchableOpacity>
                 </View>
-                <TouchableOpacity
-                  style={styles.removeButton}
-                  onPress={() => removeItem(item.id)}
-                >
-                  <Trash2 size={20} color="#FF3B30" />
-                </TouchableOpacity>
-              </View>
-            ))}
+              );
+            })}
           </ScrollView>
 
           <View style={styles.summaryContainer}>
