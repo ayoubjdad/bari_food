@@ -8,9 +8,9 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { Box, Divider } from "@mui/material";
-import { serverUrl } from "../../config/config";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { serverUrl } from "../../../../config/config";
 
 const columns = [
   { id: "orderNumber", label: "#", minWidth: 20 },

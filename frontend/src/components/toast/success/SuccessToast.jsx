@@ -2,17 +2,62 @@ import styles from "./SuccessToast.module.scss";
 import { toast } from "react-toastify";
 
 export const displaySuccessNotification = (
-  message = "Your changes have been successfully saved !"
+  message = "Vos modifications ont été enregistrées avec succès !"
 ) => {
   toast.dismiss();
   return toast.success(message, {
-    autoClose: 25055500000,
+    autoClose: 2500,
     position: "top-right",
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
     theme: "light",
+    className: styles.toastContainer,
+    bodyClassName: styles.toastBody,
+  });
+};
+
+export const displayErrorNotification = (
+  message = "Une erreur est survenue. Veuillez réessayer."
+) => {
+  toast.dismiss();
+  return toast.error(message, {
+    autoClose: 2500,
+    position: "top-right",
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "light",
+    className: styles.toastContainer,
+    bodyClassName: styles.toastBody,
+  });
+};
+
+export const displayInfoNotification = (
+  message = "Voici une information importante."
+) => {
+  toast.dismiss();
+  return toast.info(message, {
+    autoClose: 2500,
+    position: "top-right",
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "light",
+    className: styles.toastContainer,
+    bodyClassName: styles.toastBody,
+  });
+};
+
+export const displayInProgressNotification = (
+  message = "Traitement en cours..."
+) => {
+  toast.dismiss();
+  return toast.loading(message, {
+    position: "top-right",
     className: styles.toastContainer,
     bodyClassName: styles.toastBody,
   });

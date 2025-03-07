@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import styles from "./Home.module.scss";
+import styles from "./Dashboard.module.scss";
 import { Tabs, Tab, Box, Badge, Popover } from "@mui/material";
-import Orders from "../../layouts/Orders/Orders";
-import Online from "../../layouts/Online/Online";
 import logo from "../../assets/logo/bari-logo-green.png";
+import Online from "./layouts/Online/Online";
+import Orders from "./layouts/Orders/Orders";
+// import Orders from "./layouts/Orders/Orders";
 
 function TabPanel({ children, value, index }) {
   return <div hidden={value !== index}>{value === index && children}</div>;
 }
 
-export default function Home() {
-  const [value, setValue] = useState(0);
+export default function Dashboard() {
+  const [value, setValue] = useState(1);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleChange = (event, newValue) => {

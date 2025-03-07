@@ -17,7 +17,7 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import { products } from "../../data/data";
+import { products } from "../../../../data/data";
 
 const columns = [
   { id: "orderNumber", label: "#" },

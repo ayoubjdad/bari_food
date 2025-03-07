@@ -183,5 +183,126 @@ export const theme = createTheme({
         },
       },
     },
+
+    // ===========================================================
+
+    // * Tabs
+    MuiTabs: {
+      styleOverrides: {
+        flexContainer: {
+          borderRadius: "80px",
+          border: "1px solid #e5e5e5",
+        },
+        root: {
+          "& .MuiTabs-indicator": {
+            backgroundColor: "transparent",
+          },
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          fontSize: "14px",
+          fontWeight: "600",
+          textTransform: "none",
+          fontFamily: "Gilroy",
+          borderRadius: "80px",
+          padding: "10px 20px",
+          minHeight: "44.5px",
+          "&.Mui-selected": {
+            backgroundColor: "#0a5440",
+            color: "white",
+          },
+        },
+      },
+    },
+
+    // * Table
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          padding: "16px",
+          borderRadius: "16px",
+          border: "1px solid #e5e5e5",
+
+          "& .MuiTableCell-root": {
+            fontSize: "14px",
+            color: "#1e1d23",
+            fontFamily: "Gilroy",
+          },
+        },
+      },
+    },
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          "& .MuiTableCell-root": {
+            borderBottom: 0,
+            fontSize: "14px",
+            fontWeight: "700",
+            color: "#1e1d23",
+            fontFamily: "Gilroy",
+            padding: "10px 16px",
+            backgroundColor: "#faf9f6",
+          },
+        },
+      },
+    },
+    MuiTableBody: {
+      styleOverrides: {
+        root: {
+          "& .MuiTableCell-root": {
+            fontSize: "14px",
+            fontFamily: "Gilroy",
+            color: "#1e1d23",
+            padding: "10px 16px",
+          },
+        },
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          "& .MuiTableCell-root": {
+            fontWeight: 500,
+            fontSize: "14px",
+            fontFamily: "Gilroy",
+            color: "#1e1d23",
+            padding: "10px 16px",
+          },
+        },
+      },
+    },
+    MuiTablePagination: {
+      styleOverrides: {
+        root: {
+          "& .MuiTablePagination-select": {
+            fontSize: "14px",
+            color: "#1e1d23",
+            padding: "10px 16px",
+            fontFamily: "Gilroy",
+          },
+        },
+      },
+    },
+
+    // * Modal
+    MuiModal: {
+      styleOverrides: {
+        root: {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        },
+      },
+    },
+    MuiBackdrop: {
+      styleOverrides: {
+        root: {
+          // backgroundColor: "white",
+        },
+      },
+    },
   },
 });

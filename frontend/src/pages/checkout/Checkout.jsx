@@ -11,7 +11,10 @@ import {
 } from "@mui/material";
 import { useCart } from "../../context/cart/CartContext";
 import { useLogin } from "../../context/login/LoginContext";
-import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
+import {
+  displayInProgressNotification,
+  displaySuccessNotification,
+} from "../../components/toast/success/SuccessToast";
 import { serverUrl } from "../../config/config";
 
 const Checkout = () => {
@@ -36,6 +39,8 @@ const Checkout = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    displayInProgressNotification("Commande en cours de traitement...");
 
     if (totalPrice < 250) {
       alert("Le montant minimum de commande est de 250 DH.");
