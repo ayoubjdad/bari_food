@@ -27,10 +27,18 @@ const columns = [
   },
   { id: "actions", label: "Actions", minWidth: 150, align: "right" },
 ];
-
 const getOrders = async () => {
-  const response = await axios.get(`${serverUrl}/api/orders`);
-  return response.data;
+  try {
+    const response = await axios.get(`${serverUrl}/api/orders`);
+    const filteredOrders = response?.data?.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+
+    return filteredOrders;
+  } catch (error) {
+    console.error("❌", error);
+    return [];
+  }
 };
 
 export default function Online() {
@@ -89,22 +97,10 @@ export default function Online() {
   };
 
   const ordersData = [
-    {
-      title: "Aujourd'hui",
-      value: "48",
-    },
-    {
-      title: "Livrés",
-      value: "493",
-    },
-    {
-      title: "En attente",
-      value: "359",
-    },
-    {
-      title: "Annulés",
-      value: "6",
-    },
+    { title: "Aujourd'hui", value: 0 },
+    { title: "Livrés", value: 0 },
+    { title: "En attente", value: 0 },
+    { title: "Annulés", value: 0 },
   ];
 
   return (
@@ -174,7 +170,10 @@ export default function Online() {
                             value = index + 1 + page * rowsPerPage;
                             break;
                           case "customer":
-                            value = order.user?.name || "Inconnu";
+                            value =
+                              order.user?.name ||
+                              order.shippingAddress?.fullName ||
+                              "Inconnu";
                             break;
                           case "status":
                             value = formatStatus(order.status);
