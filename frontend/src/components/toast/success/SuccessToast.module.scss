@@ -1,10 +1,24 @@
 .toastContainer {
   display: flex;
-  background-color: rgba(197, 252, 219, 1);
-  border: 1px solid #50a649;
+  border: solid;
+  border-width: 1px;
   font-family: "Poppins";
-  color: #50a649;
 }
 
-// 50a6491a
-// 50a649
+.success {
+  color: #065e49;
+  border-color: #065e49;
+  background-color: #d3fcd2;
+}
+
+.error {
+  color: #7a0916;
+  border-color: #7a0916;
+  background-color: #ffe9d5;
+}
+
+.progress {
+  color: #7a4100;
+  border-color: #7a4100;
+  background-color: #fff5cc;
+}

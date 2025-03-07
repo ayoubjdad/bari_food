@@ -12,6 +12,7 @@ import {
 import { useCart } from "../../context/cart/CartContext";
 import { useLogin } from "../../context/login/LoginContext";
 import {
+  displayErrorNotification,
   displayInProgressNotification,
   displaySuccessNotification,
 } from "../../components/toast/success/SuccessToast";
@@ -59,6 +60,7 @@ const Checkout = () => {
       shippingAddress: {
         fullName: formData.fullName,
         address: formData.address,
+        phone: formData.phone,
         city: formData.city,
       },
     };
@@ -66,9 +68,7 @@ const Checkout = () => {
     try {
       const response = await fetch(`${serverUrl}/api/orders`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData),
       });
 
@@ -80,6 +80,7 @@ const Checkout = () => {
       setFormData({});
       setCart([]);
     } catch (error) {
+      displayErrorNotification("Erreur lors de la soumission de la commande");
       console.error("Error submitting order:", error);
     }
   };

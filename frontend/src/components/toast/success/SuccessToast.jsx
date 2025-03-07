@@ -13,8 +13,7 @@ export const displaySuccessNotification = (
     pauseOnHover: true,
     draggable: true,
     theme: "light",
-    className: styles.toastContainer,
-    bodyClassName: styles.toastBody,
+    className: `${styles.toastContainer} ${styles.success}`,
   });
 };
 
@@ -30,8 +29,7 @@ export const displayErrorNotification = (
     pauseOnHover: true,
     draggable: true,
     theme: "light",
-    className: styles.toastContainer,
-    bodyClassName: styles.toastBody,
+    className: `${styles.toastContainer} ${styles.error}`,
   });
 };
 
@@ -47,8 +45,7 @@ export const displayInfoNotification = (
     pauseOnHover: true,
     draggable: true,
     theme: "light",
-    className: styles.toastContainer,
-    bodyClassName: styles.toastBody,
+    className: `${styles.toastContainer} ${styles.info}`,
   });
 };
 
@@ -58,7 +55,6 @@ export const displayInProgressNotification = (
   toast.dismiss();
   return toast.loading(message, {
     position: "top-right",
-    className: styles.toastContainer,
-    bodyClassName: styles.toastBody,
+    className: `${styles.toastContainer} ${styles.progress}`,
   });
 };
