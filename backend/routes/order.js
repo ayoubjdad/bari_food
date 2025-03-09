@@ -5,6 +5,7 @@ const {
   getOrders,
   getOrderById,
   updateOrderStatus,
+  getOrdersByDate,
 } = require("../controllers/orderController");
 
 // @route   POST /api/orders
@@ -18,6 +19,10 @@ router.get("/", getOrders);
 // @route   GET /api/orders/:id
 // @access  Private
 router.get("/:id", getOrderById);
+
+// @route   GET /api/orders/date/:date
+// @access  Private
+router.get("/date/:date", getOrdersByDate);
 
 // @route   PUT /api/orders/:id
 // @access  Private/Admin

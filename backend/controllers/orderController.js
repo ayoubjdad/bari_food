@@ -66,4 +66,39 @@ const updateOrderStatus = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { createOrder, getOrders, getOrderById, updateOrderStatus };
+// @desc    Fetch orders by date
+// @route   GET /api/orders/date/:date
+// @access  Private/Admin
+const getOrdersByDate = asyncHandler(async (req, res) => {
+  const { date } = req.params;
+
+  // Parse the date string to a Date object
+  const startOfDay = new Date(date);
+  startOfDay.setHours(0, 0, 0, 0); // Set to the start of the day
+
+  const endOfDay = new Date(date);
+  endOfDay.setHours(23, 59, 59, 999); // Set to the end of the day
+
+  // Query orders created between the start and end of the specified date
+  const orders = await Order.find({
+    createdAt: {
+      $gte: startOfDay, // Greater than or equal to the start of the day
+      $lte: endOfDay, // Less than or equal to the end of the day
+    },
+  }).populate("user", "name email");
+
+  if (orders.length > 0) {
+    res.json(orders);
+  } else {
+    res.status(404);
+    throw new Error("No orders found for this date");
+  }
+});
+
+module.exports = {
+  createOrder,
+  getOrders,
+  getOrderById,
+  updateOrderStatus,
+  getOrdersByDate,
+};
