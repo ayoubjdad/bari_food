@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Online.module.scss";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -11,6 +11,7 @@ import { Box, Divider } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { serverUrl } from "../../../../config/config";
+import { useCart } from "../../../../context/cart/CartContext";
 
 const columns = [
   { id: "orderNumber", label: "#", minWidth: 20 },
@@ -27,9 +28,9 @@ const columns = [
   },
   { id: "actions", label: "Actions", minWidth: 150, align: "right" },
 ];
-const getOrders = async () => {
+const getOrders = async (date) => {
   try {
-    const response = await axios.get(`${serverUrl}/api/orders`);
+    const response = await axios.get(`${serverUrl}/api/orders/date/${date}`);
     const filteredOrders = response?.data?.sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
     );
@@ -42,7 +43,13 @@ const getOrders = async () => {
 };
 
 export default function Online() {
+  const dateInputRef = useRef(null);
   const queryClient = useQueryClient();
+
+  const [date, setDate] = useState(
+    // "2025-03-07"
+    new Date().toISOString().split("T")[0]
+  );
 
   const {
     data: orders,
@@ -50,7 +57,7 @@ export default function Online() {
     isError,
   } = useQuery({
     queryKey: ["orders"],
-    queryFn: getOrders,
+    queryFn: () => getOrders(date),
   });
 
   const [page, setPage] = useState(0);
@@ -63,6 +70,12 @@ export default function Online() {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
+  };
+
+  const handleSpanClick = () => {
+    if (dateInputRef.current) {
+      dateInputRef.current.showPicker(); // Pour les navigateurs modernes
+    }
   };
 
   const formatStatus = (status) => {
@@ -80,13 +93,15 @@ export default function Online() {
 
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
-      const orderIndex = orders?.findIndex(
-        (order) => order.orderId === orderId
-      );
+      const orderIndex = orders?.findIndex((order) => order._id === orderId);
 
       if (orderIndex) {
         await axios.put(`${serverUrl}/api/orders/${orderId}`, {
           ...orders[orderIndex],
+          shippingAddress: {
+            ...orders[orderIndex]?.shippingAddress,
+            phone: orders[orderIndex]?.shippingAddress?.phone || "N/A",
+          },
           status: newStatus,
         });
         queryClient.invalidateQueries(["orders"]);
@@ -96,12 +111,32 @@ export default function Online() {
     }
   };
 
-  const ordersData = [
-    { title: "Aujourd'hui", value: 0 },
+  const [ordersData, setOrdersData] = useState([
+    { title: "Total", value: 0 },
     { title: "Livrés", value: 0 },
     { title: "En attente", value: 0 },
     { title: "Annulés", value: 0 },
-  ];
+  ]);
+
+  useEffect(() => {
+    if (orders) {
+      setOrdersData([
+        { title: "Total", value: orders.length },
+        {
+          title: "Livrés",
+          value: orders.filter((order) => order.status === "Delivered").length,
+        },
+        {
+          title: "En attente",
+          value: orders.filter((order) => order.status === "Pending").length,
+        },
+        {
+          title: "Annulés",
+          value: orders.filter((order) => order.status === "Cancelled").length,
+        },
+      ]);
+    }
+  }, [orders]);
 
   return (
     <section className={styles.main}>
@@ -109,7 +144,10 @@ export default function Online() {
         <div className={styles.orders}>
           <p className={styles.today}>
             <Box component="i" className="fi fi-rr-calendar" />
-            <span>Aujourd'hui</span>
+            <span onClick={handleSpanClick} style={{ cursor: "pointer" }}>
+              Aujourd'hui
+            </span>
+            <input type="date" ref={dateInputRef} style={{ display: "none" }} />
           </p>
           <Divider orientation="vertical" flexItem />
           {ordersData.map(({ title, value }, index) => (

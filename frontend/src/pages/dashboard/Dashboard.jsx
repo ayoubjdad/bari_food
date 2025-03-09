@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Dashboard.module.scss";
-import { Tabs, Tab, Box, Badge, Popover } from "@mui/material";
+import { Tabs, Tab, Box, Popover, Button } from "@mui/material";
 import logo from "../../assets/logo/bari-logo-green.png";
 import Online from "./layouts/Online/Online";
 import Orders from "./layouts/Orders/Orders";
+import { useLogin } from "../../context/login/LoginContext";
+import { useNavigate } from "react-router-dom";
 // import Orders from "./layouts/Orders/Orders";
 
 function TabPanel({ children, value, index }) {
@@ -11,6 +13,8 @@ function TabPanel({ children, value, index }) {
 }
 
 export default function Dashboard() {
+  const { user, logout } = useLogin();
+
   const [value, setValue] = useState(1);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -28,7 +32,9 @@ export default function Dashboard() {
 
   return (
     <>
-      {/* {anchorEl ? <UserBox anchorEl={anchorEl} onClose={handleClose} /> : null} */}
+      {anchorEl ? (
+        <UserBox anchorEl={anchorEl} onClose={handleClose} onClick={logout} />
+      ) : null}
 
       <selction className={styles.main}>
         <div className={styles.headerContainer}>
@@ -44,17 +50,16 @@ export default function Dashboard() {
               <Tab label="En ligne" />
               <Tab label="Stock" />
             </Tabs>
-
             <div className={styles.user}>
-              <Badge badgeContent={1}>
+              {/* <Badge badgeContent={1}>
                 <Box component="i" className={`fi fi-rr-bell ${styles.icon}`} />
-              </Badge>
+              </Badge> */}
               <div className={styles.userImage} onClick={handleClick}>
                 <img
                   src="https://imgcdn.stablediffusionweb.com/2024/5/14/64c47081-446f-4ff7-b811-3bb55cabcb35.jpg"
                   alt="user"
                 />
-                <span>Bari Food</span>
+                <span>{user?.name}</span>
                 <Box component="i" className="fi fi-rr-angle-small-down" />
               </div>
             </div>
@@ -84,9 +89,10 @@ export default function Dashboard() {
   );
 }
 
-const UserBox = ({ anchorEl, onClose }) => {
+const UserBox = ({ anchorEl, onClose, onClick }) => {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+  const navigate = useNavigate();
 
   return (
     <Popover
@@ -104,9 +110,15 @@ const UserBox = ({ anchorEl, onClose }) => {
       }}
     >
       <div className={styles.userBox}>
-        <div className={styles.user}>
-          <p>Bari Food</p>
-        </div>
+        <Button
+          style={{ backgroundColor: "#ff0000" }}
+          onClick={() => {
+            onClick();
+            navigate("/");
+          }}
+        >
+          Déconnexion
+        </Button>
       </div>
     </Popover>
   );

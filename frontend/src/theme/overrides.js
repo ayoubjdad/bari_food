@@ -190,8 +190,13 @@ export const theme = createTheme({
     MuiTabs: {
       styleOverrides: {
         flexContainer: {
+          width: "fit-content",
           borderRadius: "80px",
           border: "1px solid #e5e5e5",
+        },
+        scroller: {
+          display: "flex",
+          justifyContent: "center",
         },
         root: {
           "& .MuiTabs-indicator": {

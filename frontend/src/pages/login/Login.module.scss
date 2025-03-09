@@ -1,8 +1,8 @@
 .main {
-  height: 100vh;
   display: grid;
-  background-color: #f6f6f6;
   grid-template-columns: repeat(2, 1fr);
+  background-color: #f6f6f6;
+  height: 100vh;
 
   @media (max-width: 768px) {
     padding: 0 16px;
@@ -36,6 +36,7 @@
     display: grid;
     border-radius: 16px;
     justify-items: center;
+    // background-color: #f6f6f6;
 
     @media screen and (max-width: 768px) {
       width: 100%;

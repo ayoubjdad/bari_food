@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./SignIn.module.scss";
-import PageHeader from "../../components/page-header/PageHeader";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { serverUrl } from "../../config/config";
 import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
+import lionLogo from "../../assets/logo/bari-lion.png";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -53,58 +53,58 @@ export default function SignIn() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <PageHeader title="Inscription" />
+        <img src={lionLogo} alt="logo" />
+      </div>
 
-        <div className={styles.formContainer}>
-          <form onSubmit={handleSubmit}>
-            <TextField
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              style={{ width: "100%" }}
-              required
-            />
-            <TextField
-              name="name"
-              placeholder="Nom complet"
-              value={formData.name}
-              onChange={handleChange}
-              style={{ width: "100%" }}
-              required
-            />
-            <TextField
-              name="phone"
-              placeholder="Téléphone"
-              value={formData.phone}
-              onChange={handleChange}
-              style={{ width: "100%" }}
-              required
-            />
-            <TextField
-              type="password"
-              name="password"
-              placeholder="Mot de passe"
-              value={formData.password}
-              onChange={handleChange}
-              style={{ width: "100%" }}
-              required
-            />
-            <TextField
-              type="password"
-              name="confirmPassword"
-              placeholder="Répétez votre mot de passe"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              style={{ width: "100%" }}
-              required
-            />
-            <Button type="submit" style={{ width: "100%" }}>
-              Inscription
-            </Button>
-          </form>
-        </div>
+      <div className={styles.formContainer}>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            style={{ width: "100%" }}
+            required
+          />
+          <TextField
+            name="name"
+            placeholder="Nom complet"
+            value={formData.name}
+            onChange={handleChange}
+            style={{ width: "100%" }}
+            required
+          />
+          <TextField
+            name="phone"
+            placeholder="Téléphone"
+            value={formData.phone}
+            onChange={handleChange}
+            style={{ width: "100%" }}
+            required
+          />
+          <TextField
+            type="password"
+            name="password"
+            placeholder="Mot de passe"
+            value={formData.password}
+            onChange={handleChange}
+            style={{ width: "100%" }}
+            required
+          />
+          <TextField
+            type="password"
+            name="confirmPassword"
+            placeholder="Répétez votre mot de passe"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            style={{ width: "100%" }}
+            required
+          />
+          <Button type="submit" style={{ width: "100%" }}>
+            Inscription
+          </Button>
+        </form>
       </div>
     </section>
   );

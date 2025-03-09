@@ -27,6 +27,8 @@ import MainFooter from "./layouts/footer/main/MainFooter";
 import HeaderTop from "./layouts/header-top/HeaderTop";
 import Dashboard from "./pages/dashboard/Dashboard";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ProtectedRoute from "./context/protected-route/ProtectedRoute";
+import Login from "./pages/login/Login";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -49,11 +51,16 @@ const App = () => {
 
 const AppContent = () => {
   const location = useLocation();
-  const isDashboard = location.pathname === "/dashboard";
+  const path = location.pathname;
+  const withoutContainers = [
+    "/inscription",
+    "/connexion",
+    "/dashboard",
+  ].includes(path);
 
   return (
     <>
-      {!isDashboard && (
+      {!withoutContainers && (
         <>
           <HeaderTop text="🚀 Soyez parmi les 200 livrés par jour & profitez de nos offres exclusives et de la livraison rapide !" />
           <HeaderTop
@@ -74,9 +81,12 @@ const AppContent = () => {
         <Route path="/qui-sommes-nous" element={<WhoWeAre />} />
         <Route path="/paiement" element={<Checkout />} />
         <Route path="/inscription" element={<SignIn />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/connexion" element={<Login />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
       </Routes>
-      {!isDashboard && (
+      {!withoutContainers && (
         <>
           <Shipping />
           <MainFooter />
