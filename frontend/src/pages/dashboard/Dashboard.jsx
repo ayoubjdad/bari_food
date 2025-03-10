@@ -6,7 +6,7 @@ import Online from "./layouts/Online/Online";
 import Orders from "./layouts/Orders/Orders";
 import { useLogin } from "../../context/login/LoginContext";
 import { useNavigate } from "react-router-dom";
-// import Orders from "./layouts/Orders/Orders";
+import OnSite from "./layouts/on-site/OnSite";
 
 function TabPanel({ children, value, index }) {
   return <div hidden={value !== index}>{value === index && children}</div>;
@@ -15,7 +15,7 @@ function TabPanel({ children, value, index }) {
 export default function Dashboard() {
   const { user, logout } = useLogin();
 
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleChange = (event, newValue) => {
@@ -68,7 +68,7 @@ export default function Dashboard() {
 
         <div className={styles.container}>
           <TabPanel value={value} index={0}>
-            <Orders />
+            <OnSite />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <Online />

@@ -6,6 +6,7 @@
 
   @media (max-width: 768px) {
     padding: 0 16px;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -19,6 +20,11 @@
     width: 600px;
     height: 600px;
     object-fit: cover;
+
+    @media (max-width: 768px) {
+      width: 200px;
+      height: 200px;
+    }
   }
 }
 

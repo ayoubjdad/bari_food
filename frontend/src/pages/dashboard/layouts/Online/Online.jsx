@@ -11,7 +11,6 @@ import { Box, Divider } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { serverUrl } from "../../../../config/config";
-import { useCart } from "../../../../context/cart/CartContext";
 
 const columns = [
   { id: "orderNumber", label: "#", minWidth: 20 },
@@ -46,10 +45,7 @@ export default function Online() {
   const dateInputRef = useRef(null);
   const queryClient = useQueryClient();
 
-  const [date, setDate] = useState(
-    // "2025-03-07"
-    new Date().toISOString().split("T")[0]
-  );
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
   const {
     data: orders,

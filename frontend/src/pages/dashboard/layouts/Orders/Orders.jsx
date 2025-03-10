@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./Orders.module.scss";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -18,6 +18,9 @@ import {
   TextField,
 } from "@mui/material";
 import { products } from "../../../../data/data";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { serverUrl } from "../../../../config/config";
 
 const columns = [
   { id: "orderNumber", label: "#" },
@@ -38,350 +41,20 @@ const columns = [
   },
 ];
 
-const rows = [
-  {
-    orderNumber: 1001,
-    items: [
-      { alias: "Pain de mie", quantity: 1 },
-      { alias: "Pain de mie", quantity: 1 },
-    ],
-    date: "2025-02-01",
-    totalAmount: 250.75,
-  },
-  {
-    orderNumber: 1002,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-02",
-    totalAmount: 120.5,
-  },
-  {
-    orderNumber: 1003,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-03",
-    totalAmount: 89.99,
-  },
-  {
-    orderNumber: 1004,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-04",
-    totalAmount: 10.0,
-  },
-  {
-    orderNumber: 1005,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-05",
-    totalAmount: 300.25,
-  },
-  {
-    orderNumber: 1001,
-    items: [
-      { alias: "Pain de mie", quantity: 1 },
-      { alias: "Pain de mie", quantity: 1 },
-    ],
-    date: "2025-02-01",
-    totalAmount: 250.75,
-  },
-  {
-    orderNumber: 1002,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-02",
-    totalAmount: 120.5,
-  },
-  {
-    orderNumber: 1003,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-03",
-    totalAmount: 89.99,
-  },
-  {
-    orderNumber: 1004,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-04",
-    totalAmount: 10.0,
-  },
-  {
-    orderNumber: 1005,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-05",
-    totalAmount: 300.25,
-  },
-  {
-    orderNumber: 1001,
-    items: [
-      { alias: "Pain de mie", quantity: 1 },
-      { alias: "Pain de mie", quantity: 1 },
-    ],
-    date: "2025-02-01",
-    totalAmount: 250.75,
-  },
-  {
-    orderNumber: 1002,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-02",
-    totalAmount: 120.5,
-  },
-  {
-    orderNumber: 1003,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-03",
-    totalAmount: 89.99,
-  },
-  {
-    orderNumber: 1004,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-04",
-    totalAmount: 10.0,
-  },
-  {
-    orderNumber: 1005,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-05",
-    totalAmount: 300.25,
-  },
-  {
-    orderNumber: 1001,
-    items: [
-      { alias: "Pain de mie", quantity: 1 },
-      { alias: "Pain de mie", quantity: 1 },
-    ],
-    date: "2025-02-01",
-    totalAmount: 250.75,
-  },
-  {
-    orderNumber: 1002,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-02",
-    totalAmount: 120.5,
-  },
-  {
-    orderNumber: 1003,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-03",
-    totalAmount: 89.99,
-  },
-  {
-    orderNumber: 1004,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-04",
-    totalAmount: 10.0,
-  },
-  {
-    orderNumber: 1005,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-05",
-    totalAmount: 300.25,
-  },
-  {
-    orderNumber: 1001,
-    items: [
-      { alias: "Pain de mie", quantity: 1 },
-      { alias: "Pain de mie", quantity: 1 },
-    ],
-    date: "2025-02-01",
-    totalAmount: 250.75,
-  },
-  {
-    orderNumber: 1002,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-02",
-    totalAmount: 120.5,
-  },
-  {
-    orderNumber: 1003,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-03",
-    totalAmount: 89.99,
-  },
-  {
-    orderNumber: 1004,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-04",
-    totalAmount: 10.0,
-  },
-  {
-    orderNumber: 1005,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-05",
-    totalAmount: 300.25,
-  },
-  {
-    orderNumber: 1001,
-    items: [
-      { alias: "Pain de mie", quantity: 1 },
-      { alias: "Pain de mie", quantity: 1 },
-    ],
-    date: "2025-02-01",
-    totalAmount: 250.75,
-  },
-  {
-    orderNumber: 1002,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-02",
-    totalAmount: 120.5,
-  },
-  {
-    orderNumber: 1003,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-03",
-    totalAmount: 89.99,
-  },
-  {
-    orderNumber: 1004,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-04",
-    totalAmount: 10.0,
-  },
-  {
-    orderNumber: 1005,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-05",
-    totalAmount: 300.25,
-  },
-  {
-    orderNumber: 1001,
-    items: [
-      { alias: "Pain de mie", quantity: 1 },
-      { alias: "Pain de mie", quantity: 1 },
-    ],
-    date: "2025-02-01",
-    totalAmount: 250.75,
-  },
-  {
-    orderNumber: 1002,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-02",
-    totalAmount: 120.5,
-  },
-  {
-    orderNumber: 1003,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-03",
-    totalAmount: 89.99,
-  },
-  {
-    orderNumber: 1004,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-04",
-    totalAmount: 10.0,
-  },
-  {
-    orderNumber: 1005,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-05",
-    totalAmount: 300.25,
-  },
-  {
-    orderNumber: 1001,
-    items: [
-      { alias: "Pain de mie", quantity: 1 },
-      { alias: "Pain de mie", quantity: 1 },
-    ],
-    date: "2025-02-01",
-    totalAmount: 250.75,
-  },
-  {
-    orderNumber: 1002,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-02",
-    totalAmount: 120.5,
-  },
-  {
-    orderNumber: 1003,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-03",
-    totalAmount: 89.99,
-  },
-  {
-    orderNumber: 1004,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-04",
-    totalAmount: 10.0,
-  },
-  {
-    orderNumber: 1005,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-05",
-    totalAmount: 300.25,
-  },
-  {
-    orderNumber: 1001,
-    items: [
-      { alias: "Pain de mie", quantity: 1 },
-      { alias: "Pain de mie", quantity: 1 },
-    ],
-    date: "2025-02-01",
-    totalAmount: 250.75,
-  },
-  {
-    orderNumber: 1002,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-02",
-    totalAmount: 120.5,
-  },
-  {
-    orderNumber: 1003,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-03",
-    totalAmount: 89.99,
-  },
-  {
-    orderNumber: 1004,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-04",
-    totalAmount: 10.0,
-  },
-  {
-    orderNumber: 1005,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-05",
-    totalAmount: 300.25,
-  },
-  {
-    orderNumber: 1006,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-06",
-    totalAmount: 150.0,
-  },
-  {
-    orderNumber: 1007,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-07",
-    totalAmount: 450.99,
-  },
-  {
-    orderNumber: 1008,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-08",
-    totalAmount: 75.45,
-  },
-  {
-    orderNumber: 1009,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-09",
-    totalAmount: 200.0,
-  },
-  {
-    orderNumber: 1010,
-    items: [{ alias: "Pain de mie", quantity: 1 }],
-    date: "2025-02-10",
-    totalAmount: 500.75,
-  },
-];
+const getOnSites = async (date) => {
+  try {
+    const response = await axios.get(`${serverUrl}/api/onSites/date/${date}`);
+    const filteredOrders = response?.data?.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
 
-const ordersData = [
-  {
-    title: "Aujourd'hui",
-    value: "48",
-  },
-  {
-    title: "Ce mois",
-    value: "493",
-  },
-  {
-    title: "Commandes confirmées",
-    value: "359",
-  },
-];
+    console.log(":::::: ~ filteredOrders:", filteredOrders);
+    return filteredOrders || [];
+  } catch (error) {
+    console.error("❌", error);
+    return [];
+  }
+};
 
 export default function Orders() {
   const dateRef = useRef(null);
@@ -390,10 +63,21 @@ export default function Orders() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [selectedDate, setSelectedDate] = useState();
+  const [ordersData, setOrdersData] = useState([{ title: "Total", value: 0 }]);
+
+  const {
+    data: onSites,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["onSite"],
+    queryFn: () => getOnSites(selectedDate),
+  });
 
   const filtredRows = useMemo(() => {
     const today = new Date().toISOString().split("T")[0];
-    return rows.filter((row) => row.date.includes(selectedDate || today));
+    console.log(":::::: ~ onSites:", onSites);
+    return onSites?.filter((row) => row.date.includes(selectedDate || today));
   }, [selectedDate]);
 
   const handleChangePage = (event, newPage) => {
@@ -419,6 +103,12 @@ export default function Orders() {
       dateRef.current.showPicker?.(); // Force l'ouverture du date picker (Chrome, Edge)
     }
   };
+
+  useEffect(() => {
+    if (onSites) {
+      setOrdersData([{ title: "Total", value: onSites.length }]);
+    }
+  }, [onSites]);
 
   return (
     <>
@@ -490,7 +180,7 @@ export default function Orders() {
               </TableHead>
               <TableBody>
                 {filtredRows
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => {
                     return (
                       <TableRow
@@ -555,7 +245,7 @@ export default function Orders() {
               </Select>
             </Box>
             <Pagination
-              count={Math.ceil(filtredRows.length / rowsPerPage)}
+              count={Math.ceil(filtredRows?.length / rowsPerPage)}
               page={page}
               onChange={handleChangePage}
               variant="outlined"
