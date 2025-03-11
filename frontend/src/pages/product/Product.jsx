@@ -91,7 +91,7 @@ export default function Product() {
           <div className={styles.infos}>
             <Chip label="En stock" color="primary" />
             <p className={styles.title}>{name}</p>
-            <p className={styles.description}>{long}</p>
+            {long ? <p className={styles.description}>{long}</p> : null}
             <p className={styles.price}>{price} Dh</p>
             <Divider />
             <div className={styles.cart}>
@@ -143,12 +143,12 @@ export default function Product() {
                     <FormControlLabel
                       value={4}
                       control={<Radio />}
-                      label="Minis (4)"
+                      label="Minis (8)"
                     />
                     <FormControlLabel
                       value={8}
                       control={<Radio />}
-                      label="Grands (8)"
+                      label="Grands (4)"
                     />
                   </RadioGroup>
                 </div>

@@ -63,8 +63,8 @@ const Checkout = () => {
 
     displayInProgressNotification("Commande en cours de traitement...");
 
-    if (totalPrice < 250) {
-      alert("Le montant minimum de commande est de 250 DH.");
+    if (totalPrice < 200) {
+      alert("Le montant minimum de commande est de 200 DH.");
       return;
     }
 

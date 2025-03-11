@@ -10,12 +10,14 @@
 
 .container {
   display: grid;
+  overflow: hidden;
   max-width: 1200px;
   align-items: center;
   border-radius: 16px;
-  background-color: #0a5440;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   grid-template-columns: repeat(2, 1fr);
-  overflow: hidden;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;

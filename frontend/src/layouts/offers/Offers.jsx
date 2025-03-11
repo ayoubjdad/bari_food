@@ -3,6 +3,7 @@ import styles from "./Offers.module.scss";
 import { Link } from "react-router";
 import { categories, products } from "../../data/data";
 import { getProductImage } from "../../helpers/functions.helper";
+import starburst from "../../assets/images/starburst.png";
 
 export default function Offers() {
   return (
@@ -43,6 +44,7 @@ const Container = ({ id, index, title, description, footerText, image }) => {
       <div
         key={index}
         className={`${styles.group} ${index === 1 && styles.middleGroup}`}
+        style={{ backgroundImage: index === 1 && `url(${starburst})` }}
       >
         <div className={styles.text}>
           {name ? <p className={styles.title}>{name}</p> : null}

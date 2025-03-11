@@ -64,7 +64,7 @@ const AppContent = () => {
         <>
           <HeaderTop text="🚀 Soyez parmi les 200 livrés par jour & profitez de nos offres exclusives et de la livraison rapide !" />
           <HeaderTop
-            text="Commande minimum : 150dh produits frais et cuits 250dh produits surgelés"
+            text="Commande minimum : 200dh"
             style={{ backgroundColor: "#1e1e1e" }}
           />
           <Header />

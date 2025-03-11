@@ -28,8 +28,6 @@ export default function Login() {
     setLoading(true); // Show loading state
 
     try {
-      console.log("📨 Sending request:", formData);
-
       const response = await axios.post(
         `${serverUrl}/api/auth/login`,
         {
@@ -40,8 +38,6 @@ export default function Login() {
           headers: { "Content-Type": "application/json" },
         }
       );
-
-      console.log("✅ Login Response:", response.data);
 
       // If login is successful
       if (response.data && response.data.token) {

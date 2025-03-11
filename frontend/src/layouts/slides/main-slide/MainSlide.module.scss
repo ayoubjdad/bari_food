@@ -1,7 +1,10 @@
 .main {
   display: flex;
   align-items: center;
+  background-size: cover;
   justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
   background-color: #50a6491a;
 
   @media screen and (max-width: 768px) {
@@ -13,6 +16,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .slideContainer {
@@ -56,7 +62,7 @@
   h1 {
     color: #1e1d23;
     font-size: 76px;
-    line-height: 66px;
+    line-height: 76px;
   }
 }
 

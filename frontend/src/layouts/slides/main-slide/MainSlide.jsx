@@ -5,7 +5,8 @@ import Button from "@mui/material/Button";
 import { Box } from "@mui/material";
 import { categories, products } from "../../../data/data";
 import { getProductImage } from "../../../helpers/functions.helper";
-import { useNavigate } from "react-router-dom"; // Fix: Use "react-router-dom" instead of "react-router"
+import { useNavigate } from "react-router-dom";
+import slidesBackground from "../../../assets/images/slides-background.png";
 
 export default function MainSlide() {
   const navigate = useNavigate();
@@ -49,7 +50,10 @@ export default function MainSlide() {
 
   return (
     <section className={styles.main}>
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        style={{ backgroundImage: `url(${slidesBackground})` }}
+      >
         <div className={styles.slideContainer}>
           <div className={styles.arrowLeft}>
             <Box

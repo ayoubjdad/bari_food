@@ -48,7 +48,6 @@ const getOnSites = async (date) => {
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
     );
 
-    console.log(":::::: ~ filteredOrders:", filteredOrders);
     return filteredOrders || [];
   } catch (error) {
     console.error("❌", error);
@@ -76,7 +75,6 @@ export default function Orders() {
 
   const filtredRows = useMemo(() => {
     const today = new Date().toISOString().split("T")[0];
-    console.log(":::::: ~ onSites:", onSites);
     return onSites?.filter((row) => row.date.includes(selectedDate || today));
   }, [selectedDate]);
 
@@ -305,7 +303,6 @@ const OrdersPopover = ({ anchorEl, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Nouvelle commande :", orderData);
     onClose();
   };
 
