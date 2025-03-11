@@ -5,8 +5,11 @@ import axios from "axios";
 import { serverUrl } from "../../config/config";
 import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
 import lionLogo from "../../assets/logo/bari-lion.png";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     name: "",
@@ -41,6 +44,7 @@ export default function SignIn() {
       });
 
       displaySuccessNotification("Inscription réussie!");
+      navigate("/");
     } catch (error) {
       console.error(
         "❌ Registration failed:",

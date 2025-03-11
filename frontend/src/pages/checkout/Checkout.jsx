@@ -17,10 +17,30 @@ import {
   displaySuccessNotification,
 } from "../../components/toast/success/SuccessToast";
 import { serverUrl } from "../../config/config";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
+const getOrders = async () => {
+  try {
+    const response = await axios.get(`${serverUrl}/api/orders`);
+    return response?.data || [];
+  } catch (error) {
+    console.error("❌", error);
+    return [];
+  }
+};
 
 const Checkout = () => {
   const { cart, setCart } = useCart();
   const { user } = useLogin();
+
+  const { data: allOrders } = useQuery({
+    queryKey: ["allOrders"],
+    queryFn: getOrders,
+  });
+
+  const hasDiscount =
+    allOrders?.findIndex((order) => order?.user?.email === user?.email) === -1;
 
   const totalPrice = cart.reduce(
     (acc, product) => acc + product.price * product.quantity,
@@ -55,7 +75,7 @@ const Checkout = () => {
         quantity: product.quantity,
         price: product.price,
       })),
-      totalAmount: totalPrice,
+      totalAmount: hasDiscount ? totalPrice - totalPrice * 0.1 : totalPrice,
       paymentMethod: formData.paymentMethod || "Cash on Delivery",
       shippingAddress: {
         fullName: formData.fullName,
@@ -88,7 +108,7 @@ const Checkout = () => {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <PageHeader title="Checkout" />
+        <PageHeader title="Paiement" />
 
         <form className={styles.info} onSubmit={handleSubmit}>
           <div className={styles.group}>
@@ -140,6 +160,7 @@ const Checkout = () => {
               <b>Produits</b>
               <b>Total</b>
             </div>
+
             <Divider />
             {cart.map((product) => (
               <div className={styles.element} key={product.id}>
@@ -152,8 +173,13 @@ const Checkout = () => {
             ))}
             <Divider />
             <div className={styles.element}>
+              <b>Réduction -10%</b>
+              <b>-{totalPrice * 0.1} DH</b>
+            </div>
+            <Divider />
+            <div className={styles.element}>
               <b>Total</b>
-              <b>{totalPrice} DH</b>
+              <b>{totalPrice - totalPrice * 0.1} DH</b>
             </div>
             <Divider />
             <RadioGroup
