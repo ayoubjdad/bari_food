@@ -8,6 +8,7 @@ const productRoutes = require("./routes/product");
 const categoryRoutes = require("./routes/category");
 const orderRoutes = require("./routes/order");
 const onSiteRoutes = require("./routes/onSite");
+const deliveryNotesRoutes = require("./routes/deliveryNotes");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const slowDown = require("express-slow-down");
@@ -53,6 +54,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/onSites", onSiteRoutes);
+app.use("/api/deliveryNotes", deliveryNotesRoutes);
 
 const PORT = process.env.PORT || 5000;
 
