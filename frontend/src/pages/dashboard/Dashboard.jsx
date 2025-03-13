@@ -3,10 +3,10 @@ import styles from "./Dashboard.module.scss";
 import { Tabs, Tab, Box, Popover, Button } from "@mui/material";
 import logo from "../../assets/logo/bari-logo-green.png";
 import Online from "./layouts/Online/Online";
-import Orders from "./layouts/Orders/Orders";
+import OnSite from "./layouts/on-site/OnSite";
 import { useLogin } from "../../context/login/LoginContext";
 import { useNavigate } from "react-router-dom";
-import OnSite from "./layouts/on-site/OnSite";
+import Entry from "./layouts/entry/Entry";
 
 function TabPanel({ children, value, index }) {
   return <div hidden={value !== index}>{value === index && children}</div>;
@@ -46,6 +46,7 @@ export default function Dashboard() {
               centered
               classes={{ indicator: { display: "none" } }}
             >
+              <Tab label="Entrée" />
               <Tab label="Sur place" />
               <Tab label="En ligne" />
               <Tab label="Stock" />
@@ -68,12 +69,15 @@ export default function Dashboard() {
 
         <div className={styles.container}>
           <TabPanel value={value} index={0}>
-            <OnSite />
+            <Entry />
           </TabPanel>
           <TabPanel value={value} index={1}>
+            <OnSite />
+          </TabPanel>
+          <TabPanel value={value} index={2}>
             <Online />
           </TabPanel>
-          <TabPanel value={value} index={2}></TabPanel>
+          <TabPanel value={value} index={3}></TabPanel>
         </div>
 
         <div

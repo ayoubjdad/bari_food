@@ -29,6 +29,6 @@ const onSiteSchema = mongoose.Schema(
   }
 );
 
-const Order = mongoose.model("Order", onSiteSchema);
+const OnSite = mongoose.model("OnSite", onSiteSchema);
 
-module.exports = Order;
+module.exports = OnSite;

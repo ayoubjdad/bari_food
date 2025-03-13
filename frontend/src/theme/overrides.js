@@ -2,6 +2,21 @@ import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
   components: {
+    // * Autocomplete
+    MuiAutocomplete: {
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-root": {
+            height: "43px",
+            padding: "0 16px",
+            "& .MuiAutocomplete-input": {
+              padding: 0,
+            },
+          },
+        },
+      },
+    },
+
     // * Button
     MuiButton: {
       styleOverrides: {

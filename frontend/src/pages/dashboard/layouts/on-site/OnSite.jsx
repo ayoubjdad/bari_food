@@ -19,6 +19,10 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { serverUrl } from "../../../../config/config";
 import { products } from "../../../../data/data";
+import {
+  displayErrorNotification,
+  displaySuccessNotification,
+} from "../../../../components/toast/success/SuccessToast";
 
 const columns = [
   { id: "onSiteNumber", label: "#", minWidth: 20 },
@@ -135,7 +139,11 @@ export default function OnSite() {
     <section className={styles.main}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <OrdersPopover onClose={handleClose} anchorEl={anchorEl} />
+          <OrdersPopover
+            onClose={handleClose}
+            anchorEl={anchorEl}
+            onSites={onSites}
+          />
 
           <Button
             startIcon={<i className="fi fi-rr-plus" />}
@@ -330,106 +338,7 @@ const Item = ({ title, value }) => {
   );
 };
 
-// const OrdersPopover = ({ anchorEl, onClose }) => {
-//   const open = Boolean(anchorEl);
-//   const productsList = products.map(({ name, price }) => ({
-//     label: name,
-//     price,
-//   }));
-
-//   const [orderData, setOrderData] = useState({
-//     product: null,
-//     quantity: 1,
-//     price: "",
-//   });
-
-//   // Mise à jour des valeurs du formulaire
-//   const handleProductChange = (event, newValue) => {
-//     if (newValue) {
-//       setOrderData({
-//         ...orderData,
-//         product: newValue,
-//         price: newValue.price, // Mettre à jour le prix automatiquement
-//       });
-//     } else {
-//       setOrderData({ ...orderData, product: null, price: "" });
-//     }
-//   };
-
-//   const handleQuantityChange = (e) => {
-//     setOrderData({
-//       ...orderData,
-//       quantity: e.target.value,
-//       price: Number(e.target.value) * orderData.product.price,
-//     });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log("Nouvelle commande :", orderData);
-//     onClose();
-//   };
-
-//   return (
-//     <Modal open={open} onClose={onClose}>
-//       <div className={styles.modalContainer}>
-//         <div className={styles.modalContent}>
-//           <div className={styles.modalHeader}>
-//             <h2>Ajouter une commande</h2>
-//             <Box
-//               component="i"
-//               className="fi fi-rr-cross"
-//               onClick={onClose}
-//               style={{ cursor: "pointer" }}
-//             />
-//           </div>
-//           <form onSubmit={handleSubmit}>
-//             {/* Champ de sélection du produit */}
-//             <Autocomplete
-//               options={productsList}
-//               getOptionLabel={(option) => option.label}
-//               value={orderData.product}
-//               onChange={handleProductChange}
-//               renderInput={(params) => (
-//                 <TextField {...params} label="Produit" required />
-//               )}
-//             />
-
-//             {/* Champ de quantité */}
-//             <TextField
-//               label="Quantité"
-//               name="quantity"
-//               type="number"
-//               value={orderData.quantity}
-//               onChange={handleQuantityChange}
-//               required
-//             />
-
-//             {/* Champ de prix (readonly) */}
-//             <TextField
-//               label="Prix"
-//               name="price"
-//               type="number"
-//               value={orderData.price}
-//               InputProps={{ readOnly: true }} // Rend le champ non modifiable
-//             />
-
-//             <div className={styles.buttonContainer}>
-//               <Button variant="contained" color="secondary" onClick={onClose}>
-//                 Annuler
-//               </Button>
-//               <Button type="submit" variant="contained" color="primary">
-//                 Ajouter
-//               </Button>
-//             </div>
-//           </form>
-//         </div>
-//       </div>
-//     </Modal>
-//   );
-// };
-
-const OrdersPopover = ({ anchorEl, onClose }) => {
+const OrdersPopover = ({ anchorEl, onClose, onSites }) => {
   const open = Boolean(anchorEl);
   const productsList = products.map(({ name, price }) => ({
     label: name,
@@ -444,10 +353,11 @@ const OrdersPopover = ({ anchorEl, onClose }) => {
   });
 
   const handleProductChange = (event, newValue) => {
+    console.log(":::::: ~ newValue:", newValue);
     if (newValue) {
       setCurrentItem({
         ...currentItem,
-        product: newValue,
+        product: newValue.label,
         price: newValue.price,
       });
     } else {
@@ -458,7 +368,7 @@ const OrdersPopover = ({ anchorEl, onClose }) => {
   const handleQuantityChange = (e) => {
     setCurrentItem({
       ...currentItem,
-      quantity: e.target.value,
+      quantity: Number(e.target.value),
       price:
         Number(e.target.value) *
         (currentItem.product ? currentItem.product.price : 0),
@@ -472,14 +382,49 @@ const OrdersPopover = ({ anchorEl, onClose }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Nouvelle commande :", orderItems);
-    onClose();
+
+    let totalPrice = 0;
+    orderItems.forEach(
+      ({ quantity, price }) => (totalPrice += Number(quantity) * Number(price))
+    );
+
+    const newOrder = {
+      items: [...orderItems],
+      totalAmount: totalPrice,
+    };
+
+    try {
+      const response = await fetch(`${serverUrl}/api/onSites`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newOrder),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to place order");
+      }
+
+      displaySuccessNotification("Commande confirmée");
+      setOrderItems([]);
+      setCurrentItem({ product: null, quantity: 1, price: "" });
+      onClose();
+    } catch (error) {
+      displayErrorNotification("Erreur lors de la soumission de la commande");
+      console.error("❌ Error submitting order:", error);
+    }
   };
 
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal
+      open={open}
+      onClose={() => {
+        onClose();
+        setOrderItems([]);
+        setCurrentItem({ product: null, quantity: 1, price: "" });
+      }}
+    >
       <div className={styles.modalContainer}>
         <div className={styles.modalContent}>
           <div className={styles.modalHeader}>
@@ -498,32 +443,31 @@ const OrdersPopover = ({ anchorEl, onClose }) => {
               value={currentItem.product}
               onChange={handleProductChange}
               renderInput={(params) => (
-                <TextField {...params} label="Produit" required />
+                <TextField {...params} label="Produit" />
               )}
             />
 
-            <TextField
-              label="Quantité"
-              name="quantity"
-              type="number"
-              value={currentItem.quantity}
-              onChange={handleQuantityChange}
-              required
-            />
+            <div style={{ display: "flex", gap: "12px" }}>
+              <TextField
+                label="Quantité"
+                name="quantity"
+                type="number"
+                value={currentItem.quantity}
+                onChange={handleQuantityChange}
+              />
 
-            <TextField
-              label="Prix"
-              name="price"
-              type="number"
-              value={currentItem.price}
-              InputProps={{ readOnly: true }}
-            />
+              <TextField
+                label="Prix"
+                name="price"
+                type="number"
+                value={currentItem.price}
+                InputProps={{ readOnly: true }}
+              />
+            </div>
 
-            <Button variant="contained" color="primary" onClick={handleAddItem}>
-              Ajouter un produit
-            </Button>
+            <Button onClick={handleAddItem}>Ajouter</Button>
 
-            <ul>
+            <ul className={styles.list}>
               {orderItems.map((item, index) => (
                 <li key={index}>
                   {item.product.label} - {item.quantity} x {item.product.price}{" "}
@@ -533,12 +477,17 @@ const OrdersPopover = ({ anchorEl, onClose }) => {
             </ul>
 
             <div className={styles.buttonContainer}>
-              <Button variant="contained" color="secondary" onClick={onClose}>
+              <Button
+                style={{
+                  color: "#0a5440",
+                  backgroundColor: "white",
+                  border: "1px solid #0a5440",
+                }}
+                onClick={onClose}
+              >
                 Annuler
               </Button>
-              <Button type="submit" variant="contained" color="primary">
-                Valider la commande
-              </Button>
+              <Button type="submit">Valider la commande</Button>
             </div>
           </form>
         </div>
