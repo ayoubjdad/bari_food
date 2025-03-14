@@ -10,6 +10,7 @@ import {
   displaySuccessNotification,
 } from "../../../../components/toast/success/SuccessToast";
 import CustomTable from "../../../../components/custom-table/CustomTable";
+import { getDeliveryNotes } from "../../../../helpers/apis/apis.helpers";
 
 // Constants
 const columns = [
@@ -25,29 +26,27 @@ const columns = [
   },
 ];
 
-// API Functions
-const fetchDeliveryNotes = async (date) => {
-  try {
-    const response = await axios.get(`${serverUrl}/api/deliveryNotes`);
-    const filteredOnSites = response?.data?.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    );
-
-    return filteredOnSites;
-  } catch (error) {
-    console.error("❌ Error fetching delivery notes:", error);
-    throw new Error("Failed to fetch delivery notes");
-  }
-};
-
 // Form Component
 const FormBC = () => {
   const queryClient = useQueryClient();
-  const defaultValue = { name: "", price: "", totalAmount: "", quantity: 1 };
-  const productsList = products.map(({ name, price }) => ({ name, price }));
+  const defaultValue = {
+    id: "",
+    name: "",
+    price: "",
+    totalAmount: "",
+    quantity: 1,
+  };
+
+  const productsList = products.map(({ id, name, price }) => ({
+    id,
+    name,
+    price,
+  }));
+
   const [selectedProduct, setSelectedProduct] = useState(defaultValue);
 
   const handleProductChange = (_, newValue) => {
+    console.log(":::::: ~ newValue:", newValue);
     setSelectedProduct(
       newValue
         ? { ...newValue, quantity: 1, totalAmount: newValue.price }
@@ -74,7 +73,7 @@ const FormBC = () => {
       if (response.status === 201) {
         queryClient.setQueryData(["deliveryNotes"], (oldData) => [
           ...oldData,
-          { ...selectedProduct, _id: Date.now() }, // Add a temporary ID for rendering
+          { ...selectedProduct },
         ]);
         displaySuccessNotification("Bon de livraison confirmé");
         setSelectedProduct(defaultValue);
@@ -135,7 +134,7 @@ export default function Entry() {
     isError,
   } = useQuery({
     queryKey: ["deliveryNotes"],
-    queryFn: fetchDeliveryNotes,
+    queryFn: getDeliveryNotes,
   });
 
   const handleChangePage = (_, newPage) => setPage(newPage);
