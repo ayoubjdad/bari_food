@@ -42,3 +42,17 @@ export const getDeliveryNotes = async () => {
     throw new Error("Failed to fetch delivery notes");
   }
 };
+
+export const getOnSitesByDate = async (date) => {
+  try {
+    const response = await axios.get(`${serverUrl}/api/onSites/date/${date}`);
+    const filteredOnSites = response?.data?.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+
+    return filteredOnSites;
+  } catch (error) {
+    console.error("❌", error);
+    return [];
+  }
+};

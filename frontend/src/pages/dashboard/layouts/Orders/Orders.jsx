@@ -64,11 +64,7 @@ export default function Orders() {
   const [selectedDate, setSelectedDate] = useState();
   const [ordersData, setOrdersData] = useState([{ title: "Total", value: 0 }]);
 
-  const {
-    data: onSites,
-    isLoading,
-    isError,
-  } = useQuery({
+  const { data: onSites } = useQuery({
     queryKey: ["onSite"],
     queryFn: () => getOnSites(selectedDate),
   });

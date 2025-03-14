@@ -143,3 +143,17 @@
     justify-content: flex-start;
   }
 }
+
+.inputGroup {
+  gap: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orderList {
+  gap: 0;
+  display: grid;
+  justify-items: start;
+  font-family: "Gilroy";
+}

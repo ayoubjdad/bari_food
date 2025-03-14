@@ -14,6 +14,7 @@ import {
   Divider,
   Modal,
   TextField,
+  Typography,
 } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
@@ -23,10 +24,12 @@ import {
   displayErrorNotification,
   displaySuccessNotification,
 } from "../../../../components/toast/success/SuccessToast";
+import { getOnSitesByDate } from "../../../../helpers/apis/apis.helpers";
 
 const columns = [
   { id: "onSiteNumber", label: "#", minWidth: 20 },
-  { id: "items", label: "Eléments", minWidth: 20, align: "left" },
+  { id: "items", label: "Eléments", minWidth: 200, align: "left" },
+  { id: "itemsCount", label: "Quantité", minWidth: 20, align: "left" },
   {
     id: "totalAmount",
     label: "Montant total (DH)",
@@ -34,23 +37,9 @@ const columns = [
     align: "right",
   },
 ];
-const getOnSites = async (date) => {
-  try {
-    const response = await axios.get(`${serverUrl}/api/onSites/date/${date}`);
-    const filteredOnSites = response?.data?.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    );
-
-    return filteredOnSites;
-  } catch (error) {
-    console.error("❌", error);
-    return [];
-  }
-};
 
 export default function OnSite() {
   const dateInputRef = useRef(null);
-  const queryClient = useQueryClient();
 
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
@@ -59,8 +48,8 @@ export default function OnSite() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["onSites"],
-    queryFn: () => getOnSites(date),
+    queryKey: ["onSites", date],
+    queryFn: () => getOnSitesByDate(date),
   });
 
   const [page, setPage] = useState(0);
@@ -78,41 +67,6 @@ export default function OnSite() {
   const handleSpanClick = () => {
     if (dateInputRef.current) {
       dateInputRef.current.showPicker(); // Pour les navigateurs modernes
-    }
-  };
-
-  const formatStatus = (status) => {
-    switch (status) {
-      case "Pending":
-        return "En attente";
-      case "Delivered":
-        return "Livré";
-      case "Cancelled":
-        return "Annulé";
-      default:
-        return "Inconnu";
-    }
-  };
-
-  const updateOnSiteStatus = async (onSiteId, newStatus) => {
-    try {
-      const onSiteIndex = onSites?.findIndex(
-        (onSite) => onSite._id === onSiteId
-      );
-
-      if (onSiteIndex) {
-        await axios.put(`${serverUrl}/api/onSites/${onSiteId}`, {
-          ...onSites[onSiteIndex],
-          shippingAddress: {
-            ...onSites[onSiteIndex]?.shippingAddress,
-            phone: onSites[onSiteIndex]?.shippingAddress?.phone || "N/A",
-          },
-          status: newStatus,
-        });
-        queryClient.invalidateQueries(["onSites"]);
-      }
-    } catch (error) {
-      console.error("❌", error);
     }
   };
 
@@ -135,14 +89,20 @@ export default function OnSite() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const onChangeDate = (e) => {
+    const date = e.target.value;
+    setDate(date);
+  };
+
   return (
     <section className={styles.main}>
       <div className={styles.container}>
         <div className={styles.header}>
           <OrdersPopover
+            date={date}
             onClose={handleClose}
             anchorEl={anchorEl}
-            onSites={onSites}
           />
 
           <Button
@@ -157,9 +117,14 @@ export default function OnSite() {
           <p className={styles.today}>
             <Box component="i" className="fi fi-rr-calendar" />
             <span onClick={handleSpanClick} style={{ cursor: "pointer" }}>
-              Aujourd'hui
+              {date}
             </span>
-            <input type="date" ref={dateInputRef} style={{ display: "none" }} />
+            <input
+              type="date"
+              ref={dateInputRef}
+              style={{ display: "none" }}
+              onChange={onChangeDate}
+            />
           </p>
           <Divider orientation="vertical" flexItem />
           {onSitesData.map(({ title, value }, index) => (
@@ -212,30 +177,24 @@ export default function OnSite() {
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((onSite, index) => (
                     <TableRow hover key={onSite._id}>
-                      {columns.slice(0, columns.length - 1).map((column) => {
+                      {columns.map((column) => {
                         let value;
 
                         switch (column.id) {
                           case "onSiteNumber":
                             value = index + 1 + page * rowsPerPage;
                             break;
-                          case "customer":
-                            value =
-                              onSite.user?.name ||
-                              onSite.shippingAddress?.fullName ||
-                              "Inconnu";
-                            break;
-                          case "status":
-                            value = formatStatus(onSite.status);
-                            break;
-                          case "address":
-                            value = onSite.shippingAddress?.address || "N/A";
-                            break;
-                          case "phone":
-                            value = onSite.shippingAddress?.phone || "N/A";
+                          case "items":
+                            value = onSite.items.map(
+                              (item) =>
+                                products.find(
+                                  (product) =>
+                                    String(product.id) === String(item.product)
+                                )?.name
+                            );
                             break;
                           case "itemsCount":
-                            value = onSite.items.length;
+                            value = onSite.items.map((item) => item.quantity);
                             break;
                           case "totalAmount":
                             value = onSite.totalAmount.toFixed(2);
@@ -244,71 +203,19 @@ export default function OnSite() {
                             value = "";
                         }
 
-                        let style = {};
-                        if (column.id === "status") {
-                          style = {
-                            width: "fit-content",
-                            padding: "2px 10px",
-                            bonSiteRadius: "80px",
-                            bonSite: "1px solid",
-                            backgroundColor:
-                              value === "En attente"
-                                ? "#fff5cc"
-                                : value === "Livré"
-                                ? "#d3fcd2"
-                                : value === "Annulé"
-                                ? "#ffe9d5"
-                                : "transparent",
-                            color:
-                              value === "En attente"
-                                ? "#7a4100"
-                                : value === "Livré"
-                                ? "#065e49"
-                                : value === "Annulé"
-                                ? "#7a0916"
-                                : "inherit",
-                            bonSiteColor:
-                              value === "En attente"
-                                ? "#7a4100"
-                                : value === "Livré"
-                                ? "#065e49"
-                                : value === "Annulé"
-                                ? "#7a0916"
-                                : "transparent",
-                          };
-                        }
-
                         return (
                           <TableCell key={column.id} align={column.align}>
-                            <p style={column.id === "status" ? style : {}}>
+                            <p>
                               {column.format && typeof value === "number"
                                 ? column.format(value)
+                                : column.id === "items" ||
+                                  column.id === "itemsCount"
+                                ? value.map((element) => <p>{element}</p>)
                                 : value}
                             </p>
                           </TableCell>
                         );
                       })}
-
-                      <TableCell align="right">
-                        {formatStatus(onSite.status) !== "En attente" ? null : (
-                          <div className={styles.actions}>
-                            <Box
-                              component="i"
-                              className={`fi fi-rr-check ${styles.check}`}
-                              onClick={() =>
-                                updateOnSiteStatus(onSite._id, "Delivered")
-                              }
-                            />
-                            <Box
-                              component="i"
-                              className={`fi fi-rr-cross ${styles.cross}`}
-                              onClick={() =>
-                                updateOnSiteStatus(onSite._id, "Cancelled")
-                              }
-                            />
-                          </div>
-                        )}
-                      </TableCell>
                     </TableRow>
                   ))
               )}
@@ -338,60 +245,72 @@ const Item = ({ title, value }) => {
   );
 };
 
-const OrdersPopover = ({ anchorEl, onClose, onSites }) => {
+const OrdersPopover = ({ anchorEl, onClose, date }) => {
+  const queryClient = useQueryClient();
+
   const open = Boolean(anchorEl);
-  const productsList = products.map(({ name, price }) => ({
+  const productsList = products.map(({ id, name, price }) => ({
+    id,
     label: name,
     price,
   }));
 
   const [orderItems, setOrderItems] = useState([]);
   const [currentItem, setCurrentItem] = useState({
-    product: null,
+    label: "",
+    product: "",
     quantity: 1,
-    price: "",
+    price: 0,
   });
 
   const handleProductChange = (event, newValue) => {
-    console.log(":::::: ~ newValue:", newValue);
     if (newValue) {
       setCurrentItem({
         ...currentItem,
-        product: newValue.label,
+        label: newValue.label,
+        product: newValue.id,
         price: newValue.price,
       });
     } else {
-      setCurrentItem({ product: null, quantity: 1, price: "" });
+      setCurrentItem({ label: "", product: "", quantity: 1, price: 0 });
     }
   };
 
   const handleQuantityChange = (e) => {
-    setCurrentItem({
-      ...currentItem,
-      quantity: Number(e.target.value),
-      price:
-        Number(e.target.value) *
-        (currentItem.product ? currentItem.product.price : 0),
+    const quantity = Number(e.target.value);
+
+    setCurrentItem((current) => {
+      const unitPrice = products.find((p) => p.id === current.product)?.price;
+
+      return {
+        ...currentItem,
+        quantity,
+        price: quantity * unitPrice,
+      };
     });
   };
 
   const handleAddItem = () => {
     if (currentItem.product && currentItem.quantity > 0) {
       setOrderItems([...orderItems, currentItem]);
-      setCurrentItem({ product: null, quantity: 1, price: "" });
+      setCurrentItem({ label: "", product: "", quantity: 1, price: 0 });
+    } else {
+      displayErrorNotification(
+        "Veuillez sélectionner un produit et une quantité valide."
+      );
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let totalPrice = 0;
-    orderItems.forEach(
-      ({ quantity, price }) => (totalPrice += Number(quantity) * Number(price))
+    const totalPrice = orderItems.reduce(
+      (total, item) => total + item.quantity * item.price,
+      0
     );
 
     const newOrder = {
-      items: [...orderItems],
+      items: orderItems,
       totalAmount: totalPrice,
     };
 
@@ -406,9 +325,10 @@ const OrdersPopover = ({ anchorEl, onClose, onSites }) => {
         throw new Error("Failed to place order");
       }
 
+      queryClient.invalidateQueries(["onSites", date]);
       displaySuccessNotification("Commande confirmée");
       setOrderItems([]);
-      setCurrentItem({ product: null, quantity: 1, price: "" });
+      setCurrentItem({ product: null, quantity: 1, price: 0 });
       onClose();
     } catch (error) {
       displayErrorNotification("Erreur lors de la soumission de la commande");
@@ -422,7 +342,7 @@ const OrdersPopover = ({ anchorEl, onClose, onSites }) => {
       onClose={() => {
         onClose();
         setOrderItems([]);
-        setCurrentItem({ product: null, quantity: 1, price: "" });
+        setCurrentItem({ product: null, quantity: 1, price: 0 });
       }}
     >
       <div className={styles.modalContainer}>
@@ -440,38 +360,44 @@ const OrdersPopover = ({ anchorEl, onClose, onSites }) => {
             <Autocomplete
               options={productsList}
               getOptionLabel={(option) => option.label}
-              value={currentItem.product}
+              value={currentItem}
               onChange={handleProductChange}
               renderInput={(params) => (
-                <TextField {...params} label="Produit" />
+                <TextField {...params} placeholder="Produit" fullWidth />
               )}
             />
 
-            <div style={{ display: "flex", gap: "12px" }}>
+            <div className={styles.inputGroup}>
               <TextField
                 label="Quantité"
                 name="quantity"
                 type="number"
                 value={currentItem.quantity}
                 onChange={handleQuantityChange}
+                fullWidth
               />
-
               <TextField
                 label="Prix"
                 name="price"
                 type="number"
                 value={currentItem.price}
                 InputProps={{ readOnly: true }}
+                fullWidth
               />
             </div>
+            <div className={styles.buttonContainer}>
+              <Button onClick={handleAddItem}>Ajouter</Button>
+            </div>
 
-            <Button onClick={handleAddItem}>Ajouter</Button>
-
-            <ul className={styles.list}>
+            <ul className={styles.orderList}>
               {orderItems.map((item, index) => (
                 <li key={index}>
-                  {item.product.label} - {item.quantity} x {item.product.price}{" "}
-                  DH = {item.price} DH
+                  <Typography>
+                    {item.label} ({item.quantity}) :{" "}
+                    <span style={{ fontWeight: "bold" }}>
+                      {item.quantity * item.price} DH
+                    </span>
+                  </Typography>
                 </li>
               ))}
             </ul>
@@ -484,10 +410,13 @@ const OrdersPopover = ({ anchorEl, onClose, onSites }) => {
                   border: "1px solid #0a5440",
                 }}
                 onClick={onClose}
+                fullWidth
               >
                 Annuler
               </Button>
-              <Button type="submit">Valider la commande</Button>
+              <Button type="submit" fullWidth>
+                Valider la commande
+              </Button>
             </div>
           </form>
         </div>
