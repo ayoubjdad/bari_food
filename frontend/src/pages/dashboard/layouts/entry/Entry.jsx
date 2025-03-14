@@ -46,7 +46,6 @@ const FormBC = () => {
   const [selectedProduct, setSelectedProduct] = useState(defaultValue);
 
   const handleProductChange = (_, newValue) => {
-    console.log(":::::: ~ newValue:", newValue);
     setSelectedProduct(
       newValue
         ? { ...newValue, quantity: 1, totalAmount: newValue.price }
