@@ -32,7 +32,7 @@ const getOrders = async () => {
 
 const Checkout = () => {
   const { cart, setCart } = useCart();
-  const { user } = useLogin();
+  const { user, logged } = useLogin();
 
   const { data: allOrders } = useQuery({
     queryKey: ["allOrders"],
@@ -172,10 +172,12 @@ const Checkout = () => {
               </div>
             ))}
             <Divider />
-            <div className={styles.element}>
-              <b>Réduction -10%</b>
-              <b>-{totalPrice * 0.1} DH</b>
-            </div>
+            {logged && hasDiscount ? (
+              <div className={styles.element}>
+                <b>Réduction -10%</b>
+                <b>-{totalPrice * 0.1} DH</b>
+              </div>
+            ) : null}
             <Divider />
             <div className={styles.element}>
               <b>Total</b>
