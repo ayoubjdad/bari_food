@@ -5,19 +5,14 @@ const DeliveryNotes = require("../models/deliveryNotes");
 // @route   POST /api/deliveryNotes
 // @access  Private
 const createDeliveryNotes = asyncHandler(async (req, res) => {
-  const { name, price, totalAmount, quantity } = req.body;
+  const { name } = req.body;
 
   if (!name) {
     res.status(400);
     throw new Error("No deliveryNotes items");
   }
 
-  const deliveryNotes = new DeliveryNotes({
-    name,
-    price,
-    totalAmount,
-    quantity,
-  });
+  const deliveryNotes = new DeliveryNotes(req.body);
 
   const createdDeliveryNotes = await deliveryNotes.save();
   res.status(201).json(createdDeliveryNotes);
