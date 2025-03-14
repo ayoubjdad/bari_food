@@ -7,7 +7,16 @@ const {
 
 const router = express.Router();
 
-router.route("/").get(getProducts);
-router.route("/:id").get(getProductById).put(updateProduct);
+// @route   GET /api/products
+// @access  Private/Admin
+router.get("/", getProducts);
+
+// @route   GET /api/products/:id
+// @access  Private
+router.get("/:id", getProductById);
+
+// @route   PUT /api/products/:id
+// @access  Private/Admin
+router.put("/:id", updateProduct);
 
 module.exports = router;
