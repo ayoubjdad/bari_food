@@ -11,14 +11,17 @@ import { Box, Divider } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { serverUrl } from "../../../../config/config";
+import { getOrdersByDate } from "../../../../helpers/apis/apis.helpers";
+import { products } from "../../../../data/data";
 
 const columns = [
   { id: "orderNumber", label: "#", minWidth: 20 },
   { id: "customer", label: "Client", minWidth: 200 },
+  { id: "items", label: "Eléments", minWidth: 200 },
+  { id: "itemsCount", label: "Quantité", minWidth: 20, align: "left" },
   { id: "status", label: "Statut", minWidth: 120 },
   { id: "address", label: "Adresse", minWidth: 170, align: "left" },
   { id: "phone", label: "Téléphone", minWidth: 120, align: "left" },
-  { id: "itemsCount", label: "Quantité", minWidth: 20, align: "left" },
   {
     id: "totalAmount",
     label: "Montant total (DH)",
@@ -27,19 +30,6 @@ const columns = [
   },
   { id: "actions", label: "Actions", minWidth: 150, align: "right" },
 ];
-const getOrders = async (date) => {
-  try {
-    const response = await axios.get(`${serverUrl}/api/orders/date/${date}`);
-    const filteredOrders = response?.data?.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    );
-
-    return filteredOrders;
-  } catch (error) {
-    console.error("❌", error);
-    return [];
-  }
-};
 
 export default function Online() {
   const dateInputRef = useRef(null);
@@ -52,12 +42,18 @@ export default function Online() {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["orders"],
-    queryFn: () => getOrders(date),
+    queryKey: ["orders", date],
+    queryFn: () => getOrdersByDate(date),
   });
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [ordersData, setOrdersData] = useState([
+    { title: "Total", value: 0 },
+    { title: "Livrés", value: 0 },
+    { title: "En attente", value: 0 },
+    { title: "Annulés", value: 0 },
+  ]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -107,12 +103,10 @@ export default function Online() {
     }
   };
 
-  const [ordersData, setOrdersData] = useState([
-    { title: "Total", value: 0 },
-    { title: "Livrés", value: 0 },
-    { title: "En attente", value: 0 },
-    { title: "Annulés", value: 0 },
-  ]);
+  const onChangeDate = (e) => {
+    const date = e.target.value;
+    setDate(date);
+  };
 
   useEffect(() => {
     if (orders) {
@@ -141,9 +135,14 @@ export default function Online() {
           <p className={styles.today}>
             <Box component="i" className="fi fi-rr-calendar" />
             <span onClick={handleSpanClick} style={{ cursor: "pointer" }}>
-              Aujourd'hui
+              {date}
             </span>
-            <input type="date" ref={dateInputRef} style={{ display: "none" }} />
+            <input
+              type="date"
+              ref={dateInputRef}
+              style={{ display: "none" }}
+              onChange={onChangeDate}
+            />
           </p>
           <Divider orientation="vertical" flexItem />
           {ordersData.map(({ title, value }, index) => (
@@ -209,6 +208,15 @@ export default function Online() {
                               order.shippingAddress?.fullName ||
                               "Inconnu";
                             break;
+                          case "items":
+                            value = order.items.map(
+                              (item) =>
+                                products.find(
+                                  (product) =>
+                                    String(product.id) === String(item.product)
+                                )?.name
+                            );
+                            break;
                           case "status":
                             value = formatStatus(order.status);
                             break;
@@ -219,7 +227,7 @@ export default function Online() {
                             value = order.shippingAddress?.phone || "N/A";
                             break;
                           case "itemsCount":
-                            value = order.items.length;
+                            value = order.items.map((item) => item.quantity);
                             break;
                           case "totalAmount":
                             value = order.totalAmount.toFixed(2);
@@ -267,6 +275,9 @@ export default function Online() {
                             <p style={column.id === "status" ? style : {}}>
                               {column.format && typeof value === "number"
                                 ? column.format(value)
+                                : column.id === "items" ||
+                                  column.id === "itemsCount"
+                                ? value.map((element) => <p>{element}</p>)
                                 : value}
                             </p>
                           </TableCell>
