@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const DeliveryNotes = require("../models/deliveryNotes");
+const DeliveryNotes = require("../models/DeliveryNotes");
 
 // @desc    Create a new deliveryNotes
 // @route   POST /api/deliveryNotes
