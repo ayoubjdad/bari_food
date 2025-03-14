@@ -20,7 +20,6 @@ connectDB();
 const speedLimiter = slowDown({
   windowMs: 15 * 60 * 1000, // 15 minutes
   delayAfter: 50, // Commence à ralentir après 50 requêtes
-  delayMs: 500, // Ajoute 500ms de délai à chaque requête supplémentaire
 });
 
 const limiter = rateLimit({

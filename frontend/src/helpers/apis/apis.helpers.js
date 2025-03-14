@@ -56,3 +56,13 @@ export const getOnSitesByDate = async (date) => {
     return [];
   }
 };
+
+export const getProducts = async (date) => {
+  try {
+    const response = await axios.get(`${serverUrl}/api/products`);
+    return response?.data || [];
+  } catch (error) {
+    console.error("❌", error);
+    return [];
+  }
+};

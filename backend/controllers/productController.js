@@ -23,4 +23,28 @@ const getProductById = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { getProducts, getProductById };
+// @desc    Update product by ID
+// @route   PUT /api/products/:id
+// @access  Private/Admin
+const updateProduct = asyncHandler(async (req, res) => {
+  const { name, price, description, stock, category, image } = req.body;
+
+  const product = await Product.findById(req.params.id);
+
+  if (product) {
+    product.name = name || product.name;
+    product.price = price || product.price;
+    product.description = description || product.description;
+    product.stock = stock || product.stock;
+    product.category = category || product.category;
+    product.image = image || product.image;
+
+    const updatedProduct = await product.save();
+    res.json(updatedProduct);
+  } else {
+    res.status(404);
+    throw new Error("Product not found");
+  }
+});
+
+module.exports = { getProducts, getProductById, updateProduct };
