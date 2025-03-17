@@ -64,6 +64,10 @@ export default function Product() {
     setOptions({ ...options, size: event.target.value });
   };
 
+  const handleTypeChange = (event) => {
+    setOptions({ ...options, type: event.target.value });
+  };
+
   const handleAddToCart = () => {
     if (categoryId === 4 && !options.size) {
       alert("Veuillez sélectionner une taille avant d'ajouter au panier.");
@@ -128,40 +132,53 @@ export default function Product() {
               <>
                 <Divider />
 
-                {!options.size && (
-                  <p className={styles.error}>
-                    Veuillez sélectionner une taille*
-                  </p>
-                )}
-
                 <div className={styles.sizeSelector}>
-                  <RadioGroup
-                    row
-                    value={options.size}
-                    onChange={handleSizeChange}
-                  >
-                    <FormControlLabel
-                      value={4}
-                      control={<Radio />}
-                      label="Minis (8)"
-                    />
-                    <FormControlLabel
-                      value={8}
-                      control={<Radio />}
-                      label="Grands (4)"
-                    />
-                  </RadioGroup>
+                  {!options.size && (
+                    <p className={styles.error}>
+                      Veuillez sélectionner une taille*
+                    </p>
+                  )}
+
+                  <div className={styles.sizeSelector}>
+                    <RadioGroup
+                      row
+                      value={options.size}
+                      onChange={handleSizeChange}
+                    >
+                      <FormControlLabel
+                        value={8}
+                        control={<Radio />}
+                        label="Minis (8)"
+                      />
+                      <FormControlLabel
+                        value={4}
+                        control={<Radio />}
+                        label="Grands (4)"
+                      />
+                    </RadioGroup>
+                  </div>
+
+                  <div className={styles.sizeSelector}>
+                    <RadioGroup
+                      row
+                      value={options.type}
+                      onChange={handleTypeChange}
+                    >
+                      <FormControlLabel
+                        value="Cuite"
+                        control={<Radio />}
+                        label="Cuite"
+                      />
+                      <FormControlLabel
+                        value="Surgelée"
+                        control={<Radio />}
+                        label="Surgelée"
+                      />
+                    </RadioGroup>
+                  </div>
                 </div>
               </>
             )}
-
-            {/* <div className={styles.checkout}>
-              <p>Paiement sécurisé garanti</p>
-              <img
-                src="https://demo2.pavothemes.com/poco/wp-content/uploads/2020/08/trust-symbols.png"
-                alt=""
-              />
-            </div> */}
           </div>
         </div>
 

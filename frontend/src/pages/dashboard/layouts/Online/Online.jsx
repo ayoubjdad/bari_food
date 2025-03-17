@@ -47,10 +47,7 @@ export default function Online() {
     { title: "En attente", value: 0 },
     { title: "Annulés", value: 0 },
   ]);
-  const [date, setDate] = useState(
-    "2025-03-14"
-    // "new Date().toISOString().split("T")[0]
-  );
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
   const {
     data: orders,
@@ -108,21 +105,23 @@ export default function Online() {
           status: newStatus,
         };
 
-        const ids = data?.items?.map((item) => ({
-          id: Number(item.product),
-          quantity: item.quantity,
-        }));
+        if (newStatus === "Delivered") {
+          const ids = data?.items?.map((item) => ({
+            id: Number(item.product),
+            quantity: item.quantity,
+          }));
 
-        const productsToEdit = products.filter((product) =>
-          ids.some((obj) => obj.id === product.id)
-        );
+          const productsToEdit = products.filter((product) =>
+            ids.some((obj) => obj.id === product.id)
+          );
 
-        productsToEdit.forEach((product) => {
-          const index = ids.findIndex((obj) => obj.id === product.id);
-          product.countInStock -= ids[index].quantity;
+          productsToEdit.forEach((product) => {
+            const index = ids.findIndex((obj) => obj.id === product.id);
+            product.countInStock -= ids[index].quantity;
 
-          axios.put(`${serverUrl}/api/products/${product._id}`, product);
-        });
+            axios.put(`${serverUrl}/api/products/${product._id}`, product);
+          });
+        }
 
         await axios.put(`${serverUrl}/api/orders/${orderId}`, data);
         queryClient.invalidateQueries(["orders"]);

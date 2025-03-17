@@ -39,6 +39,11 @@ export const theme = createTheme({
           textTransform: "none",
           fontFamily: "inherit",
           backgroundColor: "#0a5440",
+
+          "&.Mui-disabled": {
+            color: "##919eabcc",
+            backgroundColor: "#919eab3d",
+          },
         },
         startIcon: {
           marginLeft: 0,
@@ -117,7 +122,7 @@ export const theme = createTheme({
     MuiRadio: {
       styleOverrides: {
         root: {
-          // color: "#1976d2", // Couleur par défaut
+          padding: "6px",
           "&.Mui-checked": {
             color: "#006400", // Couleur quand coché
           },

@@ -16,7 +16,7 @@ function TabPanel({ children, value, index }) {
 export default function Dashboard() {
   const { user, logout } = useLogin();
 
-  const [value, setValue] = useState(3);
+  const [value, setValue] = useState(2);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleChange = (event, newValue) => {

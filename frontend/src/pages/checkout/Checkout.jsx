@@ -216,13 +216,14 @@ const Checkout = () => {
                 label="Carte banquaire (Sera disponible prochainement)"
               />
             </RadioGroup>
-            <p>
-              Vos données personnelles seront utilisées pour traiter votre
-              commande, soutenir votre expérience sur ce site Web et à d'autres
-              fins décrites dans notre politique de confidentialité .
-            </p>
+            <p>🚚 Les commandes passées avant 19h seront livrés dans 24h</p>
+            <p>⚠️ Les commandes passées après 19h seront livrés dans 48h</p>
 
-            <Button type="submit" style={{ width: "100%" }}>
+            <Button
+              disabled={!cart?.length}
+              type="submit"
+              style={{ width: "100%" }}
+            >
               Passer la commande
             </Button>
           </div>
