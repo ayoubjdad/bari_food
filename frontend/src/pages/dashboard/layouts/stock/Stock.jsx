@@ -1,54 +1,22 @@
 import React from "react";
 import styles from "./Stock.module.scss";
-import { categories, products } from "../../../../data/data";
-import { useQuery } from "@tanstack/react-query";
+import { categories } from "../../../../data/data";
 import { getProductImage } from "../../../../helpers/functions.helper";
-import {
-  getDeliveryNotes,
-  getOrders,
-} from "../../../../helpers/apis/apis.helpers";
+import { useQuery } from "@tanstack/react-query";
+import { getProducts } from "../../../../helpers/apis/apis.helpers";
 
 export default function Stock() {
-  const { data: deliveryNotes = [] } = useQuery({
-    queryKey: ["deliveryNotes"],
-    queryFn: getDeliveryNotes,
-  });
-
-  const { data: orders } = useQuery({
-    queryKey: ["orders"],
-    queryFn: () => getOrders(),
-  });
-
-  const list = products.map((product, index) => {
-    let result = {
-      id: product.id,
-      name: product.name,
-      quantity: 0,
-    };
-
-    deliveryNotes.forEach((element) => {
-      if (element.id === product.id) {
-        result.quantity += element.quantity;
-      }
-    });
-
-    orders?.forEach((order) => {
-      order?.items?.forEach((element) => {
-        if (Number(element.product) === product.id) {
-          result.quantity -= element.quantity;
-        }
-      });
-    });
-
-    return result;
+  const { data: products = [] } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
   });
 
   return (
     <section className={styles.main}>
       <div className={styles.container}>
         <div className={styles.products}>
-          {list.map((product) => (
-            <Product product={product} />
+          {products.map((product) => (
+            <Product product={product} products={products} />
           ))}
         </div>
       </div>
@@ -56,8 +24,8 @@ export default function Stock() {
   );
 }
 
-const Product = ({ product }) => {
-  const { id, name, quantity } = product;
+const Product = ({ product, products = [] }) => {
+  const { id, name, countInStock } = product;
 
   const productIndex = products.findIndex((product) => product.id === id);
   const { categoryId, fileName } = products?.[productIndex] || {};
@@ -74,7 +42,7 @@ const Product = ({ product }) => {
       </div>
       <div className={styles.details}>
         <h3>{name}</h3>
-        <p>{quantity}</p>
+        <p>{countInStock}</p>
       </div>
     </div>
   );

@@ -27,3 +27,20 @@ export const getCategoryImage = (slug) => {
     }
   }
 };
+
+export const formatTime = (date) => {
+  const dateObject = new Date(date);
+  const hours = dateObject.getHours();
+  const minutes = dateObject.getMinutes();
+
+  return `${hours}h${minutes < 10 ? "0" + minutes : minutes}`;
+};
+
+export const formatDate = (date) => {
+  const dateObject = new Date(date);
+  const day = dateObject.getDate();
+  const month = dateObject.getMonth() + 1;
+  const year = dateObject.getFullYear();
+
+  return `${year}-${month}-${day}`;
+};

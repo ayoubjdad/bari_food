@@ -11,21 +11,25 @@ import { Box, Divider } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { serverUrl } from "../../../../config/config";
-import { getOrdersByDate } from "../../../../helpers/apis/apis.helpers";
-import { products } from "../../../../data/data";
+import {
+  getOrdersByDate,
+  getProducts,
+} from "../../../../helpers/apis/apis.helpers";
+import { formatTime } from "../../../../helpers/functions.helper";
 
 const columns = [
   { id: "orderNumber", label: "#", minWidth: 20 },
   { id: "customer", label: "Client", minWidth: 200 },
   { id: "items", label: "Eléments", minWidth: 200 },
-  { id: "itemsCount", label: "Quantité", minWidth: 20, align: "left" },
+  { id: "itemsCount", label: "Quantité", minWidth: 15, align: "left" },
   { id: "status", label: "Statut", minWidth: 120 },
-  { id: "address", label: "Adresse", minWidth: 170, align: "left" },
+  { id: "address", label: "Adresse", minWidth: 120, align: "left" },
   { id: "phone", label: "Téléphone", minWidth: 120, align: "left" },
+  { id: "time", label: "Heure", minWidth: 120, align: "left" },
   {
     id: "totalAmount",
     label: "Montant total (DH)",
-    minWidth: 150,
+    minWidth: 120,
     align: "right",
   },
   { id: "actions", label: "Actions", minWidth: 150, align: "right" },
@@ -35,7 +39,18 @@ export default function Online() {
   const dateInputRef = useRef(null);
   const queryClient = useQueryClient();
 
-  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [ordersData, setOrdersData] = useState([
+    { title: "Total", value: 0 },
+    { title: "Livrés", value: 0 },
+    { title: "En attente", value: 0 },
+    { title: "Annulés", value: 0 },
+  ]);
+  const [date, setDate] = useState(
+    "2025-03-14"
+    // "new Date().toISOString().split("T")[0]
+  );
 
   const {
     data: orders,
@@ -46,14 +61,10 @@ export default function Online() {
     queryFn: () => getOrdersByDate(date),
   });
 
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [ordersData, setOrdersData] = useState([
-    { title: "Total", value: 0 },
-    { title: "Livrés", value: 0 },
-    { title: "En attente", value: 0 },
-    { title: "Annulés", value: 0 },
-  ]);
+  const { data: products = [] } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
+  });
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -87,15 +98,33 @@ export default function Online() {
     try {
       const orderIndex = orders?.findIndex((order) => order._id === orderId);
 
-      if (orderIndex) {
-        await axios.put(`${serverUrl}/api/orders/${orderId}`, {
+      if (orderIndex !== -1) {
+        const data = {
           ...orders[orderIndex],
           shippingAddress: {
             ...orders[orderIndex]?.shippingAddress,
             phone: orders[orderIndex]?.shippingAddress?.phone || "N/A",
           },
           status: newStatus,
+        };
+
+        const ids = data?.items?.map((item) => ({
+          id: Number(item.product),
+          quantity: item.quantity,
+        }));
+
+        const productsToEdit = products.filter((product) =>
+          ids.some((obj) => obj.id === product.id)
+        );
+
+        productsToEdit.forEach((product) => {
+          const index = ids.findIndex((obj) => obj.id === product.id);
+          product.countInStock -= ids[index].quantity;
+
+          axios.put(`${serverUrl}/api/products/${product._id}`, product);
         });
+
+        await axios.put(`${serverUrl}/api/orders/${orderId}`, data);
         queryClient.invalidateQueries(["orders"]);
       }
     } catch (error) {
@@ -225,6 +254,9 @@ export default function Online() {
                             break;
                           case "phone":
                             value = order.shippingAddress?.phone || "N/A";
+                            break;
+                          case "time":
+                            value = formatTime(order.createdAt) || "N/A";
                             break;
                           case "itemsCount":
                             value = order.items.map((item) => item.quantity);

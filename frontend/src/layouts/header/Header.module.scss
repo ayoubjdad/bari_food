@@ -31,7 +31,10 @@
   cursor: pointer;
 }
 
-ul {
+.drawerMenu,
+.mobileMenu,
+.menu,
+.shippingContainer {
   gap: 32px;
   margin: 0;
   padding: 0;

@@ -131,7 +131,7 @@ export default function Header() {
             {cart?.length > 0 ? (
               cart.map((product) => (
                 <Product
-                  key={product.id} // Add key prop
+                  key={product.id}
                   product={product}
                   removeFromCart={removeFromCart}
                   updateQuantity={updateQuantity}

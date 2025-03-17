@@ -120,6 +120,7 @@ const Checkout = () => {
               required
               defaultValue={formData.fullName}
               onChange={handleChange}
+              disabled={logged}
             />
             <TextField
               placeholder="Téléphone"
@@ -136,6 +137,7 @@ const Checkout = () => {
               fullWidth
               defaultValue={formData.email}
               onChange={handleChange}
+              disabled={logged}
             />
             <TextField
               placeholder="Adresse"
@@ -162,23 +164,36 @@ const Checkout = () => {
             </div>
 
             <Divider />
-            {cart.map((product) => (
-              <div className={styles.element} key={product.id}>
-                <p>
-                  {product.name} x {product.quantity}
-                </p>
+            {cart?.length ? (
+              cart.map((product) => (
+                <>
+                  <div className={styles.element} key={product.id}>
+                    <p>
+                      {product.name} x {product.quantity}
+                    </p>
 
-                <p>{product.price * product.quantity} DH</p>
-              </div>
-            ))}
-            <Divider />
+                    <p>{product.price * product.quantity} DH</p>
+                  </div>
+                  <Divider />
+                </>
+              ))
+            ) : (
+              <>
+                <p>Aucun produit dans votre panier</p>
+                <Divider />
+              </>
+            )}
+
             {logged && hasDiscount ? (
-              <div className={styles.element}>
-                <b>Réduction -10%</b>
-                <b>-{totalPrice * 0.1} DH</b>
-              </div>
+              <>
+                <div className={styles.element}>
+                  <b>Réduction -10%</b>
+                  <b>-{totalPrice * 0.1} DH</b>
+                </div>
+                <Divider />
+              </>
             ) : null}
-            <Divider />
+
             <div className={styles.element}>
               <b>Total</b>
               <b>{totalPrice - totalPrice * 0.1} DH</b>

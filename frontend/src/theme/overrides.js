@@ -14,6 +14,12 @@ export const theme = createTheme({
             },
           },
         },
+        option: {
+          fontWeight: 500,
+          fontSize: "14px",
+          color: "#1e1d23",
+          fontFamily: "Gilroy",
+        },
       },
     },
 

@@ -4,13 +4,15 @@ import { Autocomplete, Button, TextField } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { serverUrl } from "../../../../config/config";
-import { products } from "../../../../data/data";
 import {
   displayErrorNotification,
   displaySuccessNotification,
 } from "../../../../components/toast/success/SuccessToast";
 import CustomTable from "../../../../components/custom-table/CustomTable";
-import { getDeliveryNotes } from "../../../../helpers/apis/apis.helpers";
+import {
+  getDeliveryNotes,
+  getProducts,
+} from "../../../../helpers/apis/apis.helpers";
 
 // Constants
 const columns = [
@@ -27,7 +29,7 @@ const columns = [
 ];
 
 // Form Component
-const FormBC = () => {
+const FormBC = ({ products }) => {
   const queryClient = useQueryClient();
   const defaultValue = {
     id: "",
@@ -70,10 +72,25 @@ const FormBC = () => {
         selectedProduct
       );
       if (response.status === 201) {
-        queryClient.setQueryData(["deliveryNotes"], (oldData) => [
-          ...oldData,
-          { ...selectedProduct },
-        ]);
+        queryClient.setQueryData(["deliveryNotes"], (oldData) => {
+          return oldData
+            ? [...oldData, { ...selectedProduct }]
+            : [{ ...selectedProduct }];
+        });
+
+        const product = products.find(
+          (product) => product.id === selectedProduct.id
+        );
+
+        const updatedProduct = {
+          ...product,
+          countInStock: product.countInStock + selectedProduct.quantity,
+        };
+
+        await axios.put(
+          `${serverUrl}/api/products/${updatedProduct._id}`,
+          updatedProduct
+        );
         displaySuccessNotification("Bon de livraison confirmé");
         setSelectedProduct(defaultValue);
       }
@@ -94,6 +111,8 @@ const FormBC = () => {
       <form onSubmit={handleSubmit} className={styles.form}>
         <Autocomplete
           style={{ width: "40%" }}
+          popupIcon={<i className="fi fi-rr-angle-small-down" />}
+          clearIcon={<i className="fi fi-rr-cross-small" />}
           options={productsList}
           getOptionLabel={(option) => option.name}
           value={selectedProduct}
@@ -136,6 +155,11 @@ export default function Entry() {
     queryFn: getDeliveryNotes,
   });
 
+  const { data: products = [] } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
+  });
+
   const handleChangePage = (_, newPage) => setPage(newPage);
   const handleChangeRowsPerPage = (e) => {
     setRowsPerPage(+e.target.value);
@@ -151,7 +175,8 @@ export default function Entry() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <FormBC deliveryNotes={deliveryNotes} />
+        <FormBC deliveryNotes={deliveryNotes} products={products} />
+
         <CustomTable
           page={page}
           data={tableData}
