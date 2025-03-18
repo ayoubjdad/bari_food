@@ -54,6 +54,7 @@ export const displayInProgressNotification = (
 ) => {
   toast.dismiss();
   return toast.loading(message, {
+    autoClose: 5000,
     position: "top-right",
     className: `${styles.toastContainer} ${styles.progress}`,
   });

@@ -7,6 +7,7 @@ import { Box, Button, Drawer, Popover, TextField } from "@mui/material";
 import { useLogin } from "../../context/login/LoginContext"; // Import useLogin
 import axios from "axios";
 import logo from "../../assets/logo/bari-logo-green.png";
+import logoLion from "../../assets/logo/bari-lion.png";
 import { serverUrl } from "../../config/config";
 import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
 import { categories } from "../../data/data";
@@ -118,7 +119,7 @@ export default function Header() {
     <>
       <Drawer anchor="right" open={open} onClose={handleDrawerClose}>
         <div className={styles.drawerHeader}>
-          <img src={logo} alt="logo" className={styles.logo} />
+          <img src={logoLion} alt="logo" className={styles.logo} />
           <Box
             component="i"
             className="fi fi-rr-cross"
@@ -184,7 +185,7 @@ export default function Header() {
       <header className={styles.main}>
         <nav className={styles.container}>
           <img
-            src={logo}
+            src={logoLion}
             alt="logo"
             className={styles.logo}
             onClick={() => navigate("/")}

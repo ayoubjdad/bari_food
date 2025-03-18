@@ -61,12 +61,12 @@ const Checkout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    displayInProgressNotification("Commande en cours de traitement...");
-
     if (totalPrice < 200) {
       alert("Le montant minimum de commande est de 200 DH.");
       return;
     }
+
+    displayInProgressNotification("Commande en cours de traitement...");
 
     const orderData = {
       user: user?._id,
@@ -188,7 +188,7 @@ const Checkout = () => {
               <>
                 <div className={styles.element}>
                   <b>Réduction -10%</b>
-                  <b>-{totalPrice * 0.1} DH</b>
+                  <b>-{(totalPrice * 0.1).toFixed(2)} DH</b>
                 </div>
                 <Divider />
               </>
