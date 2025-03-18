@@ -17,14 +17,16 @@ import {
   Typography,
 } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
-import { serverUrl } from "../../../../config/config";
-import { products } from "../../../../data/data";
 import {
   displayErrorNotification,
   displaySuccessNotification,
 } from "../../../../components/toast/success/SuccessToast";
-import { getOnSitesByDate } from "../../../../helpers/apis/apis.helpers";
+import {
+  getOnSitesByDate,
+  getProducts,
+} from "../../../../helpers/apis/apis.helpers";
+import axios from "axios";
+import { serverUrl } from "../../../../config/config";
 
 const columns = [
   { id: "onSiteNumber", label: "#", minWidth: 20 },
@@ -50,6 +52,11 @@ export default function OnSite() {
   } = useQuery({
     queryKey: ["onSites", date],
     queryFn: () => getOnSitesByDate(date),
+  });
+
+  const { data: products = [] } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
   });
 
   const [page, setPage] = useState(0);
@@ -103,6 +110,7 @@ export default function OnSite() {
             date={date}
             onClose={handleClose}
             anchorEl={anchorEl}
+            products={products}
           />
 
           <Button
@@ -245,7 +253,7 @@ const Item = ({ title, value }) => {
   );
 };
 
-const OrdersPopover = ({ anchorEl, onClose, date }) => {
+const OrdersPopover = ({ date, anchorEl, onClose, products }) => {
   const queryClient = useQueryClient();
 
   const open = Boolean(anchorEl);
@@ -270,6 +278,7 @@ const OrdersPopover = ({ anchorEl, onClose, date }) => {
         label: newValue.label,
         product: newValue.id,
         price: newValue.price,
+        quantity: 1,
       });
     } else {
       setCurrentItem({ label: "", product: "", quantity: 1, price: 0 });
@@ -315,6 +324,25 @@ const OrdersPopover = ({ anchorEl, onClose, date }) => {
     };
 
     try {
+      const ids = newOrder?.items?.map((item) => ({
+        id: Number(item.product),
+        quantity: item.quantity,
+      }));
+
+      const productsToEdit = products.filter((product) =>
+        ids.some((obj) => obj.id === product.id)
+      );
+
+      productsToEdit?.forEach((product) => {
+        const index = ids.findIndex((obj) => obj.id === product.id);
+        product.countInStock -= ids[index].quantity;
+
+        console.log(":::::: ~ product:", product);
+        if (product._id) {
+          axios.put(`${serverUrl}/api/products/${product._id}`, product);
+        }
+      });
+
       const response = await fetch(`${serverUrl}/api/onSites`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -328,12 +356,18 @@ const OrdersPopover = ({ anchorEl, onClose, date }) => {
       queryClient.invalidateQueries(["onSites", date]);
       displaySuccessNotification("Commande confirmée");
       setOrderItems([]);
-      setCurrentItem({ product: null, quantity: 1, price: 0 });
+      setCurrentItem({ product: "", quantity: 1, price: 0 });
       onClose();
     } catch (error) {
       displayErrorNotification("Erreur lors de la soumission de la commande");
       console.error("❌ Error submitting order:", error);
     }
+  };
+
+  const onCancel = () => {
+    onClose();
+    setOrderItems([]);
+    setCurrentItem({ label: "", product: "", quantity: 1, price: 0 });
   };
 
   return (
@@ -342,7 +376,7 @@ const OrdersPopover = ({ anchorEl, onClose, date }) => {
       onClose={() => {
         onClose();
         setOrderItems([]);
-        setCurrentItem({ product: null, quantity: 1, price: 0 });
+        setCurrentItem({ label: "", product: "", quantity: 1, price: 0 });
       }}
     >
       <div className={styles.modalContainer}>
@@ -394,9 +428,7 @@ const OrdersPopover = ({ anchorEl, onClose, date }) => {
                 <li key={index}>
                   <Typography>
                     {item.label} ({item.quantity}) :{" "}
-                    <span style={{ fontWeight: "bold" }}>
-                      {item.quantity * item.price} DH
-                    </span>
+                    <span style={{ fontWeight: "bold" }}>{item.price} DH</span>
                   </Typography>
                 </li>
               ))}
@@ -409,7 +441,7 @@ const OrdersPopover = ({ anchorEl, onClose, date }) => {
                   backgroundColor: "white",
                   border: "1px solid #0a5440",
                 }}
-                onClick={onClose}
+                onClick={onCancel}
                 fullWidth
               >
                 Annuler

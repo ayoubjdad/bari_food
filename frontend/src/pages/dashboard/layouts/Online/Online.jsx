@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./Online.module.scss";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -62,6 +62,42 @@ export default function Online() {
     queryKey: ["products"],
     queryFn: () => getProducts(),
   });
+
+  const lists = useMemo(() => {
+    let productsList = [];
+
+    orders?.forEach((order) => {
+      order?.items?.forEach((item) => {
+        productsList.push(item);
+      });
+    });
+
+    const mergedProducts = productsList.reduce((acc, product) => {
+      const index = acc.findIndex((obj) => obj.id === Number(product.product));
+
+      if (index !== -1) {
+        acc[index].quantity += product.quantity;
+      } else {
+        const productData = products.find(
+          (obj) => obj.id === Number(product.product)
+        );
+        if (productData) {
+          acc.push({ ...productData, quantity: product.quantity });
+        }
+      }
+
+      return acc;
+    }, []);
+
+    return mergedProducts;
+  }, [orders, products]);
+
+  const assylor = lists.filter(
+    (product) => product.categoryId === 1 || product.categoryId === 2
+  );
+  const joyFood = lists.filter(
+    (product) => product.categoryId === 4 || product.categoryId === 3
+  );
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -181,6 +217,11 @@ export default function Online() {
               ) : null}
             </>
           ))}
+        </div>
+
+        <div className={styles.suppliers}>
+          <Supplier title="Assylor" list={assylor} />
+          <Supplier title="Joy Food" list={joyFood} />
         </div>
 
         <TableContainer sx={{ maxHeight: 440 }}>
@@ -360,6 +401,19 @@ const Item = ({ title, value }) => {
     <div className={styles.item}>
       <p className={styles.title}>{title}</p>
       <p className={styles.value}>{value}</p>
+    </div>
+  );
+};
+
+const Supplier = ({ title, list }) => {
+  return (
+    <div className={styles.supplier}>
+      <h2>{title}</h2>
+      {list.map((product) => (
+        <div>
+          <span>{product.name}</span> - <span>{product.quantity}</span>
+        </div>
+      ))}
     </div>
   );
 };

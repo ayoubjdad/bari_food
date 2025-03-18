@@ -1,10 +1,16 @@
 import React, { useMemo } from "react";
 import styles from "./TopReceips.module.scss";
 import ProductLarge from "../../components/product-large/ProductLarge";
-import { products } from "../../data/data";
 import delivery from "../../assets/images/way-concept-illustration.png";
+import { useQuery } from "@tanstack/react-query";
+import { getProducts } from "../../helpers/apis/apis.helpers";
 
 export default function TopReceips() {
+  const { data: products = [] } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
+  });
+
   const list = useMemo(
     () => products.filter((product) => product.name.includes("Pain Libanais")),
     [products]

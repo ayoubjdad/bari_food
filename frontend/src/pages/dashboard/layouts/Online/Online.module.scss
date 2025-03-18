@@ -94,3 +94,19 @@
     background-color: #e9d4c0;
   }
 }
+
+.suppliers {
+  gap: 32px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.supplier {
+  gap: 16px;
+  display: grid;
+  border-radius: 16px;
+  background-color: #919eab3d;
+  background-color: #faf9f6;
+  padding: 16px 32px 16px 30px;
+}
