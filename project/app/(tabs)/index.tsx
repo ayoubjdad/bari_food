@@ -14,10 +14,17 @@ import { foodItems, productsCategories } from '../../data/foodItems';
 import { FoodItem } from '../../types';
 import { Link } from 'expo-router';
 import { productImages } from '@/helpers/images';
+import { useQuery } from '@tanstack/react-query';
+import { getProducts } from '../../helpers/api.helper';
 
 export default function MenuScreen() {
+  const { data: products = [] } = useQuery({
+    queryKey: ['products'],
+    queryFn: getProducts,
+  });
+
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredItems, setFilteredItems] = useState<FoodItem[]>(foodItems);
+  const [filteredItems, setFilteredItems] = useState<FoodItem[]>(products);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const categories = productsCategories.map((category) => category.name);
 

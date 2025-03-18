@@ -1,20 +1,27 @@
 {
   "expo": {
-    "name": "bolt-expo-nativewind",
-    "slug": "bolt-expo-nativewind",
+    "name": "Bari Food",
+    "slug": "bari-food",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/logo/bari-lion.png",
+    "scheme": "bari_food_app",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bari-food.bari_food_app"
+    },
+    "android": {
+      "package": "com.yourcompany.myapp"
+    },
+    "updates": {
+      "enabled": true
     },
     "web": {
       "bundler": "metro",
       "output": "single",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/logo/bari-lion.png"
     },
     "plugins": ["expo-router"],
     "experiments": {

@@ -3,6 +3,8 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { SplashScreen } from 'expo-router';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Text, View } from 'react-native';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete
 SplashScreen.preventAutoHideAsync();
@@ -14,6 +16,8 @@ declare global {
 }
 
 export default function RootLayout() {
+  const queryClient = new QueryClient();
+
   const [fontsLoaded] = useFonts({
     'Poppins-Regular': require('../assets/fonts/Poppins-Regular.ttf'),
     'Poppins-Medium': require('../assets/fonts/Poppins-Medium.ttf'),
@@ -32,12 +36,12 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" options={{ title: 'Oops!' }} />
       </Stack>
       <StatusBar style="auto" />
-    </>
+    </QueryClientProvider>
   );
 }

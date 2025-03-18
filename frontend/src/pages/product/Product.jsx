@@ -147,12 +147,26 @@ export default function Product() {
                     >
                       <FormControlLabel
                         value={8}
-                        control={<Radio />}
+                        control={
+                          <Radio
+                            checked={
+                              name.toLowerCase().includes("mini") ? true : false
+                            }
+                          />
+                        }
                         label="Minis (8)"
                       />
                       <FormControlLabel
                         value={4}
-                        control={<Radio />}
+                        control={
+                          <Radio
+                            checked={
+                              !name.toLowerCase().includes("mini")
+                                ? true
+                                : false
+                            }
+                          />
+                        }
                         label="Grands (4)"
                       />
                     </RadioGroup>

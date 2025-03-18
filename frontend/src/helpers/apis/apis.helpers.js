@@ -66,3 +66,13 @@ export const getProducts = async (date) => {
     return [];
   }
 };
+
+export const postProduct = async (productData) => {
+  try {
+    const response = await axios.post(`${serverUrl}/api/products`, productData);
+    return response?.data;
+  } catch (error) {
+    console.error("❌ Error creating product:", error);
+    throw new Error("Failed to create product");
+  }
+};
