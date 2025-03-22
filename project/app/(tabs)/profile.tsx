@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,38 +8,22 @@ import {
   ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {
-  ChevronRight,
-  CreditCard,
-  MapPin,
-  Bell,
-  CircleHelp as HelpCircle,
-  LogOut,
-} from 'lucide-react-native';
+import { LogOut } from 'lucide-react-native';
+import { useUser } from '@/context/UserContext';
+import LoginForm from '../LoginForm';
+import SignupForm from '../SignupForm';
 
 export default function ProfileScreen() {
-  const menuItems = [
-    {
-      icon: <CreditCard size={20} color="#2faa7a" />,
-      title: 'Payment Methods',
-      subtitle: 'Add or remove payment methods',
-    },
-    {
-      icon: <MapPin size={20} color="#2faa7a" />,
-      title: 'Delivery Addresses',
-      subtitle: 'Add or remove delivery addresses',
-    },
-    {
-      icon: <Bell size={20} color="#2faa7a" />,
-      title: 'Notifications',
-      subtitle: 'Customize notification preferences',
-    },
-    {
-      icon: <HelpCircle size={20} color="#2faa7a" />,
-      title: 'Help & Support',
-      subtitle: 'Get help with your orders',
-    },
-  ];
+  const { user, logout, login } = useUser();
+  const [showLogin, setShowLogin] = useState(true);
+
+  const handleLoginSuccess = (userData: any) => {
+    login(userData);
+  };
+
+  const handleSignupSuccess = (userData: any) => {
+    login(userData);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -47,56 +32,49 @@ export default function ProfileScreen() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.profileCard}>
-          <Image
-            source={{
-              uri: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-            }}
-            style={styles.profileImage}
-          />
-          <View style={styles.profileInfo}>
-            <Text style={styles.profileName}>John Doe</Text>
-            <Text style={styles.profileEmail}>john.doe@example.com</Text>
-          </View>
-          <TouchableOpacity style={styles.editButton}>
-            <Text style={styles.editButtonText}>Edit</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.statsContainer}>
-          <View style={styles.statItem}>
-            <Text style={styles.statValue}>12</Text>
-            <Text style={styles.statLabel}>Orders</Text>
-          </View>
-          <View style={[styles.statItem, styles.statDivider]}>
-            <Text style={styles.statValue}>4</Text>
-            <Text style={styles.statLabel}>Favorites</Text>
-          </View>
-          <View style={styles.statItem}>
-            <Text style={styles.statValue}>2</Text>
-            <Text style={styles.statLabel}>Addresses</Text>
-          </View>
-        </View>
-
-        <View style={styles.menuContainer}>
-          {menuItems.map((item, index) => (
-            <TouchableOpacity key={index} style={styles.menuItem}>
-              <View style={styles.menuIconContainer}>{item.icon}</View>
-              <View style={styles.menuTextContainer}>
-                <Text style={styles.menuTitle}>{item.title}</Text>
-                <Text style={styles.menuSubtitle}>{item.subtitle}</Text>
+        {user ? (
+          <>
+            <View style={styles.profileCard}>
+              <Image
+                source={{
+                  uri:
+                    // user?.avatar ||
+                    'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                }}
+                style={styles.profileImage}
+              />
+              <View style={styles.profileInfo}>
+                <Text style={styles.profileName}>{user.name}</Text>
+                <Text style={styles.profileEmail}>{user.email}</Text>
               </View>
-              <ChevronRight size={20} color="#9E9E9E" />
+            </View>
+
+            <TouchableOpacity style={styles.logoutButton} onPress={logout}>
+              <LogOut size={20} color="#FF3B30" />
+              <Text style={styles.logoutText}>Log Out</Text>
             </TouchableOpacity>
-          ))}
-        </View>
+          </>
+        ) : (
+          <>
+            {showLogin ? (
+              <LoginForm onLoginSuccess={handleLoginSuccess} />
+            ) : (
+              <SignupForm onSignupSuccess={handleSignupSuccess} />
+            )}
+            <TouchableOpacity
+              style={styles.toggleButton}
+              onPress={() => setShowLogin(!showLogin)}
+            >
+              <Text style={styles.toggleButtonText}>
+                {showLogin
+                  ? 'Need an account? Sign Up'
+                  : 'Already have an account? Login'}
+              </Text>
+            </TouchableOpacity>
+          </>
+        )}
 
-        <TouchableOpacity style={styles.logoutButton}>
-          <LogOut size={20} color="#FF3B30" />
-          <Text style={styles.logoutText}>Log Out</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.versionText}>Version 1.0.0</Text>
+        <Text style={styles.versionText}>Version 0.1.0</Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -148,90 +126,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#9E9E9E',
   },
-  editButton: {
-    backgroundColor: '#F5F5F5',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-  },
-  editButtonText: {
-    fontFamily: 'Poppins-Medium',
-    fontSize: 14,
-    color: '#333333',
-  },
-  statsContainer: {
-    flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  statItem: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: 16,
-  },
-  statDivider: {
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderColor: '#F0F0F0',
-  },
-  statValue: {
-    fontFamily: 'Poppins-Bold',
-    fontSize: 20,
-    color: '#333333',
-  },
-  statLabel: {
-    fontFamily: 'Poppins-Regular',
-    fontSize: 14,
-    color: '#9E9E9E',
-    marginTop: 4,
-  },
-  menuContainer: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-    overflow: 'hidden',
-  },
-  menuItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F0F0F0',
-  },
-  menuIconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#FFF0E6',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 16,
-  },
-  menuTextContainer: {
-    flex: 1,
-  },
-  menuTitle: {
-    fontFamily: 'Poppins-Medium',
-    fontSize: 16,
-    color: '#333333',
-  },
-  menuSubtitle: {
-    fontFamily: 'Poppins-Regular',
-    fontSize: 14,
-    color: '#9E9E9E',
-  },
   logoutButton: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -246,6 +140,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#FF3B30',
     marginLeft: 8,
+  },
+  toggleButton: {
+    alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  toggleButtonText: {
+    fontFamily: 'Poppins-Medium',
+    fontSize: 14,
+    color: '#2faa7a',
   },
   versionText: {
     fontFamily: 'Poppins-Regular',

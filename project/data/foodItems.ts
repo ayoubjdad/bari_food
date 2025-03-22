@@ -1,180 +1,41 @@
-import { productImages } from '@/helpers/images';
+// import { productImages } from '@/helpers/images';
 import { FoodItem } from '../types';
 
 export const productsCategories = [
   {
     id: 1,
-    name: 'Pain Sandwich',
-    slug: 'pain-sandwich',
-    description: 'Divers types de pain pour sandwich.',
+    name: 'Pain Frais',
+    slug: 'pain-frai',
+    description:
+      'Pain fraîchement préparé chaque jour, idéal pour accompagner vos repas ou réaliser de délicieux sandwiches.',
     image:
       'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
   },
   {
     id: 2,
-    name: 'Baguette Tradition / Flûte Ancienne',
-    slug: 'baguette-tradition-flute-ancienne',
-    description: 'Baguettes et flûtes traditionnelles.',
+    name: 'Gâteaux et Pâtisserie',
+    slug: 'gateaux-et-patisserie',
+    description:
+      'Un assortiment de gâteaux et pâtisseries artisanales, parfaits pour toutes vos occasions spéciales.',
     image:
       'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
   },
   {
     id: 3,
-    name: 'Pistolet / Baguetine',
-    slug: 'pistolet-baguetine',
-    description: 'Petites baguettes et pistolets.',
+    name: 'Pain Surgelé',
+    slug: 'pain-surgele',
+    description:
+      'Pain congelé prêt à cuire, conservant toute sa fraîcheur et son goût pour une consommation ultérieure.',
     image:
       'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
   },
+
   {
     id: 4,
-    name: 'Pain de Mie',
-    slug: 'pain-de-mie',
-    description: 'Pain doux et tranché.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 5,
-    name: 'Pain Libanais',
-    slug: 'pain-libanais',
-    description: 'Pain libanais.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 6,
-    name: 'Pain Panini',
-    slug: 'pain-panini',
-    description: 'Pain panini.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 7,
-    name: 'Pain Hamburger',
-    slug: 'pain-hamburger',
-    description: 'Pains à hamburger.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 8,
-    name: 'Pain Burger',
-    slug: 'pain-burger',
-    description: 'Pains à burger.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 9,
-    name: 'Pâte à Pizza',
-    slug: 'pate-a-pizza',
-    description: 'Pâte à pizza.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 10,
-    name: 'Chapelure',
-    slug: 'chapelure',
-    description: 'Chapelure.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 11,
-    name: 'Tortilla',
-    slug: 'tortilla',
-    description: 'Tortillas.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 12,
-    name: 'Fond de Tarte',
-    slug: 'fond-de-tarte',
-    description: 'Fonds de tarte.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 13,
-    name: 'Pain',
-    slug: 'pain',
-    description: 'Divers types de pain.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 14,
-    name: 'Pain Sans Sel',
-    slug: 'pain-sans-sel',
-    description: 'Pain sans sel.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 15,
-    name: 'Burger',
-    slug: 'burger',
-    description: 'Pains à burger.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 16,
-    name: 'Pains Spéciaux',
-    slug: 'pains-speciaux',
-    description: 'Pains spéciaux.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 17,
-    name: 'Cookies',
-    slug: 'cookies',
-    description: 'Divers types de cookies.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 18,
-    name: 'Éclair',
-    slug: 'eclair',
-    description: 'Éclairs.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 19,
-    name: 'Gâteaux Individuels',
-    slug: 'gateaux-individuels',
-    description: 'Gâteaux individuels.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 20,
-    name: 'Tartes et Muffins',
-    slug: 'tartes-et-muffins',
-    description: 'Tartes et muffins.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 21,
-    name: 'Entremets',
-    slug: 'entremets',
-    description: 'Desserts.',
-    image:
-      'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
-  },
-  {
-    id: 22,
-    name: 'Macaron',
-    slug: 'macaron',
-    description: 'Macarons.',
+    name: 'Viennoiserie',
+    slug: 'viennoiserie',
+    description:
+      'Croissants, pains au chocolat et autres douceurs feuilletées pour un petit-déjeuner ou une pause gourmande.',
     image:
       'https://png.pngtree.com/png-clipart/20230928/original/pngtree-cute-breads-bakery-stationary-sticker-oil-painting-png-image_13165667.png',
   },
@@ -186,7 +47,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Sandwich Blanc',
     fileName: 'pain-sandwich-blanc',
     slug: 'pain-sandwich-blanc',
-    image: productImages['pain-sandwich-blanc'],
+    image: 0, // productImages['pain-sandwich-blanc'],
     description:
       'Pain sandwich blanc doux et moelleux, parfait pour faire des sandwichs.',
     price: 3,
@@ -198,7 +59,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Sandwich Ciabatta',
     fileName: 'pain-sandwich-ciabatta',
     slug: 'pain-sandwich-ciabatta',
-    image: productImages['pain-sandwich-ciabatta'],
+    image: 0, // productImages['pain-sandwich-ciabatta'],
     description: 'Pain ciabatta rustique, idéal pour des sandwichs copieux.',
     price: 3.2,
     countInStock: 100,
@@ -209,7 +70,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Sandwich Tradition Complet',
     fileName: 'pain-sandwich-tradition-complet',
     slug: 'pain-sandwich-tradition-complet',
-    image: productImages['pain-sandwich-tradition-complet'],
+    image: 0, // productImages['pain-sandwich-tradition-complet'],
     description:
       'Pain complet sain avec un goût traditionnel, parfait pour les sandwichs.',
     price: 3.4,
@@ -221,7 +82,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Sandwich Tradition Nature 110g',
     fileName: 'pain-sandwich-tradition-nature-110g',
     slug: 'pain-sandwich-tradition-nature-110g',
-    image: productImages['pain-sandwich-tradition-nature-110g'],
+    image: 0, // productImages['pain-sandwich-tradition-nature-110g'],
     description:
       'Pain sandwich nature classique avec une saveur traditionnelle.',
     price: 3.2,
@@ -233,7 +94,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Sandwich Multi Céréales',
     fileName: 'pain-sandwich-multi-cereales',
     slug: 'pain-sandwich-multi-cereales',
-    image: productImages['pain-sandwich-multi-cereales'],
+    image: 0, // productImages['pain-sandwich-multi-cereales'],
     description:
       'Pain multi-céréales nutritif, parfait pour faire des sandwichs sains.',
     price: 3.8,
@@ -245,7 +106,7 @@ export const foodItems: FoodItem[] = [
     name: 'Ciabatta Multi Céréales',
     fileName: 'ciabatta-multi-cereales',
     slug: 'ciabatta-multi-cereales',
-    image: productImages['ciabatta-multi-cereales'],
+    image: 0, // productImages['ciabatta-multi-cereales'],
     description:
       'Pain ciabatta multi-céréales rustique, idéal pour des sandwichs copieux.',
     price: 5.5,
@@ -257,7 +118,7 @@ export const foodItems: FoodItem[] = [
     name: 'Ciabatta Tradition',
     fileName: 'ciabatta-tradition',
     slug: 'ciabatta-tradition',
-    image: productImages['ciabatta-tradition'],
+    image: 0, // productImages['ciabatta-tradition'],
     description: 'Pain ciabatta classique avec une saveur traditionnelle.',
     price: 5,
     countInStock: 100,
@@ -268,7 +129,7 @@ export const foodItems: FoodItem[] = [
     name: 'Baguette Tradition Olive GM',
     fileName: 'baguette-tradition-olive-gm',
     slug: 'baguette-tradition-olive-gm',
-    image: productImages['baguette-tradition-olive-gm'],
+    image: 0, // productImages['baguette-tradition-olive-gm'],
     description:
       'Grande baguette traditionnelle aux olives, parfaite pour des sandwichs gourmets.',
     price: 8,
@@ -280,7 +141,7 @@ export const foodItems: FoodItem[] = [
     name: 'Baguette Tradition Pavot',
     fileName: 'baguette-tradition-pavot',
     slug: 'baguette-tradition-pavot',
-    image: productImages['baguette-tradition-pavot'],
+    image: 0, // productImages['baguette-tradition-pavot'],
     description:
       'Baguette traditionnelle aux graines de pavot, idéale pour des sandwichs.',
     price: 7.2,
@@ -292,7 +153,7 @@ export const foodItems: FoodItem[] = [
     name: 'Baguette Tradition Sésame',
     fileName: 'baguette-tradition-sesame',
     slug: 'baguette-tradition-sesame',
-    image: productImages['baguette-tradition-sesame'],
+    image: 0, // productImages['baguette-tradition-sesame'],
     description:
       'Baguette traditionnelle au sésame, parfaite pour des sandwichs.',
     price: 7.2,
@@ -304,7 +165,7 @@ export const foodItems: FoodItem[] = [
     name: 'Baguette Tradition Multi Céréales',
     fileName: 'baguette-tradition-multi-cereales',
     slug: 'baguette-tradition-multi-cereales',
-    image: productImages['baguette-tradition-multi-cereales'],
+    image: 0, // productImages['baguette-tradition-multi-cereales'],
     description:
       'Baguette multi-céréales nutritive, idéale pour des sandwichs sains.',
     price: 7.6,
@@ -316,7 +177,7 @@ export const foodItems: FoodItem[] = [
     name: 'Baguette Économique',
     fileName: 'baguette-economique',
     slug: 'baguette-economique',
-    image: productImages['baguette-economique'],
+    image: 0, // productImages['baguette-economique'],
     description: 'Baguette abordable, parfaite pour un usage quotidien.',
     price: 2.5,
     countInStock: 100,
@@ -327,7 +188,7 @@ export const foodItems: FoodItem[] = [
     name: 'Flûte Complète',
     fileName: 'flute-complete',
     slug: 'flute-complete',
-    image: productImages['flute-complete'],
+    image: 0, // productImages['flute-complete'],
     description: 'Flûte complète saine, parfaite pour des sandwichs.',
     price: 4.5,
     countInStock: 100,
@@ -338,7 +199,7 @@ export const foodItems: FoodItem[] = [
     name: 'Flûte Olive Plus',
     fileName: 'flute-olive-plus',
     slug: 'flute-olive-plus',
-    image: productImages['flute-olive-plus'],
+    image: 0, // productImages['flute-olive-plus'],
     description: 'Flûte aux olives, idéale pour des sandwichs gourmets.',
     price: 8,
     countInStock: 100,
@@ -349,7 +210,7 @@ export const foodItems: FoodItem[] = [
     name: 'Flûte Ancienne',
     fileName: 'flute-ancienne',
     slug: 'flute-ancienne',
-    image: productImages['flute-ancienne'],
+    image: 0, // productImages['flute-ancienne'],
     description: 'Flûte traditionnelle classique, parfaite pour des sandwichs.',
     price: 6,
     countInStock: 100,
@@ -360,7 +221,7 @@ export const foodItems: FoodItem[] = [
     name: 'Flûte Semoule',
     fileName: 'flute-semoule',
     slug: 'flute-semoule',
-    image: productImages['flute-semoule'],
+    image: 0, // productImages['flute-semoule'],
     description: 'Flûte à la semoule, idéale pour des sandwichs.',
     price: 5.4,
     countInStock: 100,
@@ -371,7 +232,7 @@ export const foodItems: FoodItem[] = [
     name: 'Big Flûte Française',
     fileName: 'big-flute-francaise',
     slug: 'big-flute-francaise',
-    image: productImages['big-flute-francaise'],
+    image: 0, // productImages['big-flute-francaise'],
     description:
       'Grande flûte française, parfaite pour des sandwichs gourmets.',
     price: 3.6,
@@ -383,7 +244,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pistolet Nature 50g',
     fileName: 'pistolet-nature-50g',
     slug: 'pistolet-nature-50g',
-    image: productImages['pistolet-nature-50g'],
+    image: 0, // productImages['pistolet-nature-50g'],
     description: 'Petit pistolet nature, idéal pour des sandwichs.',
     price: 2.25,
     countInStock: 100,
@@ -394,7 +255,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pistolet Olive 50g',
     fileName: 'pistolet-olive-50g',
     slug: 'pistolet-olive-50g',
-    image: productImages['pistolet-olive-50g'],
+    image: 0, // productImages['pistolet-olive-50g'],
     description:
       'Petit pistolet aux olives, parfait pour des sandwichs gourmets.',
     price: 2.7,
@@ -406,7 +267,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pistolet Complet 50g',
     fileName: 'pistolet-complet-50g',
     slug: 'pistolet-complet-50g',
-    image: productImages['pistolet-complet-50g'],
+    image: 0, // productImages['pistolet-complet-50g'],
     description: 'Pistolet complet sain, idéal pour des sandwichs.',
     price: 2.5,
     countInStock: 100,
@@ -417,7 +278,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pistolet Pavot 50g',
     fileName: 'pistolet-pavot-50g',
     slug: 'pistolet-pavot-50g',
-    image: productImages['pistolet-pavot-50g'],
+    image: 0, // productImages['pistolet-pavot-50g'],
     description:
       'Petit pistolet aux graines de pavot, parfait pour des sandwichs.',
     price: 2.4,
@@ -429,7 +290,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pistolet Sésame 50g',
     fileName: 'pistolet-sesame-50g',
     slug: 'pistolet-sesame-50g',
-    image: productImages['pistolet-sesame-50g'],
+    image: 0, // productImages['pistolet-sesame-50g'],
     description: 'Petit pistolet au sésame, idéal pour des sandwichs.',
     price: 2.5,
     countInStock: 100,
@@ -440,7 +301,7 @@ export const foodItems: FoodItem[] = [
     name: 'Baguetine 60g',
     fileName: 'baguetine-60g',
     slug: 'baguetine-60g',
-    image: productImages['baguetine-60g'],
+    image: 0, // productImages['baguetine-60g'],
     description: 'Petite baguette, parfaite pour des sandwichs.',
     price: 3,
     countInStock: 100,
@@ -451,7 +312,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain de Mie Nature (380g) Assylor',
     fileName: 'pain-de-mie-nature--380g--assylor',
     slug: 'pain-de-mie-nature--380g--assylor',
-    image: productImages['pain-de-mie-nature--380g--assylor'],
+    image: 0, // productImages['pain-de-mie-nature--380g--assylor'],
     description:
       'Pain de mie nature doux et tranché, parfait pour des sandwichs.',
     price: 15,
@@ -463,7 +324,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain de Mie Complet (380g) 12pcs Assylor',
     fileName: 'pain-de-mie-complet--380g--12pcs-assylor',
     slug: 'pain-de-mie-complet--380g--12pcs-assylor',
-    image: productImages['pain-de-mie-complet--380g--12pcs-assylor'],
+    image: 0, // productImages['pain-de-mie-complet--380g--12pcs-assylor'],
     description:
       'Pain de mie complet doux et tranché, parfait pour des sandwichs.',
     price: 16,
@@ -475,7 +336,7 @@ export const foodItems: FoodItem[] = [
     name: "Pain de Mie Huile d'Olive",
     fileName: "pain-de-mie-huile-d'olive",
     slug: "pain-de-mie-huile-d'olive",
-    image: productImages["pain-de-mie-huile-d'olive"],
+    image: 0, // productImages["pain-de-mie-huile-d'olive"],
     description:
       "Pain de mie doux et tranché à l'huile d'olive, parfait pour des sandwichs.",
     price: 16,
@@ -487,7 +348,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain de Mie aux Fibres',
     fileName: 'pain-de-mie-aux-fibres',
     slug: 'pain-de-mie-aux-fibres',
-    image: productImages['pain-de-mie-aux-fibres'],
+    image: 0, // productImages['pain-de-mie-aux-fibres'],
     description:
       'Pain de mie doux et tranché riche en fibres, parfait pour des sandwichs.',
     price: 17,
@@ -499,7 +360,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain de Mie au Lait',
     fileName: 'pain-de-mie-au-lait',
     slug: 'pain-de-mie-au-lait',
-    image: productImages['pain-de-mie-au-lait'],
+    image: 0, // productImages['pain-de-mie-au-lait'],
     description:
       'Pain de mie doux et tranché au lait, parfait pour des sandwichs.',
     price: 17,
@@ -511,7 +372,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain de Mie Céréale',
     fileName: 'pain-de-mie-céréale',
     slug: 'pain-de-mie-céréale',
-    image: productImages['pain-de-mie-céréale'],
+    image: 0, // productImages['pain-de-mie-céréale'],
     description:
       'Pain de mie doux et tranché aux céréales, parfait pour des sandwichs.',
     price: 17,
@@ -523,7 +384,7 @@ export const foodItems: FoodItem[] = [
     name: "Pain d'Or Nature 500g",
     fileName: "pain-d'or-nature-500g",
     slug: "pain-d'or-nature-500g",
-    image: productImages["pain-d'or-nature-500g"],
+    image: 0, // productImages["pain-d'or-nature-500g"],
     description:
       "Pain d'or nature doux et tranché, parfait pour des sandwichs.",
     price: 14,
@@ -535,7 +396,7 @@ export const foodItems: FoodItem[] = [
     name: "Pain d'Or Complet 500g",
     fileName: "pain-d'or-complet-500g",
     slug: "pain-d'or-complet-500g",
-    image: productImages["pain-d'or-complet-500g"],
+    image: 0, // productImages["pain-d'or-complet-500g"],
     description:
       "Pain d'or complet doux et tranché, parfait pour des sandwichs.",
     price: 15,
@@ -547,7 +408,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Libanais 20cm 7pcs',
     fileName: 'pain-libanais-20cm-7pcs',
     slug: 'pain-libanais-20cm-7pcs',
-    image: productImages['pain-libanais-20cm-7pcs'],
+    image: 0, // productImages['pain-libanais-20cm-7pcs'],
     description:
       'Pain libanais doux et moelleux de 20cm, parfait pour des wraps et des sandwichs.',
     price: 7,
@@ -559,7 +420,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Libanais 22cm 7pcs',
     fileName: 'pain-libanais-22cm-7pcs',
     slug: 'pain-libanais-22cm-7pcs',
-    image: productImages['pain-libanais-22cm-7pcs'],
+    image: 0, // productImages['pain-libanais-22cm-7pcs'],
     description:
       'Pain libanais doux et moelleux de 22cm, parfait pour des wraps et des sandwichs.',
     price: 7,
@@ -571,7 +432,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Libanais 26*6pcs',
     fileName: 'pain-libanais-26-6pcs',
     slug: 'pain-libanais-26-6pcs',
-    image: productImages['pain-libanais-26-6pcs'],
+    image: 0, // productImages['pain-libanais-26-6pcs'],
     description:
       'Pain libanais doux et moelleux de 26cm, parfait pour des wraps et des sandwichs.',
     price: 8,
@@ -583,7 +444,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Libanais Complet 20*5pcs',
     fileName: 'pain-libanais-complet-20-5pcs',
     slug: 'pain-libanais-complet-20-5pcs',
-    image: productImages['pain-libanais-complet-20-5pcs'],
+    image: 0, // productImages['pain-libanais-complet-20-5pcs'],
     description:
       'Pain libanais complet doux et moelleux de 20cm, parfait pour des wraps et des sandwichs.',
     price: 8,
@@ -595,7 +456,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Panini (G,M) 4pcs',
     fileName: 'pain-panini--g,m--4pcs',
     slug: 'pain-panini--g,m--4pcs',
-    image: productImages['pain-panini--g,m--4pcs'],
+    image: 0, // productImages['pain-panini--g,m--4pcs'],
     description:
       'Pain panini doux et moelleux grand et moyen, parfait pour faire des paninis.',
     price: 9,
@@ -607,7 +468,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Panini (Kfc) 2pcs',
     fileName: 'pain-panini--kfc--2pcs',
     slug: 'pain-panini--kfc--2pcs',
-    image: productImages['pain-panini--kfc--2pcs'],
+    image: 0, // productImages['pain-panini--kfc--2pcs'],
     description:
       'Pain panini doux et moelleux style KFC, parfait pour faire des paninis.',
     price: 7,
@@ -619,7 +480,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Panini (P,M) 6pcs',
     fileName: 'pain-panini--p,m--6pcs',
     slug: 'pain-panini--p,m--6pcs',
-    image: productImages['pain-panini--p,m--6pcs'],
+    image: 0, // productImages['pain-panini--p,m--6pcs'],
     description:
       'Pain panini doux et moelleux petit et moyen, parfait pour faire des paninis.',
     price: 9,
@@ -631,7 +492,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain au Lait (210g)',
     fileName: 'pain-au-lait--210g-',
     slug: 'pain-au-lait--210g-',
-    image: productImages['pain-au-lait--210g-'],
+    image: 0, // productImages['pain-au-lait--210g-'],
     description:
       'Pain au lait doux et moelleux, parfait pour faire des sandwichs.',
     price: 11,
@@ -643,7 +504,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain au Lait Choco (210g)',
     fileName: 'pain-au-lait-choco--210g-',
     slug: 'pain-au-lait-choco--210g-',
-    image: productImages['pain-au-lait-choco--210g-'],
+    image: 0, // productImages['pain-au-lait-choco--210g-'],
     description:
       'Pain au lait doux et moelleux au chocolat, parfait pour faire des sandwichs.',
     price: 13,
@@ -655,7 +516,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Hamburger 4pcs Blanc',
     fileName: 'pain-hamburger-4pcs-blanc',
     slug: 'pain-hamburger-4pcs-blanc',
-    image: productImages['pain-hamburger-4pcs-blanc'],
+    image: 0, // productImages['pain-hamburger-4pcs-blanc'],
     description:
       'Pains à hamburger blancs doux et moelleux, parfaits pour faire des hamburgers.',
     price: 10,
@@ -667,7 +528,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Hamburger Kids Kfc',
     fileName: 'pain-hamburger-kids-kfc',
     slug: 'pain-hamburger-kids-kfc',
-    image: productImages['pain-hamburger-kids-kfc'],
+    image: 0, // productImages['pain-hamburger-kids-kfc'],
     description:
       'Pains à hamburger doux et moelleux style KFC pour enfants, parfaits pour faire des hamburgers.',
     price: 11.5,
@@ -679,7 +540,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Hamburger Géant*4',
     fileName: 'pain-hamburger-géant-4',
     slug: 'pain-hamburger-géant-4',
-    image: productImages['pain-hamburger-géant-4'],
+    image: 0, // productImages['pain-hamburger-géant-4'],
     description:
       'Pains à hamburger géants doux et moelleux, parfaits pour faire des hamburgers.',
     price: 13.5,
@@ -691,7 +552,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Hamburger Géant*4',
     fileName: 'pain-hamburger-géant-4',
     slug: 'pain-hamburger-géant-4',
-    image: productImages['pain-hamburger-géant-4'],
+    image: 0, // productImages['pain-hamburger-géant-4'],
     description:
       'Pains à hamburger géants doux et moelleux, parfaits pour faire des hamburgers.',
     price: 13,
@@ -703,7 +564,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Hamburger Géant Complet*4',
     fileName: 'pain-hamburger-géant-complet-4',
     slug: 'pain-hamburger-géant-complet-4',
-    image: productImages['pain-hamburger-géant-complet-4'],
+    image: 0, // productImages['pain-hamburger-géant-complet-4'],
     description:
       'Pains à hamburger géants complets doux et moelleux, parfaits pour faire des hamburgers.',
     price: 14,
@@ -715,7 +576,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Saucisse',
     fileName: 'pain-saucisse',
     slug: 'pain-saucisse',
-    image: productImages['pain-saucisse'],
+    image: 0, // productImages['pain-saucisse'],
     description:
       'Pain doux et moelleux à la saucisse, parfait pour faire des sandwichs.',
     price: 11,
@@ -727,7 +588,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Burger *8pcs Repas',
     fileName: 'pain-burger--8pcs-repas',
     slug: 'pain-burger--8pcs-repas',
-    image: productImages['pain-burger--8pcs-repas'],
+    image: 0, // productImages['pain-burger--8pcs-repas'],
     description:
       'Pains à burger doux et moelleux 8 pièces, parfaits pour faire des burgers.',
     price: 10.5,
@@ -739,7 +600,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Mega Nature *4',
     fileName: 'pain-mega-nature--4',
     slug: 'pain-mega-nature--4',
-    image: productImages['pain-mega-nature--4'],
+    image: 0, // productImages['pain-mega-nature--4'],
     description:
       'Pain mega nature doux et moelleux 4 pièces, parfait pour faire des sandwichs.',
     price: 12,
@@ -751,7 +612,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Mega Chili *4',
     fileName: 'pain-mega-chili--4',
     slug: 'pain-mega-chili--4',
-    image: productImages['pain-mega-chili--4'],
+    image: 0, // productImages['pain-mega-chili--4'],
     description:
       'Pain mega chili doux et moelleux 4 pièces, parfait pour faire des sandwichs.',
     price: 14,
@@ -763,7 +624,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Burger *8pcs Repas',
     fileName: 'pain-burger--8pcs-repas',
     slug: 'pain-burger--8pcs-repas',
-    image: productImages['pain-burger--8pcs-repas'],
+    image: 0, // productImages['pain-burger--8pcs-repas'],
     description:
       'Pains à burger doux et moelleux 8 pièces, parfaits pour faire des burgers.',
     price: 10.5,
@@ -775,7 +636,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Mega Nature *4',
     fileName: 'pain-mega-nature--4',
     slug: 'pain-mega-nature--4',
-    image: productImages['pain-mega-nature--4'],
+    image: 0, // productImages['pain-mega-nature--4'],
     description:
       'Pain mega nature doux et moelleux 4 pièces, parfait pour faire des sandwichs.',
     price: 12,
@@ -787,7 +648,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Mega Chili *4',
     fileName: 'pain-mega-chili--4',
     slug: 'pain-mega-chili--4',
-    image: productImages['pain-mega-chili--4'],
+    image: 0, // productImages['pain-mega-chili--4'],
     description:
       'Pain mega chili doux et moelleux 4 pièces, parfait pour faire des sandwichs.',
     price: 14,
@@ -799,7 +660,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pâte à Pizza *12',
     fileName: 'pate-a-pizza--12',
     slug: 'pate-a-pizza--12',
-    image: productImages['pate-a-pizza--12'],
+    image: 0, // productImages['pate-a-pizza--12'],
     description:
       'Pâte à pizza douce et moelleuse 12 pièces, parfaite pour faire des pizzas.',
     price: 10,
@@ -811,7 +672,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pâte à Pizza Feuilletée *12',
     fileName: 'pate-a-pizza-feuilletee--12',
     slug: 'pate-a-pizza-feuilletee--12',
-    image: productImages['pate-a-pizza-feuilletee--12'],
+    image: 0, // productImages['pate-a-pizza-feuilletee--12'],
     description:
       'Pâte à pizza feuilletée douce et moelleuse 12 pièces, parfaite pour faire des pizzas.',
     price: 11,
@@ -823,7 +684,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pâte à Pizza Familiale *2',
     fileName: 'pate-a-pizza-familiale--2',
     slug: 'pate-a-pizza-familiale--2',
-    image: productImages['pate-a-pizza-familiale--2'],
+    image: 0, // productImages['pate-a-pizza-familiale--2'],
     description:
       'Pâte à pizza familiale douce et moelleuse 2 pièces, parfaite pour faire des pizzas.',
     price: 15,
@@ -835,7 +696,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pâte à Pizza Complet',
     fileName: 'pate-a-pizza-complet',
     slug: 'pate-a-pizza-complet',
-    image: productImages['pate-a-pizza-complet'],
+    image: 0, // productImages['pate-a-pizza-complet'],
     description:
       'Pâte à pizza complète douce et moelleuse, parfaite pour faire des pizzas.',
     price: 17,
@@ -847,7 +708,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pâte à Pizza Oignon',
     fileName: 'pate-a-pizza-oignon',
     slug: 'pate-a-pizza-oignon',
-    image: productImages['pate-a-pizza-oignon'],
+    image: 0, // productImages['pate-a-pizza-oignon'],
     description:
       "Pâte à pizza douce et moelleuse à l'oignon, parfaite pour faire des pizzas.",
     price: 17,
@@ -859,7 +720,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pâte à Pizza Chili',
     fileName: 'pate-a-pizza-chili',
     slug: 'pate-a-pizza-chili',
-    image: productImages['pate-a-pizza-chili'],
+    image: 0, // productImages['pate-a-pizza-chili'],
     description:
       'Pâte à pizza douce et moelleuse au chili, parfaite pour faire des pizzas.',
     price: 17,
@@ -871,7 +732,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pâte à Pizza Semoule',
     fileName: 'pate-a-pizza-semoule',
     slug: 'pate-a-pizza-semoule',
-    image: productImages['pate-a-pizza-semoule'],
+    image: 0, // productImages['pate-a-pizza-semoule'],
     description:
       'Pâte à pizza douce et moelleuse à la semoule, parfaite pour faire des pizzas.',
     price: 17,
@@ -883,7 +744,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pâte à Pizza Olive',
     fileName: 'pate-a-pizza-olive',
     slug: 'pate-a-pizza-olive',
-    image: productImages['pate-a-pizza-olive'],
+    image: 0, // productImages['pate-a-pizza-olive'],
     description:
       'Pâte à pizza douce et moelleuse aux olives, parfaite pour faire des pizzas.',
     price: 17,
@@ -895,7 +756,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pâte à Pizza Feuilletée *2',
     fileName: 'pate-a-pizza-feuilletee--2',
     slug: 'pate-a-pizza-feuilletee--2',
-    image: productImages['pate-a-pizza-feuilletee--2'],
+    image: 0, // productImages['pate-a-pizza-feuilletee--2'],
     description:
       'Pâte à pizza feuilletée douce et moelleuse 2 pièces, parfaite pour faire des pizzas.',
     price: 18,
@@ -907,7 +768,7 @@ export const foodItems: FoodItem[] = [
     name: 'Traiteur Familier 5pcs',
     fileName: 'traiteur-familier-5pcs',
     slug: 'traiteur-familier-5pcs',
-    image: productImages['traiteur-familier-5pcs'],
+    image: 0, // productImages['traiteur-familier-5pcs'],
     description:
       'Traiteur familial doux et moelleux 5 pièces, parfait pour faire des sandwichs.',
     price: 20,
@@ -919,7 +780,7 @@ export const foodItems: FoodItem[] = [
     name: 'Traiteur Moyen 5pcs',
     fileName: 'traiteur-moyen-5pcs',
     slug: 'traiteur-moyen-5pcs',
-    image: productImages['traiteur-moyen-5pcs'],
+    image: 0, // productImages['traiteur-moyen-5pcs'],
     description:
       'Traiteur moyen doux et moelleux 5 pièces, parfait pour faire des sandwichs.',
     price: 18,
@@ -931,7 +792,7 @@ export const foodItems: FoodItem[] = [
     name: 'Chapelure Nature 250g',
     fileName: 'chapelure-nature-250g',
     slug: 'chapelure-nature-250g',
-    image: productImages['chapelure-nature-250g'],
+    image: 0, // productImages['chapelure-nature-250g'],
     description:
       'Chapelure croustillante nature, parfaite pour paner et frire.',
     price: 7,
@@ -943,7 +804,7 @@ export const foodItems: FoodItem[] = [
     name: 'Chapelure Poulet 250g',
     fileName: 'chapelure-poulet-250g',
     slug: 'chapelure-poulet-250g',
-    image: productImages['chapelure-poulet-250g'],
+    image: 0, // productImages['chapelure-poulet-250g'],
     description:
       'Chapelure croustillante pour poulet, parfaite pour paner et frire.',
     price: 8,
@@ -955,7 +816,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tortilla Standard 7pcs',
     fileName: 'tortilla-standard-7pcs',
     slug: 'tortilla-standard-7pcs',
-    image: productImages['tortilla-standard-7pcs'],
+    image: 0, // productImages['tortilla-standard-7pcs'],
     description:
       'Tortillas douces et moelleuses standard 7 pièces, parfaites pour faire des wraps.',
     price: 12,
@@ -967,7 +828,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tortilla 12cm 5pcs',
     fileName: 'tortilla-12cm-5pcs',
     slug: 'tortilla-12cm-5pcs',
-    image: productImages['tortilla-12cm-5pcs'],
+    image: 0, // productImages['tortilla-12cm-5pcs'],
     description:
       'Tortillas douces et moelleuses de 12cm 5 pièces, parfaites pour faire des wraps.',
     price: 10,
@@ -979,7 +840,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tortilla 30cm',
     fileName: 'tortilla-30cm',
     slug: 'tortilla-30cm',
-    image: productImages['tortilla-30cm'],
+    image: 0, // productImages['tortilla-30cm'],
     description:
       'Tortillas douces et moelleuses de 30cm, parfaites pour faire des wraps.',
     price: 17,
@@ -991,7 +852,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tortilla 30cm 18pcs',
     fileName: 'tortilla-30cm-18pcs',
     slug: 'tortilla-30cm-18pcs',
-    image: productImages['tortilla-30cm-18pcs'],
+    image: 0, // productImages['tortilla-30cm-18pcs'],
     description:
       'Tortillas douces et moelleuses de 30cm 18 pièces, parfaites pour faire des wraps.',
     price: 35,
@@ -1003,7 +864,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tortilla 30 Complet',
     fileName: 'tortilla-30-complet',
     slug: 'tortilla-30-complet',
-    image: productImages['tortilla-30-complet'],
+    image: 0, // productImages['tortilla-30-complet'],
     description:
       'Tortillas douces et moelleuses complètes de 30cm, parfaites pour faire des wraps.',
     price: 18,
@@ -1015,7 +876,7 @@ export const foodItems: FoodItem[] = [
     name: 'Fond de Tarte Sucré',
     fileName: 'fond-de-tarte-sucre',
     slug: 'fond-de-tarte-sucre',
-    image: productImages['fond-de-tarte-sucre'],
+    image: 0, // productImages['fond-de-tarte-sucre'],
     description:
       'Fond de tarte croustillant sucré, parfait pour faire des tartes.',
     price: 17,
@@ -1027,7 +888,7 @@ export const foodItems: FoodItem[] = [
     name: 'Fond de Tarte Salé',
     fileName: 'fond-de-tarte-sale',
     slug: 'fond-de-tarte-sale',
-    image: productImages['fond-de-tarte-sale'],
+    image: 0, // productImages['fond-de-tarte-sale'],
     description:
       'Fond de tarte croustillant salé, parfait pour faire des tartes.',
     price: 15,
@@ -1039,7 +900,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Semoule GM 241g',
     fileName: 'pain-semoule-gm-241g',
     slug: 'pain-semoule-gm-241g',
-    image: productImages['pain-semoule-gm-241g'],
+    image: 0, // productImages['pain-semoule-gm-241g'],
     description:
       'Grand pain doux et moelleux à la semoule, parfait pour faire des sandwichs.',
     price: 4.8,
@@ -1051,7 +912,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Semoule PM 45g',
     fileName: 'pain-semoule-pm-45g',
     slug: 'pain-semoule-pm-45g',
-    image: productImages['pain-semoule-pm-45g'],
+    image: 0, // productImages['pain-semoule-pm-45g'],
     description:
       'Petit pain doux et moelleux à la semoule, parfait pour faire des sandwichs.',
     price: 2.8,
@@ -1063,7 +924,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Complet PM 45g',
     fileName: 'pain-complet-pm-45g',
     slug: 'pain-complet-pm-45g',
-    image: productImages['pain-complet-pm-45g'],
+    image: 0, // productImages['pain-complet-pm-45g'],
     description:
       'Petit pain complet doux et moelleux, parfait pour faire des sandwichs.',
     price: 2.6,
@@ -1075,7 +936,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Complet GM 220g',
     fileName: 'pain-complet-gm-220g',
     slug: 'pain-complet-gm-220g',
-    image: productImages['pain-complet-gm-220g'],
+    image: 0, // productImages['pain-complet-gm-220g'],
     description:
       'Grand pain complet doux et moelleux, parfait pour faire des sandwichs.',
     price: 4.6,
@@ -1087,7 +948,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain de Campagne 400g',
     fileName: 'pain-de-campagne-400g',
     slug: 'pain-de-campagne-400g',
-    image: productImages['pain-de-campagne-400g'],
+    image: 0, // productImages['pain-de-campagne-400g'],
     description:
       'Pain de campagne doux et moelleux, parfait pour faire des sandwichs.',
     price: 12.5,
@@ -1099,7 +960,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Orge GM 225g',
     fileName: 'pain-orge-gm-225g',
     slug: 'pain-orge-gm-225g',
-    image: productImages['pain-orge-gm-225g'],
+    image: 0, // productImages['pain-orge-gm-225g'],
     description:
       "Grand pain doux et moelleux d'orge, parfait pour faire des sandwichs.",
     price: 4.5,
@@ -1111,7 +972,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Orge PM 45g',
     fileName: 'pain-orge-pm-45g',
     slug: 'pain-orge-pm-45g',
-    image: productImages['pain-orge-pm-45g'],
+    image: 0, // productImages['pain-orge-pm-45g'],
     description:
       "Petit pain doux et moelleux d'orge, parfait pour faire des sandwichs.",
     price: 2.6,
@@ -1123,7 +984,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Rond Économique 210g',
     fileName: 'pain-rond-economique-210g',
     slug: 'pain-rond-economique-210g',
-    image: productImages['pain-rond-economique-210g'],
+    image: 0, // productImages['pain-rond-economique-210g'],
     description:
       'Pain rond doux et moelleux économique, parfait pour faire des sandwichs.',
     price: 2.2,
@@ -1135,7 +996,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain 6 Céréales 400g',
     fileName: 'pain-6-cereales-400g',
     slug: 'pain-6-cereales-400g',
-    image: productImages['pain-6-cereales-400g'],
+    image: 0, // productImages['pain-6-cereales-400g'],
     description:
       'Pain doux et moelleux aux 6 céréales, parfait pour faire des sandwichs.',
     price: 11,
@@ -1147,7 +1008,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Compagne Seigle 400g',
     fileName: 'pain-compagne-seigle-400g',
     slug: 'pain-compagne-seigle-400g',
-    image: productImages['pain-compagne-seigle-400g'],
+    image: 0, // productImages['pain-compagne-seigle-400g'],
     description:
       'Pain de campagne doux et moelleux au seigle, parfait pour faire des sandwichs.',
     price: 26,
@@ -1159,7 +1020,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Tradition Complet Rond 100g',
     fileName: 'pain-tradition-complet-rond-100g',
     slug: 'pain-tradition-complet-rond-100g',
-    image: productImages['pain-tradition-complet-rond-100g'],
+    image: 0, // productImages['pain-tradition-complet-rond-100g'],
     description:
       'Pain traditionnel complet rond doux et moelleux, parfait pour faire des sandwichs.',
     price: 3,
@@ -1171,7 +1032,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Complet Sans Sel GM',
     fileName: 'pain-complet-sans-sel-gm',
     slug: 'pain-complet-sans-sel-gm',
-    image: productImages['pain-complet-sans-sel-gm'],
+    image: 0, // productImages['pain-complet-sans-sel-gm'],
     description:
       'Grand pain complet sans sel doux et moelleux, parfait pour faire des sandwichs.',
     price: 4.5,
@@ -1183,7 +1044,7 @@ export const foodItems: FoodItem[] = [
     name: 'Mini Pain Burger',
     fileName: 'mini-pain-burger',
     slug: 'mini-pain-burger',
-    image: productImages['mini-pain-burger'],
+    image: 0, // productImages['mini-pain-burger'],
     description:
       'Mini pains à burger doux et moelleux, parfaits pour faire des mini burgers.',
     price: 2,
@@ -1195,7 +1056,7 @@ export const foodItems: FoodItem[] = [
     name: 'Mini Pain Burger Noir',
     fileName: 'mini-pain-burger-noir',
     slug: 'mini-pain-burger-noir',
-    image: productImages['mini-pain-burger-noir'],
+    image: 0, // productImages['mini-pain-burger-noir'],
     description:
       'Mini pains à burger noirs doux et moelleux, parfaits pour faire des mini burgers.',
     price: 2.7,
@@ -1207,7 +1068,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Burger',
     fileName: 'pain-burger',
     slug: 'pain-burger',
-    image: productImages['pain-burger'],
+    image: 0, // productImages['pain-burger'],
     description:
       'Pains à burger doux et moelleux, parfaits pour faire des burgers.',
     price: 4.5,
@@ -1219,7 +1080,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Burger Noir',
     fileName: 'pain-burger-noir',
     slug: 'pain-burger-noir',
-    image: productImages['pain-burger-noir'],
+    image: 0, // productImages['pain-burger-noir'],
     description:
       'Pains à burger noirs doux et moelleux, parfaits pour faire des burgers.',
     price: 5.5,
@@ -1231,7 +1092,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain Burger XL',
     fileName: 'pain-burger-xl',
     slug: 'pain-burger-xl',
-    image: productImages['pain-burger-xl'],
+    image: 0, // productImages['pain-burger-xl'],
     description:
       'Pains à burger XL doux et moelleux, parfaits pour faire des burgers.',
     price: 6,
@@ -1243,7 +1104,7 @@ export const foodItems: FoodItem[] = [
     name: 'Rustique Grande',
     fileName: 'rustique-grande',
     slug: 'rustique-grande',
-    image: productImages['rustique-grande'],
+    image: 0, // productImages['rustique-grande'],
     description:
       'Grand pain rustique doux et moelleux, parfait pour faire des sandwichs.',
     price: 24,
@@ -1255,7 +1116,7 @@ export const foodItems: FoodItem[] = [
     name: 'Rustique Norvégien',
     fileName: 'rustique-norvegien',
     slug: 'rustique-norvegien',
-    image: productImages['rustique-norvegien'],
+    image: 0, // productImages['rustique-norvegien'],
     description:
       'Pain rustique norvégien doux et moelleux, parfait pour faire des sandwichs.',
     price: 37,
@@ -1267,7 +1128,7 @@ export const foodItems: FoodItem[] = [
     name: 'Rustique Seigle',
     fileName: 'rustique-seigle',
     slug: 'rustique-seigle',
-    image: productImages['rustique-seigle'],
+    image: 0, // productImages['rustique-seigle'],
     description:
       'Pain rustique doux et moelleux au seigle, parfait pour faire des sandwichs.',
     price: 30,
@@ -1279,7 +1140,7 @@ export const foodItems: FoodItem[] = [
     name: 'Rustique Grande',
     fileName: 'rustique-grande',
     slug: 'rustique-grande',
-    image: productImages['rustique-grande'],
+    image: 0, // productImages['rustique-grande'],
     description:
       'Grand pain rustique doux et moelleux, parfait pour faire des sandwichs.',
     price: 24,
@@ -1291,7 +1152,7 @@ export const foodItems: FoodItem[] = [
     name: 'Polka Long',
     fileName: 'polka-long',
     slug: 'polka-long',
-    image: productImages['polka-long'],
+    image: 0, // productImages['polka-long'],
     description:
       'Pain polka long doux et moelleux, parfait pour faire des sandwichs.',
     price: 32,
@@ -1303,7 +1164,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain de Mie 1,5 Kg',
     fileName: 'pain-de-mie-1,5-kg',
     slug: 'pain-de-mie-1,5-kg',
-    image: productImages['pain-de-mie-1,5-kg'],
+    image: 0, // productImages['pain-de-mie-1,5-kg'],
     description:
       'Pain de mie doux et tranché de 1,5kg, parfait pour faire des sandwichs.',
     price: 54,
@@ -1315,7 +1176,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pain de Mie Artisan 650g Complet',
     fileName: 'pain-de-mie-artisan-650g-complet',
     slug: 'pain-de-mie-artisan-650g-complet',
-    image: productImages['pain-de-mie-artisan-650g-complet'],
+    image: 0, // productImages['pain-de-mie-artisan-650g-complet'],
     description:
       'Pain de mie artisanal complet doux et tranché de 650g, parfait pour faire des sandwichs.',
     price: 24,
@@ -1327,7 +1188,7 @@ export const foodItems: FoodItem[] = [
     name: 'Cookies Pépites Chocolat',
     fileName: 'cookies-pepites-chocolat',
     slug: 'cookies-pepites-chocolat',
-    image: productImages['cookies-pepites-chocolat'],
+    image: 0, // productImages['cookies-pepites-chocolat'],
     description:
       'Cookies doux et moelleux aux pépites de chocolat, parfaits pour grignoter.',
     price: 14,
@@ -1339,7 +1200,7 @@ export const foodItems: FoodItem[] = [
     name: 'Cookies Smarties',
     fileName: 'cookies-smarties',
     slug: 'cookies-smarties',
-    image: productImages['cookies-smarties'],
+    image: 0, // productImages['cookies-smarties'],
     description:
       'Cookies doux et moelleux aux Smarties, parfaits pour grignoter.',
     price: 12,
@@ -1351,7 +1212,7 @@ export const foodItems: FoodItem[] = [
     name: 'Éclair Caramel Beurre Salé',
     fileName: 'eclair-caramel-beurre-sale',
     slug: 'eclair-caramel-beurre-sale',
-    image: productImages['eclair-caramel-beurre-sale'],
+    image: 0, // productImages['eclair-caramel-beurre-sale'],
     description:
       'Éclair doux et crémeux au caramel beurre salé, parfait pour le dessert.',
     price: 19,
@@ -1363,7 +1224,7 @@ export const foodItems: FoodItem[] = [
     name: 'Éclair Chocolat',
     fileName: 'eclair-chocolat',
     slug: 'eclair-chocolat',
-    image: productImages['eclair-chocolat'],
+    image: 0, // productImages['eclair-chocolat'],
     description: 'Éclair doux et crémeux au chocolat, parfait pour le dessert.',
     price: 18,
     countInStock: 100,
@@ -1374,7 +1235,7 @@ export const foodItems: FoodItem[] = [
     name: 'Éclair Fruits Rouges',
     fileName: 'eclair-fruits-rouges',
     slug: 'eclair-fruits-rouges',
-    image: productImages['eclair-fruits-rouges'],
+    image: 0, // productImages['eclair-fruits-rouges'],
     description:
       'Éclair doux et crémeux aux fruits rouges, parfait pour le dessert.',
     price: 19,
@@ -1386,7 +1247,7 @@ export const foodItems: FoodItem[] = [
     name: 'Éclair Vanille',
     fileName: 'eclair-vanille',
     slug: 'eclair-vanille',
-    image: productImages['eclair-vanille'],
+    image: 0, // productImages['eclair-vanille'],
     description:
       'Éclair doux et crémeux à la vanille, parfait pour le dessert.',
     price: 18,
@@ -1398,7 +1259,7 @@ export const foodItems: FoodItem[] = [
     name: 'Brownies',
     fileName: 'brownies',
     slug: 'brownies',
-    image: productImages['brownies'],
+    image: 0, // productImages['brownies'],
     description: 'Brownies doux et fondants, parfaits pour le dessert.',
     price: 15,
     countInStock: 100,
@@ -1409,7 +1270,7 @@ export const foodItems: FoodItem[] = [
     name: 'Cheese Cake Citron',
     fileName: 'cheese-cake-citron',
     slug: 'cheese-cake-citron',
-    image: productImages['cheese-cake-citron'],
+    image: 0, // productImages['cheese-cake-citron'],
     description:
       'Cheesecake doux et crémeux au citron, parfait pour le dessert.',
     price: 19,
@@ -1421,7 +1282,7 @@ export const foodItems: FoodItem[] = [
     name: 'Cheese Cake Fruits Rouges',
     fileName: 'cheese-cake-fruits-rouges',
     slug: 'cheese-cake-fruits-rouges',
-    image: productImages['cheese-cake-fruits-rouges'],
+    image: 0, // productImages['cheese-cake-fruits-rouges'],
     description:
       'Cheesecake doux et crémeux aux fruits rouges, parfait pour le dessert.',
     price: 20,
@@ -1433,7 +1294,7 @@ export const foodItems: FoodItem[] = [
     name: 'Muffins aux Amandes',
     fileName: 'muffins-aux-amandes',
     slug: 'muffins-aux-amandes',
-    image: productImages['muffins-aux-amandes'],
+    image: 0, // productImages['muffins-aux-amandes'],
     description:
       'Muffins doux et moelleux aux amandes, parfaits pour grignoter.',
     price: 15,
@@ -1445,7 +1306,7 @@ export const foodItems: FoodItem[] = [
     name: 'Muffins aux Fruits Rouges',
     fileName: 'muffins-aux-fruits-rouges',
     slug: 'muffins-aux-fruits-rouges',
-    image: productImages['muffins-aux-fruits-rouges'],
+    image: 0, // productImages['muffins-aux-fruits-rouges'],
     description:
       'Muffins doux et moelleux aux fruits rouges, parfaits pour grignoter.',
     price: 13,
@@ -1457,7 +1318,7 @@ export const foodItems: FoodItem[] = [
     name: 'Muffins Chocolat',
     fileName: 'muffins-chocolat',
     slug: 'muffins-chocolat',
-    image: productImages['muffins-chocolat'],
+    image: 0, // productImages['muffins-chocolat'],
     description:
       'Muffins doux et moelleux au chocolat, parfaits pour grignoter.',
     price: 12.5,
@@ -1469,7 +1330,7 @@ export const foodItems: FoodItem[] = [
     name: 'Muffins Chocolat Fourrage Nutolade',
     fileName: 'muffins-chocolat-fourrage-nutolade',
     slug: 'muffins-chocolat-fourrage-nutolade',
-    image: productImages['muffins-chocolat-fourrage-nutolade'],
+    image: 0, // productImages['muffins-chocolat-fourrage-nutolade'],
     description:
       'Muffins doux et moelleux au chocolat avec fourrage Nutolade, parfaits pour grignoter.',
     price: 15,
@@ -1481,7 +1342,7 @@ export const foodItems: FoodItem[] = [
     name: 'Muffins Maxi Chocolat',
     fileName: 'muffins-maxi-chocolat',
     slug: 'muffins-maxi-chocolat',
-    image: productImages['muffins-maxi-chocolat'],
+    image: 0, // productImages['muffins-maxi-chocolat'],
     description:
       'Muffins doux et moelleux maxi au chocolat, parfaits pour grignoter.',
     price: 17,
@@ -1493,7 +1354,7 @@ export const foodItems: FoodItem[] = [
     name: 'Muffins Vanille',
     fileName: 'muffins-vanille',
     slug: 'muffins-vanille',
-    image: productImages['muffins-vanille'],
+    image: 0, // productImages['muffins-vanille'],
     description:
       'Muffins doux et moelleux à la vanille, parfaits pour grignoter.',
     price: 14,
@@ -1505,7 +1366,7 @@ export const foodItems: FoodItem[] = [
     name: 'Palmier Mini',
     fileName: 'palmier-mini',
     slug: 'palmier-mini',
-    image: productImages['palmier-mini'],
+    image: 0, // productImages['palmier-mini'],
     description: 'Mini palmier croustillant et sucré, parfait pour grignoter.',
     price: 2.5,
     countInStock: 100,
@@ -1516,7 +1377,7 @@ export const foodItems: FoodItem[] = [
     name: 'Muffins Nature',
     fileName: 'muffins-nature',
     slug: 'muffins-nature',
-    image: productImages['muffins-nature'],
+    image: 0, // productImages['muffins-nature'],
     description: 'Muffins doux et moelleux nature, parfaits pour grignoter.',
     price: 14,
     countInStock: 100,
@@ -1527,7 +1388,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tarte Citron',
     fileName: 'tarte-citron',
     slug: 'tarte-citron',
-    image: productImages['tarte-citron'],
+    image: 0, // productImages['tarte-citron'],
     description:
       'Tarte croustillante et acidulée au citron, parfaite pour le dessert.',
     price: 15,
@@ -1539,7 +1400,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tarte Chocolat',
     fileName: 'tarte-chocolat',
     slug: 'tarte-chocolat',
-    image: productImages['tarte-chocolat'],
+    image: 0, // productImages['tarte-chocolat'],
     description:
       'Tarte croustillante et riche au chocolat, parfaite pour le dessert.',
     price: 1,
@@ -1551,7 +1412,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tarte Fraise',
     fileName: 'tarte-fraise',
     slug: 'tarte-fraise',
-    image: productImages['tarte-fraise'],
+    image: 0, // productImages['tarte-fraise'],
     description:
       'Tarte croustillante et sucrée à la fraise, parfaite pour le dessert.',
     price: 15,
@@ -1563,7 +1424,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tarte Framboise',
     fileName: 'tarte-framboise',
     slug: 'tarte-framboise',
-    image: productImages['tarte-framboise'],
+    image: 0, // productImages['tarte-framboise'],
     description:
       'Tarte croustillante et acidulée à la framboise, parfaite pour le dessert.',
     price: 16,
@@ -1575,7 +1436,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tarte Abricot',
     fileName: 'tarte-abricot',
     slug: 'tarte-abricot',
-    image: productImages['tarte-abricot'],
+    image: 0, // productImages['tarte-abricot'],
     description:
       "Tarte croustillante et sucrée à l'abricot, parfaite pour le dessert.",
     price: 15,
@@ -1587,7 +1448,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tarte Mangue',
     fileName: 'tarte-mangue',
     slug: 'tarte-mangue',
-    image: productImages['tarte-mangue'],
+    image: 0, // productImages['tarte-mangue'],
     description:
       'Tarte croustillante et sucrée à la mangue, parfaite pour le dessert.',
     price: 15,
@@ -1599,7 +1460,7 @@ export const foodItems: FoodItem[] = [
     name: 'Mille-Feuille Chocolat',
     fileName: 'mille-feuille-chocolat',
     slug: 'mille-feuille-chocolat',
-    image: productImages['mille-feuille-chocolat'],
+    image: 0, // productImages['mille-feuille-chocolat'],
     description:
       'Mille-feuille croustillant et crémeux au chocolat, parfait pour le dessert.',
     price: 14,
@@ -1611,7 +1472,7 @@ export const foodItems: FoodItem[] = [
     name: 'Mille-Feuille Vanille',
     fileName: 'mille-feuille-vanille',
     slug: 'mille-feuille-vanille',
-    image: productImages['mille-feuille-vanille'],
+    image: 0, // productImages['mille-feuille-vanille'],
     description:
       'Mille-feuille croustillant et crémeux à la vanille, parfait pour le dessert.',
     price: 14,
@@ -1623,7 +1484,7 @@ export const foodItems: FoodItem[] = [
     name: 'Cake Marbré 560g',
     fileName: 'cake-marbre-560g',
     slug: 'cake-marbre-560g',
-    image: productImages['cake-marbre-560g'],
+    image: 0, // productImages['cake-marbre-560g'],
     description: 'Cake marbré doux et moelleux, parfait pour grignoter.',
     price: 48,
     countInStock: 100,
@@ -1634,7 +1495,7 @@ export const foodItems: FoodItem[] = [
     name: 'Cake Nature 560g',
     fileName: 'cake-nature-560g',
     slug: 'cake-nature-560g',
-    image: productImages['cake-nature-560g'],
+    image: 0, // productImages['cake-nature-560g'],
     description: 'Cake nature doux et moelleux, parfait pour grignoter.',
     price: 46,
     countInStock: 100,
@@ -1645,7 +1506,7 @@ export const foodItems: FoodItem[] = [
     name: 'Carré Caramel',
     fileName: 'carre-caramel',
     slug: 'carre-caramel',
-    image: productImages['carre-caramel'],
+    image: 0, // productImages['carre-caramel'],
     description: 'Carré caramel doux et moelleux, parfait pour grignoter.',
     price: 19,
     countInStock: 100,
@@ -1656,7 +1517,7 @@ export const foodItems: FoodItem[] = [
     name: 'Mini Fond de Tarte Carré Évasé Neutre',
     fileName: 'mini-fond-de-tarte-carre-evase-neutre',
     slug: 'mini-fond-de-tarte-carre-evase-neutre',
-    image: productImages['mini-fond-de-tarte-carre-evase-neutre'],
+    image: 0, // productImages['mini-fond-de-tarte-carre-evase-neutre'],
     description:
       'Mini fond de tarte carré croustillant, parfait pour faire des tartes.',
     price: 1.8,
@@ -1668,7 +1529,7 @@ export const foodItems: FoodItem[] = [
     name: 'Mini Fond de Tarte Rond Évasé Neutre',
     fileName: 'mini-fond-de-tarte-rond-evase-neutre',
     slug: 'mini-fond-de-tarte-rond-evase-neutre',
-    image: productImages['mini-fond-de-tarte-rond-evase-neutre'],
+    image: 0, // productImages['mini-fond-de-tarte-rond-evase-neutre'],
     description:
       'Mini fond de tarte rond croustillant, parfait pour faire des tartes.',
     price: 1.8,
@@ -1680,7 +1541,7 @@ export const foodItems: FoodItem[] = [
     name: 'Chouquette',
     fileName: 'chouquette',
     slug: 'chouquette',
-    image: productImages['chouquette'],
+    image: 0, // productImages['chouquette'],
     description: 'Chouquette douce et moelleuse, parfaite pour grignoter.',
     price: 1.8,
     countInStock: 100,
@@ -1691,7 +1552,7 @@ export const foodItems: FoodItem[] = [
     name: 'Opéra',
     fileName: 'opera',
     slug: 'opera',
-    image: productImages['opera'],
+    image: 0, // productImages['opera'],
     description: 'Gâteau Opéra doux et crémeux, parfait pour le dessert.',
     price: 16,
     countInStock: 100,
@@ -1702,7 +1563,7 @@ export const foodItems: FoodItem[] = [
     name: 'Royal',
     fileName: 'royal',
     slug: 'royal',
-    image: productImages['royal'],
+    image: 0, // productImages['royal'],
     description: 'Gâteau Royal doux et crémeux, parfait pour le dessert.',
     price: 17,
     countInStock: 100,
@@ -1713,7 +1574,7 @@ export const foodItems: FoodItem[] = [
     name: 'Pistache Framboise',
     fileName: 'pistache-framboise',
     slug: 'pistache-framboise',
-    image: productImages['pistache-framboise'],
+    image: 0, // productImages['pistache-framboise'],
     description:
       'Gâteau pistache framboise doux et crémeux, parfait pour le dessert.',
     price: 5,
@@ -1725,7 +1586,7 @@ export const foodItems: FoodItem[] = [
     name: 'Tigre Mini Financier Choc',
     fileName: 'tigre-mini-financier-choc',
     slug: 'tigre-mini-financier-choc',
-    image: productImages['tigre-mini-financier-choc'],
+    image: 0, // productImages['tigre-mini-financier-choc'],
     description:
       'Mini financier doux et moelleux au chocolat, parfait pour grignoter.',
     price: 0,
@@ -1737,7 +1598,7 @@ export const foodItems: FoodItem[] = [
     name: 'Forêt Noire',
     fileName: 'foret-noire',
     slug: 'foret-noire',
-    image: productImages['foret-noire'],
+    image: 0, // productImages['foret-noire'],
     description: 'Gâteau Forêt Noire doux et crémeux, parfait pour le dessert.',
     price: 15,
     countInStock: 100,
@@ -1748,7 +1609,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Café',
     fileName: 'pf-macaron-cafe',
     slug: 'pf-macaron-cafe',
-    image: productImages['pf-macaron-cafe'],
+    image: 0, // productImages['pf-macaron-cafe'],
     description: 'Macaron doux et moelleux au café, parfait pour grignoter.',
     price: 5,
     countInStock: 100,
@@ -1759,7 +1620,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Caramel Sésame',
     fileName: 'pf-macaron-caramel-sesame',
     slug: 'pf-macaron-caramel-sesame',
-    image: productImages['pf-macaron-caramel-sesame'],
+    image: 0, // productImages['pf-macaron-caramel-sesame'],
     description:
       'Macaron doux et moelleux au caramel et sésame, parfait pour grignoter.',
     price: 5,
@@ -1771,7 +1632,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Chocolat',
     fileName: 'pf-macaron-chocolat',
     slug: 'pf-macaron-chocolat',
-    image: productImages['pf-macaron-chocolat'],
+    image: 0, // productImages['pf-macaron-chocolat'],
     description:
       'Macaron doux et moelleux au chocolat, parfait pour grignoter.',
     price: 5,
@@ -1783,7 +1644,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Citron',
     fileName: 'pf-macaron-citron',
     slug: 'pf-macaron-citron',
-    image: productImages['pf-macaron-citron'],
+    image: 0, // productImages['pf-macaron-citron'],
     description: 'Macaron doux et moelleux au citron, parfait pour grignoter.',
     price: 5,
     countInStock: 100,
@@ -1794,7 +1655,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Citron Moelleux',
     fileName: 'pf-macaron-citron-moelleux',
     slug: 'pf-macaron-citron-moelleux',
-    image: productImages['pf-macaron-citron-moelleux'],
+    image: 0, // productImages['pf-macaron-citron-moelleux'],
     description: 'Macaron doux et moelleux au citron, parfait pour grignoter.',
     price: 5,
     countInStock: 100,
@@ -1805,7 +1666,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Citron Vert Basilic',
     fileName: 'pf-macaron-citron-vert-basilic',
     slug: 'pf-macaron-citron-vert-basilic',
-    image: productImages['pf-macaron-citron-vert-basilic'],
+    image: 0, // productImages['pf-macaron-citron-vert-basilic'],
     description:
       'Macaron doux et moelleux au citron vert et basilic, parfait pour grignoter.',
     price: 6,
@@ -1817,7 +1678,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Framboise Moelleux',
     fileName: 'pf-macaron-framboise-moelleux',
     slug: 'pf-macaron-framboise-moelleux',
-    image: productImages['pf-macaron-framboise-moelleux'],
+    image: 0, // productImages['pf-macaron-framboise-moelleux'],
     description:
       'Macaron doux et moelleux à la framboise, parfait pour grignoter.',
     price: 7,
@@ -1829,7 +1690,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Framboise',
     fileName: 'pf-macaron-framboise',
     slug: 'pf-macaron-framboise',
-    image: productImages['pf-macaron-framboise'],
+    image: 0, // productImages['pf-macaron-framboise'],
     description:
       'Macaron doux et moelleux à la framboise, parfait pour grignoter.',
     price: 5,
@@ -1841,7 +1702,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Framboise IND',
     fileName: 'pf-macaron-framboise-ind',
     slug: 'pf-macaron-framboise-ind',
-    image: productImages['pf-macaron-framboise-ind'],
+    image: 0, // productImages['pf-macaron-framboise-ind'],
     description:
       'Macaron doux et moelleux individuel à la framboise, parfait pour grignoter.',
     price: 18,
@@ -1853,7 +1714,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Gingembre',
     fileName: 'pf-macaron-gingembre',
     slug: 'pf-macaron-gingembre',
-    image: productImages['pf-macaron-gingembre'],
+    image: 0, // productImages['pf-macaron-gingembre'],
     description:
       'Macaron doux et moelleux au gingembre, parfait pour grignoter.',
     price: 6,
@@ -1865,7 +1726,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Pistache',
     fileName: 'pf-macaron-pistache',
     slug: 'pf-macaron-pistache',
-    image: productImages['pf-macaron-pistache'],
+    image: 0, // productImages['pf-macaron-pistache'],
     description:
       'Macaron doux et moelleux à la pistache, parfait pour grignoter.',
     price: 5,
@@ -1877,7 +1738,7 @@ export const foodItems: FoodItem[] = [
     name: 'PF Macaron Vanille',
     fileName: 'pf-macaron-vanille',
     slug: 'pf-macaron-vanille',
-    image: productImages['pf-macaron-vanille'],
+    image: 0, // productImages['pf-macaron-vanille'],
     description:
       'Macaron doux et moelleux à la vanille, parfait pour grignoter.',
     price: 5,

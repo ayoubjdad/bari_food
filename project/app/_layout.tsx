@@ -5,6 +5,8 @@ import { useFonts } from 'expo-font';
 import { SplashScreen } from 'expo-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Text, View } from 'react-native';
+import { CartProvider } from '@/context/CartContext';
+import { UserProvider } from '@/context/UserContext';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete
 SplashScreen.preventAutoHideAsync();
@@ -37,11 +39,15 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" options={{ title: 'Oops!' }} />
-      </Stack>
-      <StatusBar style="auto" />
+      <UserProvider>
+        <CartProvider>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" options={{ title: 'Oops!' }} />
+          </Stack>
+          <StatusBar style="auto" />
+        </CartProvider>
+      </UserProvider>
     </QueryClientProvider>
   );
 }

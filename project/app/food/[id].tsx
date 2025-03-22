@@ -6,15 +6,19 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ChevronLeft, Star, Minus, Plus, Heart } from 'lucide-react-native';
+import { ChevronLeft, Minus, Plus, Heart } from 'lucide-react-native';
 import { foodItems } from '../../data/foodItems';
+import { useCart } from '@/context/CartContext';
 
 export default function FoodDetailScreen() {
   const { id } = useLocalSearchParams();
   const router = useRouter();
+  const { addToCart } = useCart();
+
   const [quantity, setQuantity] = useState(1);
   const [favorite, setFavorite] = useState(false);
 
@@ -30,6 +34,11 @@ export default function FoodDetailScreen() {
 
   const updateQuantity = (change: number) => {
     setQuantity((prev) => Math.max(1, prev + change));
+  };
+
+  const handleAddToCart = () => {
+    addToCart({ ...foodItem, quantity });
+    Alert.alert('Ajouté au panier', `${foodItem.name} x${quantity} ajouté.`);
   };
 
   const totalPrice = foodItem.price * quantity;
@@ -56,7 +65,10 @@ export default function FoodDetailScreen() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* <Image source={{ uri: foodItem.image }} style={styles.foodImage} /> */}
+        {/* If image exists */}
+        {/* {foodItem.image && (
+          <Image source={{ uri: foodItem.image }} style={styles.foodImage} />
+        )} */}
 
         <View style={styles.contentContainer}>
           <View style={styles.titleRow}>
@@ -95,13 +107,18 @@ export default function FoodDetailScreen() {
           <Text style={styles.totalLabel}>Prix Total</Text>
           <Text style={styles.totalPrice}>{totalPrice.toFixed(2)} DH</Text>
         </View>
-        <TouchableOpacity style={styles.addToCartButton}>
-          <Text style={styles.addToCartText}>Ajouter à la carte</Text>
+        <TouchableOpacity
+          style={styles.addToCartButton}
+          onPress={handleAddToCart}
+        >
+          <Text style={styles.addToCartText}>Ajouter au panier</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 }
+
+// Styles remain unchanged...
 
 const styles = StyleSheet.create({
   container: {

@@ -12,44 +12,66 @@ import { Minus, Plus, Trash2 } from 'lucide-react-native';
 import { cartItems } from '../../data/cartItems';
 import { CartItem } from '../../types';
 import { Link } from 'expo-router';
-import { productImages } from '@/helpers/images';
+import { useCart } from '@/context/CartContext';
+import { serverUrl } from '@/config/config';
+// import { productImages } from '@/helpers/images';
 
 export default function CartScreen() {
-  const [items, setItems] = useState<CartItem[]>(cartItems);
+  const { items, removeFromCart, updateQuantity, clearCart } = useCart();
   const [subtotal, setSubtotal] = useState(0);
 
-  useEffect(() => {
-    calculateSubtotal();
-  }, [items]);
+  const handleSubmit = async () => {
+    if (subtotal < 200) {
+      alert('Le montant minimum de commande est de 200 DH.');
+      return;
+    }
 
-  const calculateSubtotal = () => {
+    // displayInProgressNotification('Commande en cours de traitement...');
+
+    const orderData = {
+      // user: user?._id, // make sure `user` is available in this component
+      items: items.map((product) => ({
+        product: String(product.id),
+        quantity: product.quantity,
+        price: product.price,
+      })),
+      // totalAmount: hasDiscount ? subtotal - subtotal * 0.1 : subtotal,
+      // paymentMethod: formData.paymentMethod || 'Cash on Delivery',
+      // shippingAddress: {
+      //   fullName: formData.fullName,
+      //   address: formData.address,
+      //   phone: formData.phone,
+      //   city: formData.city,
+      // },
+    };
+
+    try {
+      const response = await fetch(`${serverUrl}/api/orders`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to place order');
+      }
+
+      // displaySuccessNotification('Commande confirmée');
+      // setFormData({});
+      clearCart(); // Assuming you have a clearCart function in your CartContext
+    } catch (error) {
+      // displayErrorNotification("Erreur lors de la soumission de la commande");
+      console.error('Error submitting order:', error);
+    }
+  };
+
+  useEffect(() => {
     const total = items.reduce(
       (sum, item) => sum + item.price * item.quantity,
       0
     );
     setSubtotal(total);
-  };
-
-  const updateQuantity = (id: string, change: number) => {
-    setItems((prevItems) =>
-      prevItems.map((item) => {
-        if (item.id === id) {
-          const newQuantity = Math.max(1, item.quantity + change);
-          return { ...item, quantity: newQuantity };
-        }
-        return item;
-      })
-    );
-  };
-
-  const removeItem = (id: string) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
-
-  const getImage = (category: number, slug: string): number | undefined => {
-    return productImages['pain-sandwich-blanc'];
-    // return productImages[slug];
-  };
+  }, [items]);
 
   const total = subtotal;
 
@@ -86,11 +108,11 @@ export default function CartScreen() {
         <>
           <ScrollView showsVerticalScrollIndicator={false}>
             {items.map((item) => {
-              const imageSource = getImage(item.quantity, item.image);
+              // const imageSource = getImage(item.quantity, item.image);
 
               return (
                 <View key={item.id} style={styles.cartItem}>
-                  <Image source={imageSource} style={styles.itemImage} />
+                  {/* <Image source={imageSource} style={styles.itemImage} /> */}
 
                   <View style={styles.itemDetails}>
                     <View>
@@ -117,7 +139,7 @@ export default function CartScreen() {
                   </View>
                   <TouchableOpacity
                     style={styles.removeButton}
-                    onPress={() => removeItem(item.id)}
+                    onPress={() => removeFromCart(item.id)}
                   >
                     <Trash2 size={20} color="#FF3B30" />
                   </TouchableOpacity>
@@ -140,7 +162,10 @@ export default function CartScreen() {
               <Text style={styles.totalValue}>{total.toFixed(2)} DH</Text>
             </View>
 
-            <TouchableOpacity style={styles.checkoutButton}>
+            <TouchableOpacity
+              style={styles.checkoutButton}
+              onPress={handleSubmit}
+            >
               <Text style={styles.checkoutButtonText}>Passer la commande</Text>
             </TouchableOpacity>
           </View>

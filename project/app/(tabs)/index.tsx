@@ -13,7 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { foodItems, productsCategories } from '../../data/foodItems';
 import { FoodItem } from '../../types';
 import { Link } from 'expo-router';
-import { productImages } from '@/helpers/images';
+// import { productImages } from '@/helpers/images';
 import { useQuery } from '@tanstack/react-query';
 import { getProducts } from '../../helpers/api.helper';
 
@@ -52,10 +52,15 @@ export default function MenuScreen() {
     setFilteredItems(filtered);
   };
 
-  const getImage = (category: number, slug: string): number | undefined => {
-    return productImages['pain-sandwich-blanc'];
-    // return productImages[slug];
-  };
+  // const getImage = (category: number, slug: string): any => {
+  //   const imagePath = productImages[`${category}/${slug}`];
+
+  //   // Fallback image path
+  //   const fallbackImagePath = require('../../assets/logo/bari-lion.png');
+
+  //   // If the image exists, return it; otherwise, return the fallback image
+  //   return imagePath ? imagePath : fallbackImagePath;
+  // };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -110,17 +115,15 @@ export default function MenuScreen() {
         ))}
       </ScrollView> */}
 
-      {/* <Text style={styles.sectionTitle}>Articles populaires</Text> */}
-
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.foodGrid}>
           {filteredItems.map((item) => {
-            const imageSource = getImage(item.categoryId, item.slug);
+            // const imageSource = getImage(item.categoryId, item.slug);
 
             return (
               <Link href={`/food/${item.id}`} key={item.id} asChild>
                 <TouchableOpacity style={styles.foodCard}>
-                  <Image source={imageSource} style={styles.foodImage} />
+                  {/* <Image source={imageSource} style={styles.foodImage} /> */}
                   <View style={styles.foodInfo}>
                     <Text style={styles.foodName}>{item.name}</Text>
                     <View style={styles.foodMeta}>
