@@ -3,9 +3,16 @@ import { useLogin } from "../login/LoginContext";
 
 const ProtectedRoute = () => {
   const { user } = useLogin();
-  const { name } = user || {};
+  const { email } = user || {};
 
-  return name === "Ayoub Jdad" ? <Outlet /> : <Navigate to="/connexion" />;
+  if (
+    email?.toLowercase() === "ayoub@gmail.com" ||
+    email?.toLowercase() === "karim.mbari00@gmail.com"
+  ) {
+    return <Outlet />;
+  }
+
+  return <Navigate to="/connexion" />;
 };
 
 export default ProtectedRoute;
