@@ -6,8 +6,8 @@ const ProtectedRoute = () => {
   const { email } = user || {};
 
   if (
-    email?.toLowercase() === "ayoub@gmail.com" ||
-    email?.toLowercase() === "karim.mbari00@gmail.com"
+    email?.toLowerCase() === "ayoub@gmail.com" ||
+    email?.toLowerCase() === "karim.mbari00@gmail.com"
   ) {
     return <Outlet />;
   }
