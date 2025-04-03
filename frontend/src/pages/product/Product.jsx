@@ -65,11 +65,6 @@ export default function Product() {
   };
 
   const handleAddToCart = () => {
-    if (categoryId === 4) {
-      alert("Veuillez sélectionner une taille avant d'ajouter au panier.");
-      return;
-    }
-
     try {
       const quantity = options.quantity;
       addToCart(product, quantity);
