@@ -11,7 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LogOut } from 'lucide-react-native';
 import { useUser } from '@/context/UserContext';
 import LoginForm from '../LoginForm';
-import SignupForm from '../SignupForm';
+import SignupForm from '../SignupForm.jsx';
 
 export default function ProfileScreen() {
   const { user, logout, login } = useUser();

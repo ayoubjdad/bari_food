@@ -60,23 +60,18 @@ export default function Product() {
     }
   };
 
-  const handleSizeChange = (event) => {
-    setOptions({ ...options, size: event.target.value });
-  };
-
   const handleTypeChange = (event) => {
     setOptions({ ...options, type: event.target.value });
   };
 
   const handleAddToCart = () => {
-    if (categoryId === 4 && !options.size) {
+    if (categoryId === 4) {
       alert("Veuillez sélectionner une taille avant d'ajouter au panier.");
       return;
     }
 
     try {
-      const quantity =
-        categoryId !== 4 ? options.quantity : options.quantity * options.size;
+      const quantity = options.quantity;
       addToCart(product, quantity);
       displaySuccessNotification();
     } catch (error) {
@@ -133,44 +128,11 @@ export default function Product() {
                 <Divider />
 
                 <div className={styles.sizeSelector}>
-                  {!options.size && (
+                  {!options.type && (
                     <p className={styles.error}>
-                      Veuillez sélectionner une taille*
+                      Veuillez sélectionner le type*
                     </p>
                   )}
-
-                  <div className={styles.sizeSelector}>
-                    <RadioGroup
-                      row
-                      value={options.size}
-                      onChange={handleSizeChange}
-                    >
-                      <FormControlLabel
-                        value={8}
-                        control={
-                          <Radio
-                            checked={
-                              name.toLowerCase().includes("mini") ? true : false
-                            }
-                          />
-                        }
-                        label="Minis (8)"
-                      />
-                      <FormControlLabel
-                        value={4}
-                        control={
-                          <Radio
-                            checked={
-                              !name.toLowerCase().includes("mini")
-                                ? true
-                                : false
-                            }
-                          />
-                        }
-                        label="Grands (4)"
-                      />
-                    </RadioGroup>
-                  </div>
 
                   <div className={styles.sizeSelector}>
                     <RadioGroup

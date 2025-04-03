@@ -5,15 +5,17 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo/bari-lion.png",
-    "scheme": "bari_food_app",
+    "scheme": "barifoodapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bari-food.bari_food_app"
+      "bundleIdentifier": "com.barifood.app"
     },
     "android": {
-      "package": "com.yourcompany.myapp"
+      "package": "com.yourcompany.barifood",
+      "versionCode": 1,
+      "permissions": []
     },
     "updates": {
       "enabled": true
@@ -26,6 +28,14 @@
     "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4cdb34b6-97b5-4f08-848f-6eb566496ed4"
+      }
     }
   }
 }

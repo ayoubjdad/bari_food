@@ -220,8 +220,8 @@ export default function Online() {
         </div>
 
         <div className={styles.suppliers}>
-          <Supplier title="Assylor" list={assylor} />
-          <Supplier title="Joy Food" list={joyFood} />
+          <Supplier title="Joy Food" list={assylor} />
+          <Supplier title="Ennova" list={joyFood} />
         </div>
 
         <TableContainer sx={{ maxHeight: 440 }}>
