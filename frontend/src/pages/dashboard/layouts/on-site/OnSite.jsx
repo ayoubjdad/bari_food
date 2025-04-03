@@ -313,10 +313,8 @@ const OrdersPopover = ({ date, anchorEl, onClose, products }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const totalPrice = orderItems.reduce(
-      (total, item) => total + item.quantity * item.price,
-      0
-    );
+    let totalPrice = 0;
+    orderItems.forEach((item) => (totalPrice += item.price));
 
     const newOrder = {
       items: orderItems,
@@ -337,7 +335,6 @@ const OrdersPopover = ({ date, anchorEl, onClose, products }) => {
         const index = ids.findIndex((obj) => obj.id === product.id);
         product.countInStock -= ids[index].quantity;
 
-        console.log(":::::: ~ product:", product);
         if (product._id) {
           axios.put(`${serverUrl}/api/products/${product._id}`, product);
         }
