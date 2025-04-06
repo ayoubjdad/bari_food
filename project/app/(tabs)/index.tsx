@@ -10,10 +10,10 @@ import {
 } from 'react-native';
 import { Search, Filter, Star } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { foodItems, productsCategories } from '../../data/foodItems';
+import { productsCategories } from '../../data/foodItems';
 import { FoodItem } from '../../types';
 import { Link } from 'expo-router';
-// import { productImages } from '@/helpers/images';
+import { productImages } from '@/helpers/images';
 import { useQuery } from '@tanstack/react-query';
 import { getProducts } from '../../helpers/api.helper';
 
@@ -33,11 +33,11 @@ export default function MenuScreen() {
   }, [searchQuery, selectedCategory]);
 
   const filterItems = () => {
-    let filtered = foodItems;
+    let filtered = products;
 
     // Filter by search query
     if (searchQuery) {
-      filtered = filtered.filter((item) =>
+      filtered = filtered.filter((item: any) =>
         item.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
@@ -45,22 +45,32 @@ export default function MenuScreen() {
     // Filter by category
     if (selectedCategory !== 'All') {
       filtered = filtered.filter(
-        (item) => String(item.categoryId) === selectedCategory
+        (item: any) => String(item.categoryId) === selectedCategory
       );
     }
 
     setFilteredItems(filtered);
   };
 
-  // const getImage = (category: number, slug: string): any => {
-  //   const imagePath = productImages[`${category}/${slug}`];
+  const getImage = (category: number, slug: string): any => {
+    const categorySlug = productsCategories.find(
+      (cat) => cat.id === category
+    )?.slug;
 
-  //   // Fallback image path
-  //   const fallbackImagePath = require('../../assets/logo/bari-lion.png');
+    if (!categorySlug) {
+      return require('../../assets/logo/bari-lion.png');
+    }
 
-  //   // If the image exists, return it; otherwise, return the fallback image
-  //   return imagePath ? imagePath : fallbackImagePath;
-  // };
+    // Construct the key for the productImages mapping
+    const imageKey = `${category}/${slug}`;
+
+    // Return the image from the static mapping or a fallback image
+    if (productImages[imageKey]) {
+      return productImages[imageKey];
+    }
+
+    return require('../../assets/logo/bari-lion.png');
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -88,7 +98,7 @@ export default function MenuScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* <ScrollView
+      <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         style={styles.categoriesContainer}
@@ -113,17 +123,19 @@ export default function MenuScreen() {
             </Text>
           </TouchableOpacity>
         ))}
-      </ScrollView> */}
+      </ScrollView>
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.foodGrid}>
           {filteredItems.map((item) => {
-            // const imageSource = getImage(item.categoryId, item.slug);
+            const imageSource = getImage(item.categoryId, item.slug);
 
             return (
               <Link href={`/food/${item.id}`} key={item.id} asChild>
                 <TouchableOpacity style={styles.foodCard}>
-                  {/* <Image source={imageSource} style={styles.foodImage} /> */}
+                  <div style={styles.foodImageContainer}>
+                    <Image source={imageSource} style={styles.foodImage} />
+                  </div>
                   <View style={styles.foodInfo}>
                     <Text style={styles.foodName}>{item.name}</Text>
                     <View style={styles.foodMeta}>
@@ -195,6 +207,8 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   categoriesContainer: {
+    height: 50,
+    flexShrink: 0,
     marginBottom: 20,
   },
   categoriesContent: {
@@ -203,11 +217,15 @@ const styles = StyleSheet.create({
   },
   categoryButton: {
     height: 38,
+    justifyContent: 'center',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
     backgroundColor: '#F5F5F5',
     marginRight: 10,
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '6px',
   },
   selectedCategory: {
     backgroundColor: '#2faa7a',
@@ -243,9 +261,19 @@ const styles = StyleSheet.create({
     elevation: 2,
     overflow: 'hidden',
   },
-  foodImage: {
+  foodImageContainer: {
     width: '100%',
-    height: 120,
+    display: 'flex',
+    overflow: 'hidden',
+    position: 'relative',
+    alignItems: 'center',
+    aspectRatio: '1 / 1',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(80, 166, 73, 0.1)', // rgb(255, 194, 34, 0.1);
+  },
+  foodImage: {
+    width: '80%',
+    height: '80%',
     resizeMode: 'cover',
   },
   foodInfo: {

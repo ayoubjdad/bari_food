@@ -49,7 +49,7 @@ export const products = [
       short: "Rustic ciabatta bread for a hearty sandwich.",
       long: "Ciabatta bread with a chewy texture, perfect for robust sandwiches.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -62,7 +62,7 @@ export const products = [
       short: "Traditional natural sandwich bread, 110g.",
       long: "A natural and traditional sandwich bread, weighing 110g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -75,7 +75,7 @@ export const products = [
       short: "Multi-grain sandwich bread for a nutritious option.",
       long: "A multi-grain bread packed with various cereals for a healthy meal.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -88,7 +88,7 @@ export const products = [
       short: "Multi-grain ciabatta bread with a rich texture.",
       long: "A hearty ciabatta bread made with multiple grains for added flavor.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -101,7 +101,7 @@ export const products = [
       short: "Traditional ciabatta bread with a classic taste.",
       long: "A traditional ciabatta bread, perfect for Italian-style sandwiches.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -114,7 +114,7 @@ export const products = [
       short: "Natural sliced bread, 380g by Assylor.",
       long: "A classic natural sliced bread, weighing 380g, by Assylor.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -127,7 +127,7 @@ export const products = [
       short: "Whole grain sliced bread, 380g, 12 pieces by Assylor.",
       long: "Whole grain sliced bread, 380g, in a pack of 12 pieces by Assylor.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
     isHighlighted: true,
   },
@@ -141,7 +141,7 @@ export const products = [
       short: "Olive oil infused sliced bread for a unique flavor.",
       long: "Sliced bread infused with olive oil, offering a distinct taste.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -154,7 +154,7 @@ export const products = [
       short: "Fiber-rich sliced bread for a healthy diet.",
       long: "Sliced bread enriched with fibers, promoting a healthy lifestyle.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -167,7 +167,7 @@ export const products = [
       short: "Milk-infused sliced bread for a soft texture.",
       long: "Sliced bread made with milk, providing a soft and tender texture.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -180,7 +180,7 @@ export const products = [
       short: "Cereal-infused sliced bread for a wholesome meal.",
       long: "Sliced bread with added cereals, offering a nutritious option.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -193,7 +193,7 @@ export const products = [
       short: "Natural bread, 500g, by Pain D'or.",
       long: "A natural bread weighing 500g, crafted by Pain D'or.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -206,7 +206,7 @@ export const products = [
       short: "Whole grain bread, 500g, by Pain D'or.",
       long: "A whole grain bread weighing 500g, made by Pain D'or.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -219,7 +219,7 @@ export const products = [
       short: "Lebanese bread, 20cm, 7 pieces.",
       long: "Traditional Lebanese bread, 20cm in diameter, in a pack of 7 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -232,7 +232,7 @@ export const products = [
       short: "Lebanese bread, 22cm, 7 pieces.",
       long: "Traditional Lebanese bread, 22cm in diameter, in a pack of 7 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -245,7 +245,7 @@ export const products = [
       short: "Lebanese bread, 26cm, 6 pieces.",
       long: "Traditional Lebanese bread, 26cm in diameter, in a pack of 6 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -258,7 +258,7 @@ export const products = [
       short: "Whole grain Lebanese bread, 20cm, 5 pieces.",
       long: "Whole grain Lebanese bread, 20cm in diameter, in a pack of 5 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -271,7 +271,7 @@ export const products = [
       short: "Panini bread, large and medium, 4 pieces.",
       long: "Panini bread available in large and medium sizes, in a pack of 4.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
     isHighlighted: true,
   },
@@ -285,7 +285,7 @@ export const products = [
       short: "Panini bread, 2 pieces.",
       long: "Panini bread, in a pack of 2 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -298,7 +298,7 @@ export const products = [
       short: "Panini bread, small and medium, 6 pieces.",
       long: "Panini bread available in small and medium sizes, in a pack of 6.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -311,7 +311,7 @@ export const products = [
       short: "Milk bread, 210g, soft and tender.",
       long: "A soft and tender milk bread, weighing 210g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -324,7 +324,7 @@ export const products = [
       short: "Chocolate milk bread, 210g, for a sweet treat.",
       long: "A delightful chocolate milk bread, weighing 210g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -337,7 +337,7 @@ export const products = [
       short: "White hamburger buns, 4 pieces.",
       long: "Classic white hamburger buns, in a pack of 4.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -350,7 +350,7 @@ export const products = [
       short: "Hamburger buns for kids.",
       long: "Hamburger buns designed for kids.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -363,7 +363,7 @@ export const products = [
       short: "Giant hamburger buns, 4 pieces.",
       long: "Large hamburger buns, perfect for big burgers, in a pack of 4.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -376,7 +376,7 @@ export const products = [
       short: "Giant hamburger buns, 4 pieces.",
       long: "Large hamburger buns, perfect for big burgers, in a pack of 4.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -389,7 +389,7 @@ export const products = [
       short: "Whole grain giant hamburger buns, 4 pieces.",
       long: "Whole grain large hamburger buns, in a pack of 4.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -402,7 +402,7 @@ export const products = [
       short: "Sausage bread, perfect for hot dogs.",
       long: "A classic bread designed for sausages, ideal for hot dogs.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -415,7 +415,7 @@ export const products = [
       short: "Burger buns, 8 pieces, for meals.",
       long: "Burger buns, in a pack of 8, perfect for meal preparations.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -428,7 +428,7 @@ export const products = [
       short: "Natural mega burger buns, 4 pieces.",
       long: "Large natural burger buns, in a pack of 4.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
     isHighlighted: true,
   },
@@ -442,7 +442,7 @@ export const products = [
       short: "Chili-flavored mega burger buns, 4 pieces.",
       long: "Large chili-flavored burger buns, in a pack of 4.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -455,7 +455,7 @@ export const products = [
       short: "Burger buns, 8 pieces, for meals.",
       long: "Burger buns, in a pack of 8, perfect for meal preparations.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -468,7 +468,7 @@ export const products = [
       short: "Pizza dough, 12 pieces.",
       long: "Ready-to-use pizza dough, in a pack of 12 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -481,7 +481,7 @@ export const products = [
       short: "Flaky pizza dough, 12 pieces.",
       long: "Flaky and crispy pizza dough, in a pack of 12 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -494,7 +494,7 @@ export const products = [
       short: "Family-sized pizza dough, 2 pieces.",
       long: "Large pizza dough for family meals, in a pack of 2 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -507,7 +507,7 @@ export const products = [
       short: "Whole grain pizza dough.",
       long: "Whole grain pizza dough for a healthier option.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -520,7 +520,7 @@ export const products = [
       short: "Onion-flavored pizza dough.",
       long: "Pizza dough infused with onion flavor for a unique taste.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -533,7 +533,7 @@ export const products = [
       short: "Chili-flavored pizza dough.",
       long: "Spicy chili-flavored pizza dough for a bold flavor.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -546,7 +546,7 @@ export const products = [
       short: "Semolina pizza dough.",
       long: "Pizza dough made with semolina for a unique texture.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -559,7 +559,7 @@ export const products = [
       short: "Olive-flavored pizza dough.",
       long: "Pizza dough infused with olive flavor for a Mediterranean touch.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -572,7 +572,7 @@ export const products = [
       short: "Flaky pizza dough, 2 pieces.",
       long: "Flaky and crispy pizza dough, in a pack of 2 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -585,7 +585,7 @@ export const products = [
       short: "Family-style traiteur bread, 5 pieces.",
       long: "A selection of traiteur bread, perfect for family meals, 5 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -598,7 +598,7 @@ export const products = [
       short: "Medium-sized traiteur bread, 5 pieces.",
       long: "Medium-sized traiteur bread, in a pack of 5 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -611,7 +611,7 @@ export const products = [
       short: "Natural bread crumbs, 250g.",
       long: "Natural bread crumbs, perfect for coating and baking, 250g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -624,7 +624,7 @@ export const products = [
       short: "Chicken-flavored bread crumbs, 250g.",
       long: "Chicken-flavored bread crumbs, ideal for savory dishes, 250g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -637,7 +637,7 @@ export const products = [
       short: "Standard tortilla wraps, 7 pieces.",
       long: "Classic tortilla wraps, in a pack of 7 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -650,7 +650,7 @@ export const products = [
       short: "Large tortilla wrap, 30cm.",
       long: "A large tortilla wrap, 30cm in diameter, perfect for big meals.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -663,7 +663,7 @@ export const products = [
       short: "Large tortilla wraps, 30cm, 18 pieces.",
       long: "Large tortilla wraps, 30cm in diameter, in a pack of 18 pieces.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -676,7 +676,7 @@ export const products = [
       short: "Whole grain large tortilla wrap, 30cm.",
       long: "A whole grain large tortilla wrap, 30cm in diameter.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -689,7 +689,7 @@ export const products = [
       short: "Sweet tart base for desserts.",
       long: "A sweet tart base, perfect for creating delicious desserts.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -702,7 +702,7 @@ export const products = [
       short: "Savory tart base for meals.",
       long: "A savory tart base, ideal for preparing hearty meals.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -715,7 +715,7 @@ export const products = [
       short: "Small semolina bread, 45g.",
       long: "A small semolina bread, weighing 45g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -728,7 +728,7 @@ export const products = [
       short: "Small whole grain bread, 45g.",
       long: "A small whole grain bread, weighing 45g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -741,7 +741,7 @@ export const products = [
       short: "Large whole grain bread, 220g.",
       long: "A large whole grain bread, weighing 220g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -754,7 +754,7 @@ export const products = [
       short: "Large barley bread, 225g.",
       long: "A large barley bread, weighing 225g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -767,7 +767,7 @@ export const products = [
       short: "Small barley bread, 45g.",
       long: "A small barley bread, weighing 45g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -780,7 +780,7 @@ export const products = [
       short: "Economical round bread, 210g.",
       long: "An economical round bread, weighing 210g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -793,7 +793,7 @@ export const products = [
       short: "Rye country-style bread, 400g.",
       long: "A rustic rye country-style bread, weighing 400g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -806,7 +806,7 @@ export const products = [
       short: "Artisan whole grain sliced bread, 650g.",
       long: "An artisan whole grain sliced bread, weighing 650g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -819,7 +819,7 @@ export const products = [
       short: "Rich chocolate brownies for a decadent treat.",
       long: "Decadent chocolate brownies, perfect for chocolate lovers.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -832,7 +832,7 @@ export const products = [
       short: "Lemon cheesecake for a tangy dessert.",
       long: "A tangy lemon cheesecake, perfect for a refreshing dessert.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -845,7 +845,7 @@ export const products = [
       short: "Red fruit cheesecake for a fruity treat.",
       long: "A fruity cheesecake filled with red fruits, perfect for dessert.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -858,7 +858,7 @@ export const products = [
       short: "Almond muffins for a nutty snack.",
       long: "Nutty almond muffins, perfect for a quick and tasty snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -871,7 +871,7 @@ export const products = [
       short: "Red fruit muffins for a fruity snack.",
       long: "Fruity muffins filled with red fruits, perfect for a sweet treat.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -884,7 +884,7 @@ export const products = [
       short: "Chocolate muffins for a rich snack.",
       long: "Rich chocolate muffins, perfect for a decadent snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -897,7 +897,7 @@ export const products = [
       short: "Chocolate muffins with Nutolade filling.",
       long: "Chocolate muffins filled with Nutolade, perfect for a sweet treat.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -910,7 +910,7 @@ export const products = [
       short: "Extra-large chocolate muffins for a big treat.",
       long: "Extra-large chocolate muffins, perfect for a big and rich snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -923,7 +923,7 @@ export const products = [
       short: "Vanilla muffins for a classic snack.",
       long: "Classic vanilla muffins, perfect for a light and sweet snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -936,7 +936,7 @@ export const products = [
       short: "Plain muffins for a simple snack.",
       long: "Simple and plain muffins, perfect for a light snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -949,7 +949,7 @@ export const products = [
       short: "Lemon tart for a tangy dessert.",
       long: "A tangy lemon tart, perfect for a refreshing dessert.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -962,7 +962,7 @@ export const products = [
       short: "Chocolate tart for a rich dessert.",
       long: "A rich chocolate tart, perfect for chocolate lovers.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -975,7 +975,7 @@ export const products = [
       short: "Strawberry tart for a fruity dessert.",
       long: "A fruity strawberry tart, perfect for a sweet treat.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -988,7 +988,7 @@ export const products = [
       short: "Raspberry tart for a tangy dessert.",
       long: "A tangy raspberry tart, perfect for a refreshing dessert.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1001,7 +1001,7 @@ export const products = [
       short: "Apricot tart for a fruity dessert.",
       long: "A fruity apricot tart, perfect for a sweet and tangy treat.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1014,7 +1014,7 @@ export const products = [
       short: "Mango tart for a tropical dessert.",
       long: "A tropical mango tart, perfect for a sweet and exotic treat.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1027,7 +1027,7 @@ export const products = [
       short: "Chocolate mille-feuille for a layered treat.",
       long: "A layered chocolate mille-feuille, perfect for a decadent dessert.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1040,7 +1040,7 @@ export const products = [
       short: "Vanilla mille-feuille for a creamy dessert.",
       long: "A creamy vanilla mille-feuille, perfect for a light and sweet treat.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1053,7 +1053,7 @@ export const products = [
       short: "Opéra cake for a luxurious dessert.",
       long: "A luxurious Opéra cake, perfect for a special occasion.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1066,7 +1066,7 @@ export const products = [
       short: "Royal cake for a regal dessert.",
       long: "A regal Royal cake, perfect for a grand celebration.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1079,7 +1079,7 @@ export const products = [
       short: "Black Forest cake for a classic dessert.",
       long: "A classic Black Forest cake, perfect for chocolate lovers.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1092,7 +1092,7 @@ export const products = [
       short: "Coffee macaron for a rich and aromatic treat.",
       long: "A rich and aromatic coffee macaron, perfect for coffee lovers.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1105,7 +1105,7 @@ export const products = [
       short: "Caramel sesame macaron for a unique flavor.",
       long: "A unique macaron combining caramel and sesame flavors.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1118,7 +1118,7 @@ export const products = [
       short: "Chocolate macaron for a classic treat.",
       long: "A classic chocolate macaron, perfect for chocolate enthusiasts.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1131,7 +1131,7 @@ export const products = [
       short: "Lemon macaron for a tangy delight.",
       long: "A tangy lemon macaron, perfect for a refreshing treat.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1144,7 +1144,7 @@ export const products = [
       short: "Soft lemon macaron for a delicate treat.",
       long: "A soft and delicate lemon macaron, perfect for a light snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1157,7 +1157,7 @@ export const products = [
       short: "Lime basil macaron for a refreshing flavor.",
       long: "A refreshing macaron combining lime and basil flavors.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1170,7 +1170,7 @@ export const products = [
       short: "Soft raspberry macaron for a fruity treat.",
       long: "A soft and fruity raspberry macaron, perfect for a sweet snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1183,7 +1183,7 @@ export const products = [
       short: "Raspberry macaron for a classic fruity treat.",
       long: "A classic raspberry macaron, perfect for a fruity delight.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1196,7 +1196,7 @@ export const products = [
       short: "Premium raspberry macaron for a luxurious treat.",
       long: "A premium raspberry macaron, perfect for a luxurious dessert.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1209,7 +1209,7 @@ export const products = [
       short: "Ginger macaron for a spicy twist.",
       long: "A spicy ginger macaron, perfect for a unique flavor experience.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1222,7 +1222,7 @@ export const products = [
       short: "Pistachio macaron for a nutty treat.",
       long: "A nutty pistachio macaron, perfect for a rich and flavorful snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1235,7 +1235,7 @@ export const products = [
       short: "Vanilla macaron for a classic sweet treat.",
       long: "A classic vanilla macaron, perfect for a simple and sweet snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 2,
   },
   {
@@ -1248,7 +1248,7 @@ export const products = [
       short: "Large olive baguette for a Mediterranean flavor.",
       long: "A large baguette infused with olives, perfect for a Mediterranean taste.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1261,7 +1261,7 @@ export const products = [
       short: "Poppy seed baguette for a crunchy texture.",
       long: "A crunchy baguette with poppy seeds, perfect for a unique texture.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1274,7 +1274,7 @@ export const products = [
       short: "Sesame baguette for a nutty flavor.",
       long: "A nutty baguette with sesame seeds, perfect for a rich taste.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1287,7 +1287,7 @@ export const products = [
       short: "Multi-grain baguette for a healthy option.",
       long: "A healthy multi-grain baguette, perfect for a nutritious meal.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1300,7 +1300,7 @@ export const products = [
       short: "Economical baguette for everyday use.",
       long: "An economical baguette, perfect for daily meals.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1313,7 +1313,7 @@ export const products = [
       short: "Whole grain flute for a healthy snack.",
       long: "A healthy whole grain flute, perfect for a nutritious snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1326,7 +1326,7 @@ export const products = [
       short: "Traditional flute for a classic taste.",
       long: "A classic traditional flute, perfect for a timeless flavor.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1339,7 +1339,7 @@ export const products = [
       short: "Semolina flute for a unique texture.",
       long: "A unique semolina flute, perfect for a different texture experience.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1352,7 +1352,7 @@ export const products = [
       short: "Natural pistolet, 50g, for a simple snack.",
       long: "A simple and natural pistolet, weighing 50g, perfect for a light snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1365,7 +1365,7 @@ export const products = [
       short: "Olive pistolet, 50g, for a Mediterranean flavor.",
       long: "A Mediterranean-inspired pistolet with olives, weighing 50g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1378,7 +1378,7 @@ export const products = [
       short: "Whole grain pistolet, 50g, for a healthy snack.",
       long: "A healthy whole grain pistolet, weighing 50g, perfect for a nutritious snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1391,7 +1391,7 @@ export const products = [
       short: "Poppy seed pistolet, 50g, for a crunchy texture.",
       long: "A crunchy pistolet with poppy seeds, weighing 50g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1404,7 +1404,7 @@ export const products = [
       short: "Sesame pistolet, 50g, for a nutty flavor.",
       long: "A nutty pistolet with sesame seeds, weighing 50g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1417,7 +1417,7 @@ export const products = [
       short: "Small baguette, 60g, for a light snack.",
       long: "A small baguette, weighing 60g, perfect for a light and quick snack.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1430,7 +1430,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 4,
   },
   {
@@ -1443,7 +1443,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 4,
   },
   {
@@ -1456,7 +1456,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 4,
   },
   {
@@ -1469,7 +1469,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 4,
   },
   {
@@ -1482,7 +1482,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 4,
   },
   {
@@ -1495,7 +1495,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 4,
   },
   {
@@ -1508,7 +1508,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 4,
   },
 
@@ -1522,7 +1522,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -1535,7 +1535,7 @@ export const products = [
       short: "",
       description: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -1548,7 +1548,7 @@ export const products = [
       short: "",
       description: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -1561,7 +1561,7 @@ export const products = [
       short: "Recette traditionnelle à la farine complete de blé.",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 1,
   },
   {
@@ -1574,7 +1574,7 @@ export const products = [
       short: "Small barley bread, 45g.",
       long: "A small barley bread, weighing 45g.",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 3,
   },
   {
@@ -1587,7 +1587,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 4,
   },
   {
@@ -1600,7 +1600,7 @@ export const products = [
       short: "",
       long: "",
     },
-    countInStock: 100,
+    countInStock: 0,
     categoryId: 4,
   },
 ];
