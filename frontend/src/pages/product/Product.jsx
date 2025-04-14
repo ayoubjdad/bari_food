@@ -12,7 +12,10 @@ import {
 import Products from "../../layouts/products/Products";
 import { useLocation } from "react-router";
 import { useCart } from "../../context/cart/CartContext";
-import { displaySuccessNotification } from "../../components/toast/success/SuccessToast";
+import {
+  displayErrorNotification,
+  displaySuccessNotification,
+} from "../../components/toast/success/SuccessToast";
 import { categories } from "../../data/data";
 import { getProductImage } from "../../helpers/functions.helper";
 
@@ -66,6 +69,11 @@ export default function Product() {
 
   const handleAddToCart = () => {
     try {
+      if (categoryId === 4 && !options.type) {
+        displayErrorNotification("Veuillez sélectionner le type!");
+        return;
+      }
+
       const quantity = options.quantity;
       addToCart(product, quantity);
       displaySuccessNotification();

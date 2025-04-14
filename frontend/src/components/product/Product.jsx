@@ -47,11 +47,13 @@ export default function Product({ product = {} }) {
           <p className={styles.productDescription}>{short}</p>
           <div className={styles.productFooter}>
             <p className={styles.productPrice}>{price} DH</p>
-            <Box
-              component="i"
-              onClick={handleAddToCart}
-              className={`fi fi-rr-shopping-cart-add ${styles.productCart}`}
-            />
+            {categoryId === 4 ? null : (
+              <Box
+                component="i"
+                onClick={handleAddToCart}
+                className={`fi fi-rr-shopping-cart-add ${styles.productCart}`}
+              />
+            )}
           </div>
         </div>
       </Link>
