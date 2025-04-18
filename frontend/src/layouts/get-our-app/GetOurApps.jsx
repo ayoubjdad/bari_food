@@ -5,13 +5,11 @@ import appDownload from "../../assets/images/app-download.png";
 
 export default function GetOurApps() {
   return (
-    <section className={styles.main}>
-      <div
-        className={styles.container}
-        style={{
-          backgroundImage: `url(${appDownload})`,
-        }}
-      >
+    <section
+      className={styles.main}
+      style={{ backgroundImage: `url(${appDownload})` }}
+    >
+      <div className={styles.container}>
         <div className={styles.left}>
           <h1>
             Téléchargez notre <span>Application Mobile</span>

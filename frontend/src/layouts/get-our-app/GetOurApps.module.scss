@@ -1,11 +1,11 @@
 .main {
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  @media screen and (max-width: 768px) {
-    padding: 20px;
-  }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -14,9 +14,6 @@
   max-width: 1200px;
   align-items: center;
   border-radius: 16px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   grid-template-columns: repeat(2, 1fr);
 
   @media screen and (max-width: 768px) {
@@ -29,8 +26,6 @@
   display: grid;
   color: #fff;
   padding: 80px;
-  //   align-items: center;
-  //   max-width: min-content;
 
   @media screen and (max-width: 768px) {
     padding: 20px;

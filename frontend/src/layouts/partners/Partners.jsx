@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Partners.module.scss";
 import enovaFoods from "../../assets/partners/enova-foods.jpeg";
+import joyfood from "../../assets/partners/joyfood.jpg";
+import painDor from "../../assets/partners/pain-dor.jpg";
 
 const items = [
   {
@@ -10,7 +12,7 @@ const items = [
   },
   {
     alias: "Joy Food",
-    image: "https://joyfood.ma/wp-content/themes/JOYFOOD-theme/imgs/logo.png",
+    image: joyfood,
   },
   {
     alias: "Bridor",
@@ -19,7 +21,7 @@ const items = [
   },
   {
     alias: "Pain d'or",
-    image: "https://joyfood.ma/wp-content/uploads/2024/12/04.png",
+    image: painDor,
   },
   {
     alias: "enova-foods",
