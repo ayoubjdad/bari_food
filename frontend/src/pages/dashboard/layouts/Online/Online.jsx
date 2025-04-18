@@ -21,7 +21,7 @@ const columns = [
   { id: "orderNumber", label: "#", minWidth: 20 },
   { id: "customer", label: "Client", minWidth: 200 },
   { id: "items", label: "Eléments", minWidth: 200 },
-  { id: "itemsCount", label: "Quantité", minWidth: 15, align: "left" },
+  // { id: "itemsCount", label: "Quantité", minWidth: 15, align: "left" },
   { id: "status", label: "Statut", minWidth: 120 },
   { id: "address", label: "Adresse", minWidth: 120, align: "left" },
   { id: "phone", label: "Téléphone", minWidth: 120, align: "left" },
@@ -221,7 +221,7 @@ export default function Online() {
 
         <div className={styles.suppliers}>
           <Supplier title="Joy Food" list={assylor} />
-          <Supplier title="Ennova" list={joyFood} />
+          <Supplier title="Enova Foods" list={joyFood} />
         </div>
 
         <TableContainer sx={{ maxHeight: 440 }}>
@@ -279,11 +279,18 @@ export default function Online() {
                             break;
                           case "items":
                             value = order.items.map(
-                              (item) =>
-                                products.find(
-                                  (product) =>
-                                    String(product.id) === String(item.product)
-                                )?.name
+                              (item, index) =>
+                                `(${
+                                  order.items.map((item) => item.quantity)[
+                                    index
+                                  ]
+                                }) ${
+                                  products.find(
+                                    (product) =>
+                                      String(product.id) ===
+                                      String(item.product)
+                                  )?.name
+                                }`
                             );
                             break;
                           case "status":
@@ -298,9 +305,9 @@ export default function Online() {
                           case "time":
                             value = formatTime(order.createdAt) || "N/A";
                             break;
-                          case "itemsCount":
-                            value = order.items.map((item) => item.quantity);
-                            break;
+                          // case "itemsCount":
+                          //   value = order.items.map((item) => item.quantity);
+                          //   break;
                           case "totalAmount":
                             value = order.totalAmount.toFixed(2);
                             break;
